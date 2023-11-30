@@ -1,0 +1,39 @@
+# Computing HDG by patient based on dispersion values
+
+#%%
+import scanpy as sc
+import pandas as pd
+import numpy as np
+
+#%%
+dispersion_table = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/dispersion_table_fibroblasts.csv', index_col=0)
+
+#%%
+dispersion_table
+
+#%%
+max_values_per_row = dispersion_table.max(axis=1)
+
+print(max_values_per_row)
+
+# %%
+filtered_df = dispersion_table[dispersion_table > 2.35].dropna(how='all')  # 5097 genes
+
+# %%
+list_of_genes = filtered_df.index.tolist()
+print(len(list_of_genes))
+
+#%%
+hdg_table = pd.DataFrame(index=dispersion_table.index)
+
+#%%
+hdg_table['highly_variable'] = hdg_table.index.isin(list_of_genes)
+
+#%%
+hdg_table.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/atlas_hdg_common_dispersion_patients_fibroblasts.csv')
+
+#%%
+hdg_true = pd.DataFrame(index=list_of_genes)
+hdg_true['highly_variable'] = "True"
+hdg_true.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv')
+# %%
