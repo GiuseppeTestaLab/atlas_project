@@ -1,6 +1,6 @@
 
 #library imports
-
+#%%
 import scanpy as sc
 import pandas as pd
 import sys
@@ -13,7 +13,7 @@ import numpy as np
 import anndata
 
 #inputs
-
+#%%
 parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Ren2022/preprocess_params.csv', sep = ';')
 
 init_dir = parameters.init_dir[0]
@@ -24,7 +24,7 @@ genes_by_counts = int(parameters.genes_by_counts[0])
 pct_counts_mt = float(parameters.pct_counts_mt[0])
 target_sum= float(parameters.target_sum[0])
 
-
+#%%
 run = glob.glob(os.path.join(init_dir, "Counts/*"))
                  
 files = [os.path.join(x, "feature_bc_matrix") for x in run]
@@ -35,7 +35,7 @@ filesdict =  dict(zip(samplenames, files))
 
 #Paper: Ren Y et al. Single-cell sequencing reveals effects of chemotherapy on the immune landscape and TCR/BCR clonal expansion in a relapsed ovarian cancer patients. Frontiers in Immunology 2022 Sep 28. PMID: 36248860
 #Counts file: standard 10X files (matrix + features + barcodes)
-
+#%%
 adata=['']*len(files)
 for i, item in enumerate(files):
     print(i)
@@ -55,7 +55,7 @@ for i, item in enumerate(files):
 adata = adata[0].concatenate(adata[1:], batch_categories=samplenames)
 
 # Creating metadata
-
+#%%
 columns = {}
 
 columns['ID'] = {"Patient_1_tum":"Patient_1", "Patient_1_as":"Patient_1"}
@@ -73,10 +73,10 @@ for column in columns:
     
 del adata.obs['batch']
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 10000, "pct_counts_mt" : 30, "target_sum" : 1e4})
-
+#%%
 #Write raw adata with metadata
 adata.write_h5ad(out_dir + "ren2022_rawcounts.h5ad")
-
+#%%
 #Preprocessing
 
 final_dir = parameters.final_dir[0]
@@ -92,3 +92,5 @@ adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
 adata.write(final_dir + "ren2022_filt_norm_nolog.h5ad")
+
+# %%

@@ -15,7 +15,7 @@ import logging
 # "Xu2022",
 # "Zhang2022"]
 
-# put here the dataset that you wnt to rerun
+# put here the dataset that you want to rerun
 
 datasets=["Geistlinger2020",
             "Loret2022",
