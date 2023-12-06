@@ -13,24 +13,19 @@ import numpy as np
 import anndata as ad
 
 #inputs
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Qian2020/preprocess_params.csv', sep = ';')
 
-args = sys.argv
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
 
-initDir = "/group/testa/Project/OvarianAtlas/Qian2020/atlas_project/raw_data/original_counts/" 
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
+files_path = os.listdir(init_dir)
 
-listpath = ["/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/BT1305.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/BT1306.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/BT1307.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/scrSOL001.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/scrSOL003.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/scrSOL004.counts.csv",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Qian2020/Counts/scrSOL006.counts.csv"]
+listpath = [os.path.join(init_dir, file) for file in files_path]
 
 #create anndata
 
@@ -143,11 +138,11 @@ adata = adata[(adata.obs.ID == "P12_SOL001") |
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 4000, "pct_counts_mt" : 12, "target_sum" : 1e4})
 
 #Write raw adata with metadata
-adata.write_h5ad(outDir + "qian2020_rawcounts.h5ad")
+adata.write_h5ad(out_dir + "qian2020_rawcounts.h5ad")
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Qian2020/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -159,4 +154,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "qian2020_filt_norm_nolog.h5ad")
+adata.write(final_dir + "qian2020_filt_norm_nolog.h5ad")

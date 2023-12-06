@@ -14,25 +14,24 @@ import anndata as ad
 
 #inputs
 
-args = sys.argv
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Zhang2022/preprocess_params.csv', sep = ';')
 
-#initDir  
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Zhang2022/" 
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Zhang2022/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
 
 #create anndata
 
 #Paper: Zhang K, Erkan EP, Jamalzadeh S, Dai J et al. Longitudinal single-cell RNA-seq analysis reveals stress-promoted chemoresistance in metastatic ovarian cancer. Sci Adv 2022 Feb 25;8(8):eabm1831. PMID: 35196078
 #Counts file: .tsv
 
-counts = pd.read_table(initDir + "GSE165897_UMIcounts_HGSOC.tsv", sep='\t', index_col=0)
+counts = pd.read_table(init_dir + "GSE165897_UMIcounts_HGSOC.tsv", sep='\t', index_col=0)
 adata = ad.AnnData(X = counts.transpose())
-metadata = pd.read_csv(initDir + "GSE165897_cellInfo_HGSOC.tsv", sep='\t')
+metadata = pd.read_csv(init_dir + "GSE165897_cellInfo_HGSOC.tsv", sep='\t')
 metadata = metadata.set_index("cell")
 adata.obs = metadata
 adata.obs.rename(columns = {'sample':'ID'}, inplace = True)
@@ -205,11 +204,11 @@ adata.obs = adata.obs[["ID", "patient_id", "sample_name", "tissue", "development
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 5000, "pct_counts_mt" : 8, "target_sum" : 1e4})
 
 #Write raw adata with metadata
-adata.write_h5ad(outDir + "zhang2022_rawcounts.h5ad")
+adata.write_h5ad(out_dir + "zhang2022_rawcounts.h5ad")
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Zhang2022/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -221,4 +220,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "zhang2022_filt_norm_nolog.h5ad")
+adata.write(final_dir + "zhang2022_filt_norm_nolog.h5ad")

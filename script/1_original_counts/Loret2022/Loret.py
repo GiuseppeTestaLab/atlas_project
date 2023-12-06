@@ -13,41 +13,19 @@ import numpy as np
 import anndata
 
 #inputs
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Loret2022/preprocess_params.csv', sep = ';')
 
-args = sys.argv
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
 
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/"
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
+files_path = os.listdir(init_dir)
 
-
-listpath = ["/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5",
-           "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5"]
-                 
+listpath = [os.path.join(init_dir, file) for file in files_path]
 
 #create anndata
 
@@ -298,11 +276,11 @@ del adata.var["gene_ids"]
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 5000, "pct_counts_mt" : 20, "target_sum" : 1e4})
 
 #Write raw adata with metadata
-adata.write_h5ad(outDir + "loret2022_rawcounts.h5ad")
+adata.write_h5ad(out_dir + "loret2022_rawcounts.h5ad")
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Loret2022/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -314,4 +292,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "loret2022_filt_norm_nolog.h5ad")
+adata.write(final_dir + "loret2022_filt_norm_nolog.h5ad")

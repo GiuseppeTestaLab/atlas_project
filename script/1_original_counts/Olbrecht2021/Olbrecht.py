@@ -14,18 +14,18 @@ import anndata
 
 #inputs
 
-args = sys.argv
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Olbrecht2021/preprocess_params.csv', sep = ';')
 
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/"
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Olbrecht2021/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
 
                  
-files = glob.glob(os.path.join(initDir, "Olbrecht2021/10xCounts"))
+files = glob.glob(os.path.join(init_dir, "Olbrecht2021/10xCounts"))
 samplenames = ["SOL1303", "SOL1304", "SOL1305", "SOL1306", "SOL1307", "SOL003", "SOL004", "SOL006", "SOL007", "SOL008", "SOL012", "SOL016"]
 filesdict =  dict(zip(samplenames, files))
 
@@ -84,11 +84,11 @@ adata = adata[adata.obs.ID != "SOL004"]
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 6000, "pct_counts_mt" : 20, "target_sum" : 1e4})
 
 #Write raw adata with metadata
-adata.write_h5ad(outDir + "olbrecht2021_rawcounts.h5ad")
+adata.write_h5ad(out_dir + "olbrecht2021_rawcounts.h5ad")
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Olbrecht2021/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -100,4 +100,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "olbrecht2021_filt_norm_nolog.h5ad")
+adata.write(final_dir + "olbrecht2021_filt_norm_nolog.h5ad")

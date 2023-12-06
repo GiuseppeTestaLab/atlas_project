@@ -12,23 +12,22 @@ import numpy as np
 import anndata as ad
 
 #inputs
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Vasquez2022/preprocess_params.csv', sep = ';')
 
-args = sys.argv
-
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Vasquez2022/"
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Vasquez2022/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
 
 #create anndata
 
 #Paper: Vasquez-Garcia et al, Ovarian cancer mutational processes drive site-specific immune evasion. Nature 2022 Dec 14. PMID: 
 #Counts file: .h5
 #%%
-adata = sc.read(initDir + 'GSE180661_matrix.h5ad')
+adata = sc.read(init_dir + 'GSE180661_matrix.h5ad')
 #%%
 adata.obs['patient_id'] = adata.obs.index.str.split("_").str[0]
 adata.obs['treatment'] = 'Naive'
@@ -96,11 +95,11 @@ adata.obs = adata.obs[['patient_id', 'tissue',  'developmental_stage', 'treatmen
                            'recurrence', 'tumor_stage', 'paper_ID', 'anatomical_location', 'dataset']]
 
 # %%
-adata.write_h5ad(outDir + 'vasquez2022_rawcounts.h5ad')
+adata.write_h5ad(out_dir + 'vasquez2022_rawcounts.h5ad')
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Vasquez2022/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -112,4 +111,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "vasquez2022_filt_norm_nolog.h5ad")
+adata.write(final_dir + "vasquez2022_filt_norm_nolog.h5ad")

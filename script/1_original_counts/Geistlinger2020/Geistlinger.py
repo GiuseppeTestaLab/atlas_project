@@ -13,19 +13,17 @@ import numpy as np
 import anndata
 
 #inputs
+parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Geistlinger2020/preprocess_params.csv', sep = ';')
 
-args = sys.argv
-
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/"
-outDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Geistlinger2020/Adata/"
-min_genes = int(args[1])
-min_cells = int(args[2])
-genes_by_counts = int(args[3])
-pct_counts_mt = float(args[4])
-target_sum= float(args[5])
-
-                 
-files = glob.glob(os.path.join(initDir, "Geistlinger2020/Samples/*"))
+init_dir = parameters.init_dir[0]
+out_dir = parameters.out_dir[0]
+min_genes = int(parameters.min_genes[0])
+min_cells = int(parameters.min_cells[0])
+genes_by_counts = int(parameters.genes_by_counts[0])
+pct_counts_mt = float(parameters.pct_counts_mt[0])
+target_sum= float(parameters.target_sum[0])
+                
+files = glob.glob(os.path.join(init_dir, "Geistlinger2020/Samples/*"))
 samplenames = ["T59", "T76", "T77", "T89", "T90"]
 filesdict =  dict(zip(samplenames, files))
 
@@ -82,11 +80,11 @@ del adata.obs['batch']
 adata.uns["preprocessing"] = ({"min_genes" : 200, "min_cells" : 3,  "genes_by_counts" : 5000, "pct_counts_mt" : 15, "target_sum" : 1e4})
 
 #Write raw adata with metadata
-adata.write_h5ad(outDir + "geistlinger2020_rawcounts.h5ad")
+adata.write_h5ad(out_dir + "geistlinger2020_rawcounts.h5ad")
 
 #Preprocessing
 
-finalDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Geistlinger2020/"
+final_dir = parameters.final_dir[0]
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
@@ -98,4 +96,5 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(finalDir + "geistlinger2020_filt_norm_nolog.h5ad")
+adata.write(final_dir + "geistlinger2020_filt_norm_nolog.h5ad")
+
