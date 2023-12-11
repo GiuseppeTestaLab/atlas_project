@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --partition=cpuq
-#SBATCH --job-name=varnames
-#SBATCH --mem=300GB
+#SBATCH --job-name=regner
+#SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=%x_%j.log 
 module load singularity
@@ -12,4 +12,4 @@ module load singularity
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
 -B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
 docker://testalab/downstream:covidiamo-3.1.0 \
-"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/common_var_names.py"
+"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/2_original_anndata/Regner2021/Regner.py"

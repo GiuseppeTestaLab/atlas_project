@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --partition=cpuq
-#SBATCH --job-name=config
-#SBATCH --mem=100GB
+#SBATCH --job-name=loret
+#SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=%x_%j.log 
 module load singularity
@@ -12,4 +12,4 @@ module load singularity
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
 -B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
 docker://testalab/downstream:covidiamo-3.1.0 \
-"/home/marta.sallese/ov_cancer_atlas/miniconda3/bin/python /home/marta.sallese/ov_cancer_atlas/atlas_project/script/original_anndata/Config_file.py $1"
+"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/2_original_anndata/Loret2022/Loret.py"
