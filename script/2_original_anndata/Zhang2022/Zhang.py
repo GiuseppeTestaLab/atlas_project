@@ -15,7 +15,7 @@ adata = sc.read(dir + "zhang2022_filt_norm_nolog.h5ad")
 adata.obs['dataset'] = adata.obs.paper_ID.str.split("_").str[0]
 
 #Filtering out genes not present in the other datasets, taking only the common genes
-common_var_names = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/Atlas_project/script/4_hdg/Tables/common_varnames_datasets.csv', index_col=0) #this file is derived from common_var_names.py
+common_var_names = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/common_varnames_datasets.csv', index_col=0) #this file is derived from common_var_names.py
 
 #Computing embeddings
 sc.pp.log1p(adata)
