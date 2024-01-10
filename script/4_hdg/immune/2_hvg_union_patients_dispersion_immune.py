@@ -5,8 +5,10 @@ import scanpy as sc
 import pandas as pd
 import numpy as np
 
+dir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/'
+
 #%%
-dispersion_table = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/dispersion_table_immune.csv', index_col=0)
+dispersion_table = pd.read_csv(dir + 'dispersion_table_immune.csv', index_col=0)
 
 #%%
 dispersion_table
@@ -30,10 +32,10 @@ hdg_table = pd.DataFrame(index=dispersion_table.index)
 hdg_table['highly_variable'] = hdg_table.index.isin(list_of_genes)
 
 #%%
-hdg_table.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/atlas_hdg_common_dispersion_patients_immune.csv')
+hdg_table.to_csv(dir + 'atlas_hdg_common_dispersion_patients_immune.csv')
 
 #%%
 hdg_true = pd.DataFrame(index=list_of_genes)
 hdg_true['highly_variable'] = "True"
-hdg_true.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/Tables/atlas_hdg_dispersion_patients_immune.csv')
+hdg_true.to_csv(dir + 'atlas_hdg_dispersion_patients_immune.csv')
 # %%

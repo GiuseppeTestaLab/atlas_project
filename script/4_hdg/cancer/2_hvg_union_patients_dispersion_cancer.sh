@@ -12,4 +12,4 @@ module load singularity
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
 -B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
 docker://testalab/downstream:covidiamo-3.1.0 \
-"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/hdg/cancer/2_hvg_union_patients_dispersion_cancer.py"
+"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/cancer/2_hvg_union_patients_dispersion_cancer.py"
