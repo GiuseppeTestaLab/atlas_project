@@ -84,9 +84,9 @@ def create_immune_adata(adata):
     return adata
 
 def create_fibroblast_adata(adata):
-    adata = sc.AnnData(X=adata[adata.obs['max'] == 'FibroblastMSK'].X, 
-                            var=adata[adata.obs['max'] == "FibroblastMSK"].var, 
-                            obs = adata[adata.obs['max'] == 'FibroblastMSK'].obs)
+    adata = sc.AnnData(X=adata[adata.obs['max'] == 'FibroblastsMSK'].X, 
+                            var=adata[adata.obs['max'] == "FibroblastsMSK"].var, 
+                            obs = adata[adata.obs['max'] == 'FibroblastsMSK'].obs)
     
     return adata
 
