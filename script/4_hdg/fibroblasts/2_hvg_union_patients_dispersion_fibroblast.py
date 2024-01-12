@@ -19,7 +19,8 @@ max_values_per_row = dispersion_table.max(axis=1)
 print(max_values_per_row)
 
 # %%
-filtered_df = dispersion_table[dispersion_table > 2.35].dropna(how='all')  # 5097 genes
+#filtered_df = dispersion_table[dispersion_table > 2.35].dropna(how='all')  # 5097 genes
+filtered_df = dispersion_table[dispersion_table > 2.25].dropna(how='all')  # 5179 genes
 
 # %%
 list_of_genes = filtered_df.index.tolist()
