@@ -18,20 +18,20 @@ destDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/en
 
 ## Load data
 #%%
-# adata = sc.read(initDir + "atlas_endothelial_filt_norm_nolog.h5ad")
+adata = sc.read(initDir + "atlas_endothelial_filt_norm_nolog.h5ad")
 genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 ## Preprocessing
-# #%%
-# adata = preprocess(adata, genes)
-# adata.write_h5ad(initDir + 'atlas_endothelial_embeddings.h5ad')
+#%%
+adata = preprocess(adata, genes)
+adata.write_h5ad(initDir + 'atlas_endothelial_embeddings.h5ad')
 
-# ## Metacells generation per patient
-# #%%
-# adata = assign_metacells(adata)
-# adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients.h5ad')
+## Metacells generation per patient
+#%%
+adata = assign_metacells(adata)
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients.h5ad')
 
-## Creating metacell matrix
+# Creating metacell matrix
 #%%
 adata = sc.read(destDir + 'seacells_assignment_hdg_patients.h5ad')
 
