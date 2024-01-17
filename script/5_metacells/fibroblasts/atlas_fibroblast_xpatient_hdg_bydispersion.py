@@ -16,7 +16,7 @@ destDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/fi
 
 ## Load data
 #%%
-adata= sc.read(initDir + 'atlas_fibro_filt_norm_nolog.h5ad')
+adata= sc.read(initDir + 'atlas_fibroblast_filt_norm_nolog.h5ad')
 genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv'
 
 ## Preprocessing
