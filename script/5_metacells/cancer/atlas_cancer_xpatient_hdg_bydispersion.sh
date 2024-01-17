@@ -12,4 +12,4 @@ module load singularity
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
 -B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
 docker://testalab/downstream:covidiamo-3.1.0 \
-"/home/marta.sallese/ov_cancer_atlas/miniconda3/envs/seacells/bin/python /home/marta.sallese/ov_cancer_atlas/Metacell_gen/atlas_cancer_xpatient_hdg_bydispersion.py"
+"/home/marta.sallese/ov_cancer_atlas/miniconda3/envs/seacells/bin/python /home/marta.sallese/ov_cancer_atlas/atlas_project/script/5_metacells/cancer/atlas_cancer_xpatient_hdg_bydispersion.py"
