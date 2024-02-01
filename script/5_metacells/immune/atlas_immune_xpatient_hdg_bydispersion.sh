@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
-#SBATCH --job-name=metacells
+#SBATCH --job-name=immune
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=%x_%j.log 
