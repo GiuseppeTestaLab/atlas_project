@@ -1,4 +1,4 @@
-# Clustering and cell states annotation of endothelial seacells from primary tissue
+# Clustering and cell states annotation of fibroblasts seacells from primary tissue
 
 ## Imports
 #%%
@@ -23,8 +23,8 @@ sc.logging.print_versions()
 
 ## inizializing directories
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/endothelial/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/'
+initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/fibroblasts/'
+outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
 
 ## loading data
 #%%
@@ -61,7 +61,7 @@ for lei in leidenTotal:
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/endothelial/primary/"
+directory_root = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/fibroblasts/primary/"
 log_file = directory_root + 'primary.log'
 adata = adata_pr
 adata_pr = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
