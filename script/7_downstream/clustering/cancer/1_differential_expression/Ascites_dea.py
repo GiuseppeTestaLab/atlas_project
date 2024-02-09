@@ -61,7 +61,7 @@ for lei in leidenTotal:
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/cancer/1_differential_expression/ascites/"
+directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/ascites/"
 log_file = directory_root + 'ascites.log'
 adata = adata_as
 adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
