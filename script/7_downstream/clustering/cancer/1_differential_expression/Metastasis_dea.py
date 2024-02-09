@@ -34,7 +34,7 @@ adata.obs
 
 ## Clustering
 #%%
-adata_mt = adata[(adata.obs['tissue'] == 'Ascites')]
+adata_mt = adata[(adata.obs['tissue'] == 'Metastasis')]
 sc.tl.pca(adata_mt, use_highly_variable = True)
 sc.pp.neighbors(adata_mt, n_neighbors=10, n_pcs=50)
 sc.tl.umap(adata_mt)
