@@ -35,6 +35,12 @@ adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients.h5ad')
 #%%
 adata = sc.read(destDir + 'seacells_assignment_hdg_patients.h5ad')
 ad = create_mc_matrix(adata)
+
+ad.obs.drop(columns=['ID', 'sample_name', 'cell_type', 'cell_subtype', 'sample_ID', 
+                                    'patient_id', 'n_genes', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 
+                                    'pct_counts_mt', 'CancerMSK', 'EndothelialMSK', 'FibroblastsMSK', 'HematopoieticMSK', 
+                                    'cell_labels_ratio', 'max', 'assignment', 'leiden-1.8'], inplace=True)
+
 ad.write(destDir + 'seacells_hdg_patients.h5ad')
 
 ## Compute embeddings and plot metacells
@@ -44,7 +50,7 @@ sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_de
 
 adata = sc.read(destDir + 'seacells_hdg_patients.h5ad')
 adata = preprocess_mc(adata, genes)
-
+#%%
 sc.pl.umap(adata, color=["treatment"], frameon=False, save='cancer_seacells_HDG_treatm.png')
 sc.pl.umap(adata, color=["tissue"], frameon=False, save='cancer_seacells_HDG_tissue.png')
 sc.pl.umap(adata, color=["dataset"], frameon=False, save='cancer_seacells_HDG_dataset.png')
