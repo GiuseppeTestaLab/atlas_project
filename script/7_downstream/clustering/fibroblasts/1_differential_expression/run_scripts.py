@@ -9,7 +9,7 @@ import logging
 scripts = ["primary_dea", "ascites_dea", "metastasis_dea"]
 
 # to be changed in relative path 
-initialPath = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/fibroblasts/"
+initialPath = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/fibroblasts/1_differential_expression/"
 
 # this will run the python files to generate gene ontologies for each tissue
 

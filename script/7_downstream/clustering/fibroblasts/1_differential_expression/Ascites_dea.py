@@ -1,4 +1,4 @@
-# Clustering and cell states annotation of fibroblasts seacells from metastatic tissue
+# Clustering and cell states annotation of fibroblasts seacells from ascites
 
 ## Imports
 #%%
@@ -34,39 +34,39 @@ adata.obs
 
 ## Clustering
 #%%
-adata_mt = adata[(adata.obs['tissue'] == 'Ascites')]
-sc.tl.pca(adata_mt, use_highly_variable = True)
-sc.pp.neighbors(adata_mt, n_neighbors=10, n_pcs=50)
-sc.tl.umap(adata_mt)
+adata_as = adata[(adata.obs['tissue'] == 'Ascites')]
+sc.tl.pca(adata_as, use_highly_variable = True)
+sc.pp.neighbors(adata_as, n_neighbors=10, n_pcs=50)
+sc.tl.umap(adata_as)
 
-sc.pl.umap(adata_mt, color=["treatment"], frameon=False)
-sc.pl.umap(adata_mt, color=["phase"], frameon=False)
+sc.pl.umap(adata_as, color=["treatment"], frameon=False)
+sc.pl.umap(adata_as, color=["phase"], frameon=False)
 
 leidenTotal=[]
 for i in np.arange(0.01, 2.0, 0.1):
-    sc.tl.leiden(adata_mt,resolution = i,key_added="leiden-{}".format(round(i,2)))
+    sc.tl.leiden(adata_as,resolution = i,key_added="leiden-{}".format(round(i,2)))
     leidenTotal.append("leiden-{}".format(round(i,2)))
 
 # for i in leidenTotal:
-#    sc.pl.umap(adata_mt, color=i, frameon=False)
+#    sc.pl.umap(adata_as, color=i, frameon=False)
 
 ## Differential expression analysis
 #%%
 dedf={}
 for lei in leidenTotal:
     dedf[lei]={}
-    sc.tl.rank_genes_groups(adata_mt, groupby=lei, method='wilcoxon', key_added = "wilcoxon_"+lei)
-    for cl in adata_mt.obs[lei].unique():
-        dedf[lei][cl] = sc.get.rank_genes_groups_df(adata_mt, group=cl, key ='wilcoxon_'+lei)
+    sc.tl.rank_genes_groups(adata_as, groupby=lei, method='wilcoxon', key_added = "wilcoxon_"+lei)
+    for cl in adata_as.obs[lei].unique():
+        dedf[lei][cl] = sc.get.rank_genes_groups_df(adata_as, group=cl, key ='wilcoxon_'+lei)
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/fibroblasts/metastasis/"
-log_file = directory_root + 'metastasis.log'
-adata = adata_mt
-adata_mt = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
+directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/ascites/"
+log_file = directory_root + 'ascites.log'
+adata = adata_as
+adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
 
 logging.shutdown()
 
 ## Savings
-adata_mt.write_h5ad(outDir + 'adata_metastasis_embeddings.h5ad')
+adata_as.write_h5ad(outDir + 'adata_ascites_embeddings.h5ad')
