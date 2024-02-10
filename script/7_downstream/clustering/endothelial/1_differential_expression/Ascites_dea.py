@@ -1,4 +1,4 @@
-# Clustering and cell states annotation of endothelial seacells from primary tissue
+# Clustering and cell states annotation of endothelial seacells from ascites
 
 ## Imports
 #%%
@@ -34,39 +34,39 @@ adata.obs
 
 ## Clustering
 #%%
-adata_pr = adata[(adata.obs['tissue'] == 'Primary')]
-sc.tl.pca(adata_pr, use_highly_variable = True)
-sc.pp.neighbors(adata_pr, n_neighbors=10, n_pcs=50)
-sc.tl.umap(adata_pr)
+adata_as = adata[(adata.obs['tissue'] == 'Ascites')]
+sc.tl.pca(adata_as, use_highly_variable = True)
+sc.pp.neighbors(adata_as, n_neighbors=10, n_pcs=50)
+sc.tl.umap(adata_as)
 
-sc.pl.umap(adata_pr, color=["treatment"], frameon=False)
-sc.pl.umap(adata_pr, color=["phase"], frameon=False)
+sc.pl.umap(adata_as, color=["treatment"], frameon=False)
+sc.pl.umap(adata_as, color=["phase"], frameon=False)
 
 leidenTotal=[]
 for i in np.arange(0.01, 2.0, 0.1):
-    sc.tl.leiden(adata_pr,resolution = i,key_added="leiden-{}".format(round(i,2)))
+    sc.tl.leiden(adata_as,resolution = i,key_added="leiden-{}".format(round(i,2)))
     leidenTotal.append("leiden-{}".format(round(i,2)))
 
 # for i in leidenTotal:
-#    sc.pl.umap(adata_pr, color=i, frameon=False)
+#    sc.pl.umap(adata_as, color=i, frameon=False)
 
 ## Differential expression analysis
 #%%
 dedf={}
 for lei in leidenTotal:
     dedf[lei]={}
-    sc.tl.rank_genes_groups(adata_pr, groupby=lei, method='wilcoxon', key_added = "wilcoxon_"+lei)
-    for cl in adata_pr.obs[lei].unique():
-        dedf[lei][cl] = sc.get.rank_genes_groups_df(adata_pr, group=cl, key ='wilcoxon_'+lei)
+    sc.tl.rank_genes_groups(adata_as, groupby=lei, method='wilcoxon', key_added = "wilcoxon_"+lei)
+    for cl in adata_as.obs[lei].unique():
+        dedf[lei][cl] = sc.get.rank_genes_groups_df(adata_as, group=cl, key ='wilcoxon_'+lei)
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/endothelial/primary/"
-log_file = directory_root + 'primary.log'
-adata = adata_pr
-adata_pr = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
+directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/ascites/"
+log_file = directory_root + 'ascites.log'
+adata = adata_as
+adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
 
 logging.shutdown()
 
 ## Savings
-adata_pr.write_h5ad(outDir + 'adata_primary_embeddings.h5ad')
+adata_as.write_h5ad(outDir + 'adata_ascites_embeddings.h5ad')

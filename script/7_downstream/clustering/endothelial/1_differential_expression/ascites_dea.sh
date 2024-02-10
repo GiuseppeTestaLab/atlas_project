@@ -12,4 +12,4 @@ module load singularity
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
 -B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
 docker://testalab/downstream:covidiamo-3.1.0 \
-"/home/marta.sallese/miniconda3/envs/gprofiler/bin/python /home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/endothelial/Ascites_dea.py"
+"/home/marta.sallese/miniconda3/envs/gprofiler/bin/python /home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/endothelial/1_differential_expression/Ascites_dea.py"
