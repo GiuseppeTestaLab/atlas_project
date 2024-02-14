@@ -7,40 +7,30 @@ import pandas as pd
 import numpy as np
 from rich import print
 from scvi.model.utils import mde
+import sys
+sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+#from integration import 
 
 #%%
-adata = sc.read('/group/testa/Project/OvarianAtlas/atlas_cancer_seacells_assignment.h5ad')
+initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
+outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/cells/cancer/'
+
+#%%
+adata = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')
 adata
+batch = "paper_ID"
+genes = 2500
 
 #%%
-# adata.layers["counts"] = adata.X.copy()  # preserve counts
-sc.pp.normalize_total(adata, target_sum=1e4)
-sc.pp.log1p(adata)
-adata.raw = adata
-
-#%%
-sc.pp.highly_variable_genes(
-    adata,
-    flavor="seurat_v3",
-    n_top_genes=2500,
-    batch_key="paper_ID",
-    subset=True,
-)
-
-#%%
-scvi.model.SCVI.setup_anndata(adata, batch_key="paper_ID")
-
-#%%
+scvi.model.SCVI.setup_anndata(adata, batch_key=batch)
 vae = scvi.model.SCVI(adata, n_layers=2, n_latent=30, gene_likelihood="nb")
-
-#%%
 vae.train()
 
 #%%
 adata.obsm["X_scVI"] = vae.get_latent_representation()
 
 #%% 
-## visualize the latent space
+## visualize the latent space (optional)
 sc.pp.neighbors(adata, use_rep="X_scVI")
 sc.tl.leiden(adata)
 ## visualize data
