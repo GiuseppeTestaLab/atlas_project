@@ -124,3 +124,17 @@ set(adata.obs.major_ontologies)
 
 adata.obs['treatment_ontology'] = adata.obs['treatment'].astype('str') + '_' + adata.obs['major_ontologies'].astype('str')
 
+## Save the data
+
+adata.write_h5ad(initDir + 'atlas_embeddings_cell_labelled_cancer_clusters_from_mc_ontologies.h5ad')
+
+## Extra code to check for the correct assignment of the ontologies
+adata_primary = adata[(adata.obs['tissue'] == 'Primary')]
+adata_primary.obs
+
+adata_ascites = adata[(adata.obs['tissue'] == 'Ascites')]
+adata_ascites.obs
+
+adata_metastasis = adata[(adata.obs['tissue'] == 'Metastasis')]
+adata_metastasis.obs
+
