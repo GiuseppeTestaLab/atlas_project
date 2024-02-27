@@ -28,7 +28,7 @@ outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/cl
 
 ## loading data
 #%%
-adata = sc.read(initDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat_embeddings.h5ad')
+adata = sc.read(initDir + 'seacells_hdg_patients_batch_corr_scgen_celltypes_embeddings.h5ad')
 adata
 adata.obs
 
