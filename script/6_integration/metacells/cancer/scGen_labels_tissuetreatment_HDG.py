@@ -20,6 +20,8 @@ sc.pp.log1p(ad)
 hdg = pd.read_csv(genes, index_col=0)
 ad.var['highly_variable'] = hdg.highly_variable
 ad.var.highly_variable = ad.var.highly_variable.fillna(False)
+ad.raw = ad
+ad = ad[:, ad.var.highly_variable]
 sc.tl.pca(ad, use_highly_variable=True)
 sc.pp.neighbors(ad, use_rep='X_pca')
 sc.tl.umap(ad)
@@ -52,12 +54,6 @@ sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_de
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat_HDG.h5ad')
 
 #%%
-hvg = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
-adata.var['highly_variable']=hvg.highly_variable
-
-adata.var.highly_variable = adata.var.highly_variable.fillna(False)
-
-#%%
 cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
 
 s_genes = cell_cycle_genes[:43]
@@ -67,7 +63,7 @@ cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]
 sc.tl.score_genes_cell_cycle(adata, s_genes=s_genes, g2m_genes=g2m_genes)
 
 #%%
-sc.tl.pca(adata, use_highly_variable=True)
+sc.tl.pca(adata)
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=50)
 sc.tl.umap(adata)
 
