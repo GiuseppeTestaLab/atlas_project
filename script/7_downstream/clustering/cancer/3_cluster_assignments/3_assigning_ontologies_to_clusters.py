@@ -9,13 +9,13 @@ import numpy as np
 initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/cluster_assignments/'
 
 ## Load the data
-adata = sc.read(initDir + 'atlas_embeddings_cell_labelled_cancer_clusters_from_mc.h5ad')
+adata = sc.read(initDir + 'atlas_cell_labelled_cancer_clusters_from_mc.h5ad')
 adata
 adata.obs
 
 ## Remove NA values
-adata.obs.dropna(subset=['cell_type', 'major_celltypes'], inplace=True)
-adata.obs
+# adata.obs.dropna(subset=['cell_types', 'major_celltypes'], inplace=True)
+# adata.obs
 
 ## Create a new column with the ontology of the cancer cells
 adata.obs['cell_ontologies'] = np.nan
@@ -126,7 +126,7 @@ adata.obs['treatment_ontology'] = adata.obs['treatment'].astype('str') + '_' + a
 
 ## Save the data
 
-adata.write_h5ad(initDir + 'atlas_embeddings_cell_labelled_cancer_clusters_from_mc_ontologies.h5ad')
+adata.write_h5ad(initDir + 'atlas_cell_labelled_cancer_clusters_from_mc_ontologies.h5ad')
 
 ## Extra code to check for the correct assignment of the ontologies
 adata_primary = adata[(adata.obs['tissue'] == 'Primary')]

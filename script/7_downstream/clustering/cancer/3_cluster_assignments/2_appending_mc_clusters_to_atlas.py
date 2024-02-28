@@ -72,7 +72,7 @@ adata
 #%%
 ## Save the data
 
-adata.write_h5ad(clustersDir + 'atlas_embeddings_cell_labelled_cancer_clusters_from_mc.h5ad')
+adata.write_h5ad(clustersDir + 'atlas_cell_labelled_cancer_clusters_from_mc.h5ad')
 
 
 ## Extra code maybe useful for CCC analysis

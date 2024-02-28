@@ -35,10 +35,10 @@ cells.obs['SEACell_patient_tissue'] = cells.obs['SEACell'].astype('str') + '_' +
 primary = sc.read(tissueDir + 'adata_primary_embeddings.h5ad')
 primary.obs
 
-primary.obs['leiden-0.xxx'] # 0.xxx is the resolution of the clustering chosen for the primary cells
+primary.obs['leiden-0.41'] # 0.xx is the resolution of the clustering chosen for the primary cells
 
 cells.obs['cluster_from_seacells'] = np.nan
-cluster_name = 'leiden-0.xxx'
+cluster_name = 'leiden-0.41'
 primary.obs['total_counts_seacell'] = 0
 
 for index, row in primary.obs.iterrows():
@@ -51,7 +51,7 @@ pd.crosstab(cells.obs.cluster_from_seacells, cells.obs.tissue)
 
 primary.obs
 
-sc.pl.umap(primary, color=['leiden-0.xxx', 'total_counts_seacell'], frameon=False)
+sc.pl.umap(primary, color=['leiden-0.41', 'total_counts_seacell'], frameon=False)
 
 cells.obs.cluster_from_seacells = cells.obs.cluster_from_seacells.astype('str')
 
@@ -63,8 +63,8 @@ gc.collect()
 metastasis = sc.read(tissueDir + 'adata_metastasis_embeddings.h5ad')
 metastasis.obs
 
-metastasis.obs['leiden-0.xxx'] # 0.xxx is the resolution of the clustering chosen for the primary cells
-
+metastasis.obs['leiden-0.51'] # 0.xx is the resolution of the clustering chosen for the primary cells
+cluster_name = 'leiden-0.51'
 metastasis.obs['total_counts_seacell'] = 0
 
 for index, row in metastasis.obs.iterrows():
@@ -77,7 +77,7 @@ pd.crosstab(cells.obs.cluster_from_seacells, cells.obs.tissue)
 
 metastasis.obs
 
-sc.pl.umap(metastasis, color=['leiden-0.xxx', 'total_counts_seacell'], frameon=False)
+sc.pl.umap(metastasis, color=['leiden-0.51', 'total_counts_seacell'], frameon=False)
 
 cells.obs.cluster_from_seacells = cells.obs.cluster_from_seacells.astype('str')
 
@@ -89,8 +89,8 @@ gc.collect()
 ascites = sc.read(tissueDir + 'adata_ascites_embeddings.h5ad')
 ascites.obs
 
-ascites.obs['leiden-0.xxx'] # 0.xxx is the resolution of the clustering chosen for the primary cells
-
+ascites.obs['leiden-0.31'] # 0.xx is the resolution of the clustering chosen for the primary cells
+cluster_name = 'leiden-0.31'
 ascites.obs['total_counts_seacell'] = 0
 
 for index, row in ascites.obs.iterrows():
@@ -103,7 +103,7 @@ pd.crosstab(cells.obs.cluster_from_seacells, cells.obs.tissue)
 
 ascites.obs
 
-sc.pl.umap(ascites, color=['leiden-0.xxx', 'total_counts_seacell'], frameon=False)
+sc.pl.umap(ascites, color=['leiden-0.31', 'total_counts_seacell'], frameon=False)
 
 cells.obs.cluster_from_seacells = cells.obs.cluster_from_seacells.astype('str')
 
