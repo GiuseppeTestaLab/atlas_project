@@ -42,6 +42,8 @@ def annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file):
             shutil.rmtree(directory)
             os.makedirs(directory)
         for cl in adata.obs[lei].unique():
+            if len(adata.obs[lei].unique()) == 1:
+                continue
             dedf[lei][cl] = sc.get.rank_genes_groups_df(adata, group=cl, key ='wilcoxon_'+lei)
             dedf[lei][cl].to_csv(directory + '/rank_gene_groups_df_' + cl + '.csv')
             try:
