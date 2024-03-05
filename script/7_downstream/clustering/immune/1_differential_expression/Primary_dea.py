@@ -28,14 +28,14 @@ outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/cl
 
 ## loading data
 #%%
-adata = sc.read(initDir + 'seacells_hdg_patients_batch_corr_scgen_celltypes_embeddings.h5ad')
+adata = sc.read(initDir + 'seacells_hdg_patients_batch_corr_scgen_celltypes_embeddings_HDG.h5ad')
 adata
 adata.obs
 
 ## Clustering
 #%%
 adata_pr = adata[(adata.obs['tissue'] == 'Primary')]
-sc.tl.pca(adata_pr, use_highly_variable = True)
+sc.tl.pca(adata_pr)
 sc.pp.neighbors(adata_pr, n_neighbors=10, n_pcs=50)
 sc.tl.umap(adata_pr)
 
@@ -54,6 +54,8 @@ for i in np.arange(0.01, 2.0, 0.1):
 #%%
 dedf={}
 for lei in leidenTotal:
+    if len(adata_pr.obs[lei].unique()) == 1:
+        continue
     dedf[lei]={}
     sc.tl.rank_genes_groups(adata_pr, groupby=lei, method='wilcoxon', key_added = "wilcoxon_"+lei)
     for cl in adata_pr.obs[lei].unique():
