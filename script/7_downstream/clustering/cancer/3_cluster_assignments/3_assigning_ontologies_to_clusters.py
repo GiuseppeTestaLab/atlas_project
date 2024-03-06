@@ -21,44 +21,53 @@ adata.obs
 adata.obs['cell_ontologies'] = np.nan
 
 col = {"Primary_0":"Cellular_metabolism", 
-                              "Primary_1":"Unknown_primary_1", 
-                              "Primary_2":"Unknown_primary_2", 
-                              "Primary_3":"Immunoreactive_cells", 
-                              "Primary_4":"Unknown_primary_4", 
-                              "Primary_5":"Cycling_cells", 
-                              "Primary_6":"Immunoreactive_cells",
-                              "Primary_7":"EMT_cells", 
-                              "Primary_8":"Ciliated_cancer_cells", 
-                              "Primary_9":"Cellular_metabolism", 
-                              "Primary_10":"ECM_shaping_cells", 
-                              "Primary_11":"RNA_metabolism", 
-                              "Primary_12":"ECM_shaping_cells", 
-                              "Ascites_0":"Cellular_metabolism", 
-                              "Ascites_1":"Unknown_ascites_1", 
-                              "Ascites_2":"Unknown_ascites_2", 
-                              "Ascites_3":"Unknown_ascites_3", 
-                              "Ascites_4":"Unknown_ascites_4", 
-                              "Ascites_5":"Unknown_ascites_5", 
-                              "Ascites_6":"Cellular_metabolism",
-                              "Ascites_7":"Immunoreactive_cells", 
-                              "Ascites_8":"Cycling_cells", 
-                              "Ascites_9":"RNA_metabolism", 
-                              "Ascites_10":"ECM_shaping_cells", 
-                              "Ascites_11":"Cellular_metabolism", 
-                                "Ascites_12":"Unknown_ascites_12",
-                              "Metastasis_0":"Cellular_metabolism", 
-                              "Metastasis_1":"Protein_metabolism", 
-                               "Metastasis_2":"Unknown_metastasis_2", 
-                              "Metastasis_3":"Cycling_cells", 
-                              "Metastasis_4":"Unknown_metastasis_4", 
-                              "Metastasis_5":"Unknown_metastasis_5",
-                              "Metastasis_6":"Immunoreactive_cells", 
-                              "Metastasis_7":"Immunoreactive_cells", 
-                              "Metastasis_8":"ECM_shaping_cells",
-                              "Metastasis_9":"Organelles_organization",
-                              "Metastasis_10":"Unknown_metastasis_10",
-                              "Metastasis_11":"Cellular_metabolism",
-                              "Metastasis_12":"Cellular_metabolism"}
+       "Primary_1":"Cellular_metabolism-extracellular_signaling", 
+       "Primary_2":"Organelles_organization-metabolism", 
+       "Primary_3":"Unknown_primary_3", 
+       "Primary_4":"Unknown_primary_4", 
+        "Primary_5":"Cycling_cells", 
+        "Primary_6":"Cycling_cells",
+        "Primary_7":"Extracellular_signaling", 
+        "Primary_8":"Immunoreactive_cells", 
+        "Primary_9":"Organelles_organization-cell_cycle", 
+        "Primary_10":"Unknown_primary_10", 
+        "Primary_11":"Organelles_organization-cell_movement", 
+        "Primary_12":"Ciliated_cancer_cells",
+        "Primary_13":"Immunoreactive_cells",
+        "Primary_14":"Organelles_organization-metabolism",
+        "Primary_15":"Unknown_primary_15",
+        "Primary_16":"INF_mediated_signaling",
+        "Primary_17":"Cellular_metabolism",
+        "Primary_18":"Unknown_primary_18",
+        "Primary_19":"Unknown_primary_19",
+        "Primary_20":"Unknown_primary_20", 
+        "Ascites_0":"Organelles_organization-metabolism", 
+        "Ascites_1":"Cycling_cells", 
+        "Ascites_2":"Unknown_ascites_2", 
+        "Ascites_3":"Unknown_ascites_3", 
+        "Ascites_4":"Unknown_ascites_4", 
+        "Ascites_5":"Unknown_ascites_5", 
+        "Ascites_6":"Cellular_metabolism",
+        "Ascites_7":"Response_to_extracellular_signals", 
+        "Ascites_8":"Unknown_ascites_8", 
+        "Ascites_9":"Response_to_stress", 
+        "Ascites_10":"Organelles_organization-metabolism",
+        "Metastasis_0":"Unknown_metastasis_0", 
+        "Metastasis_1":"Cellular_metabolism", 
+        "Metastasis_2":"Unknown_metastasis_2", 
+        "Metastasis_3":"Unknown_metastasis_3", 
+        "Metastasis_4":"Cycling_cells", 
+        "Metastasis_5":"Unknown_metastasis_5",
+        "Metastasis_6":"Immunoreactive_cells", 
+        "Metastasis_7":"Organelles_organization-cell_cycle", 
+        "Metastasis_8":"Cycling_cells",
+        "Metastasis_9":"Response_to_extracellular_signals",
+        "Metastasis_10":"ECM_shaping_cells",
+        "Metastasis_11":"Ciliated_cancer_cells",
+        "Metastasis_12":"Cellular_metabolism",
+        "Metastasis_13":"Extracellular_signaling-immune_cells",
+        "Metastasis_14":"Unknown_metastasis_14",
+        "Metastasis_15":"RNA_metabolism"}
 
 adata.obs['cell_ontologies'] = adata.obs.cell_type.replace(col)
 
@@ -69,14 +78,22 @@ adata.obs['major_ontologies'] = np.nan
 values = []
 
 for index, row in adata.obs.iterrows():
-    if row['cell_ontologies'] == 'Unknown_primary_1':
+    if row['cell_ontologies'] == 'Unknown_primary_0':
         values.append('Unknown_primary')
-    elif row['cell_ontologies'] == 'Unknown_primary_2':
+    elif row['cell_ontologies'] == 'Unknown_primary_3':
         values.append('Unknown_primary')
     elif row['cell_ontologies'] == 'Unknown_primary_4':
         values.append('Unknown_primary')
-    elif row['cell_ontologies'] == 'Unknown_ascites_1':
-        values.append('Unknown_ascites')
+    elif row['cell_ontologies'] == 'Unknown_primary_10':
+        values.append('Unknown_primary')
+    elif row['cell_ontologies'] == 'Unknown_primary_15':
+        values.append('Unknown_primary')
+    elif row['cell_ontologies'] == 'Unknown_primary_18':
+        values.append('Unknown_primary')
+    elif row['cell_ontologies'] == 'Unknown_primary_19':
+        values.append('Unknown_primary')
+    elif row['cell_ontologies'] == 'Unknown_primary_20':
+        values.append('Unknown_primary')
     elif row['cell_ontologies'] == 'Unknown_ascites_2':
         values.append('Unknown_ascites')
     elif row['cell_ontologies'] == 'Unknown_ascites_3':
@@ -85,15 +102,17 @@ for index, row in adata.obs.iterrows():
         values.append('Unknown_ascites')
     elif row['cell_ontologies'] == 'Unknown_ascites_5':
         values.append('Unknown_ascites')
-    elif row['cell_ontologies'] == 'Unknown_ascites_12':
+    elif row['cell_ontologies'] == 'Unknown_ascites_8':
         values.append('Unknown_ascites')
+    elif row['cell_ontologies'] == 'Unknown_metastasis_0':
+        values.append('Unknown_metastasis')
     elif row['cell_ontologies'] == 'Unknown_metastasis_2':
         values.append('Unknown_metastasis')
-    elif row['cell_ontologies'] == 'Unknown_metastasis_4':
+    elif row['cell_ontologies'] == 'Unknown_metastasis_3':
         values.append('Unknown_metastasis')
     elif row['cell_ontologies'] == 'Unknown_metastasis_5':
         values.append('Unknown_metastasis')
-    elif row['cell_ontologies'] == 'Unknown_metastasis_10':
+    elif row['cell_ontologies'] == 'Unknown_metastasis_14':
         values.append('Unknown_metastasis')
     elif row['cell_ontologies'] == 'T_CD4_naive':
         values.append('T_CD4_cells')

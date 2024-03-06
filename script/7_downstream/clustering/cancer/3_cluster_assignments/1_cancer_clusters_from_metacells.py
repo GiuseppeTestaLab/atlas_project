@@ -63,8 +63,8 @@ gc.collect()
 metastasis = sc.read(tissueDir + 'adata_metastasis_embeddings.h5ad')
 metastasis.obs
 
-metastasis.obs['leiden-0.51'] # 0.xx is the resolution of the clustering chosen for the primary cells
-cluster_name = 'leiden-0.51'
+metastasis.obs['leiden-0.41'] # 0.xx is the resolution of the clustering chosen for the primary cells
+cluster_name = 'leiden-0.41'
 metastasis.obs['total_counts_seacell'] = 0
 
 for index, row in metastasis.obs.iterrows():
