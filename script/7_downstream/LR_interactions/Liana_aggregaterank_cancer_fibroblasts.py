@@ -19,7 +19,7 @@ adata = sc.read(initDir + 'atlas_embeddings_cell_labelled_with_ontologies.h5ad')
 adata
 adata.obs
 adata = adata[adata.obs['ontologies_from_seacells'] != 'nan']
-adata = adata[(adata.obs['max'] == 'CancerMSK') | (adata.obs['max'] == 'FibroblastMSK')]
+adata = adata[(adata.obs['max'] == 'CancerMSK') | (adata.obs['max'] == 'FibroblastsMSK')]
 
 
 #%%
