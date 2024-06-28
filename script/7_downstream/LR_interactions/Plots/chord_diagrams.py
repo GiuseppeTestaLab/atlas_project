@@ -12,7 +12,7 @@ import pandas as pd
 
 #%%
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_endothelial/'
+initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_immune/'
 figDir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/'
 
 #%%
@@ -25,8 +25,16 @@ adata.obs
 matrix_df = adata.uns['liana_res']
 matrix_df
 
+subset_values = ['T_CD8_ISG', 'T_CD8_cells', 'ILC', 'Plasma_cells', 'T_CD4_cells',
+                 'NK_cells', 'Myeloid_cells', 'Dendritic_cells', 'Mast_cells',
+                 'M1_macrophages', 'B_cells']
+
+mask = matrix_df['source'].isin(subset_values)
+
+source_immune = matrix_df[mask]
+
 #%%
-matrix = matrix_df.pivot_table(index='source', columns='target', values='magnitude_rank', aggfunc='sum', fill_value=0)
+matrix = source_immune.pivot_table(index='target', columns='source', values='magnitude_rank', aggfunc='sum', fill_value=0)
 matrix
 matrix_values = matrix.values.tolist()
 
@@ -48,11 +56,7 @@ pastel = ['#e5bedd',
           '#a9e6e3',
           '#9fd997',
           '#c5cf84',
-          '#d2c897',
-          '#e8ba86',
-          '#dbd9f7',
-          '#fea8b8',
-          '#d3bdad']
+          '#d2c897']
 
 #%%
 grads = (True, False, False, False)               # gradient
@@ -60,17 +64,17 @@ gaps  = (0.03, 0, 0.03, 0)                        # gap value
 sorts = ("size", "distance", None, "distance")    # sort type
 cclrs = (None, None, "slategrey", None)           # chord colors
 nrota = (False, False, True, True)                # name rotation
-cmaps = ("Set3", "Set3", "magma", pastel)         # colormap
+cmaps = ("Set3", "Set3", "magma", "Set3")         # colormap
 fclrs = "grey"                                    # fontcolors
 fontsize = 7
 drctd = (False, False, False, True)               # directed
-pastel = pastel
+# pastel = pastel
 
 args = (grads, gaps, sorts, cclrs, nrota, cmaps, drctd)
 
 for grd, gap, srt, cc, nr, cm, d in zip(*args):
     chord_diagram(flux, names, gap=gap, use_gradient=grd, sort=srt, directed=d,
-                  cmap=cm, chord_colors=pastel, rotate_names=nr, fontcolor=fclrs, fontsize=fontsize)
+                  cmap=cm, chord_colors=None, rotate_names=nr, fontcolor=fclrs, fontsize=fontsize)
 
     str_grd = "_gradient" if grd else ""
 
