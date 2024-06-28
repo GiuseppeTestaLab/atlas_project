@@ -42,10 +42,10 @@ fig, ax = plt.subplots(figsize=(5,5))
 
 # create for each expense type an horizontal line that starts at x = 0 with the length 
 # represented by the specific expense percentage value.
-plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='mediumseagreen', alpha=0.2, linewidth=5)
+plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='#FAC205', alpha=0.2, linewidth=5)
 
 # create for each expense type a dot at the level of the expense percentage value
-plt.plot(tab1['count'], my_range, "o", markersize=5, color='mediumseagreen', alpha=0.6)
+plt.plot(tab1['count'], my_range, "o", markersize=5, color='#FAC205', alpha=0.6)
 
 # set labels style
 ax.set_xlabel('Number of metacells', fontsize=10, color = '#333F4B')
@@ -85,10 +85,10 @@ fig, ax = plt.subplots(figsize=(5,5))
 
 # create for each expense type an horizontal line that starts at x = 0 with the length 
 # represented by the specific expense percentage value.
-plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='royalblue', alpha=0.2, linewidth=5)
+plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='#00008B', alpha=0.2, linewidth=5)
 
 # create for each expense type a dot at the level of the expense percentage value
-plt.plot(tab1['count'], my_range, "o", markersize=5, color='royalblue', alpha=0.6)
+plt.plot(tab1['count'], my_range, "o", markersize=5, color='#00008B', alpha=0.6)
 
 # set labels style
 ax.set_xlabel('Number of metacells', fontsize=10, color = '#333F4B')
@@ -128,10 +128,10 @@ fig, ax = plt.subplots(figsize=(5,5))
 
 # create for each expense type an horizontal line that starts at x = 0 with the length 
 # represented by the specific expense percentage value.
-plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='darkorange', alpha=0.2, linewidth=5)
+plt.hlines(y=my_range, xmin=0, xmax=tab1['count'], color='#C20078', alpha=0.2, linewidth=5)
 
 # create for each expense type a dot at the level of the expense percentage value
-plt.plot(tab1['count'], my_range, "o", markersize=5, color='darkorange', alpha=0.6)
+plt.plot(tab1['count'], my_range, "o", markersize=5, color='#C20078', alpha=0.6)
 
 # set labels style
 ax.set_xlabel('Number of metacells', fontsize=10, color = '#333F4B')
