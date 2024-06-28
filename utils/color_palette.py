@@ -13,3 +13,7 @@ pastel = ['#e5bedd',
           '#dbd9f7',
           '#fea8b8',
           '#d3bdad']
+
+palette_tissue = {'Metastasis':'#C20078', 'Ascites':'#00008B', 'Primary':'#FAC205'}
+
+palette_max = {'HematopoieticMSK':'#9addfb', 'CancerMSK':'#F4BBC9', 'FibroblastsMSK':'#B3E6B5', 'EndothelialMSK':'#FC5A50'}
