@@ -21,6 +21,13 @@ adata.obs
 adata = adata[adata.obs['ontologies_from_seacells'] != 'nan']
 adata = adata[(adata.obs['max'] == 'CancerMSK') | (adata.obs['max'] == 'EndothelialMSK')]
 
+### Create a new column based on conditions
+adata.obs['ontologies_from_seacells'] = adata.obs['ontologies_from_seacells'].astype(str)
+adata.obs['liana_categories'] = adata.obs['ontologies_from_seacells']
+adata.obs.loc[adata.obs['max'] == "CancerMSK", 'liana_categories'] = 'C_' + adata.obs['ontologies_from_seacells']
+adata.obs.loc[adata.obs['max'] == "EndothelialMSK", 'liana_categories'] = 'E_' + adata.obs['ontologies_from_seacells']
+adata.obs['liana_categories'] = adata.obs['liana_categories'].astype('category')
+
 
 #%%
 adata_cht = adata[(adata.obs['treatment'] == 'CHT')]
@@ -47,13 +54,13 @@ from liana.method import singlecellsignalr, connectome, cellphonedb, natmi, logf
 
 #%%
 # Run rank_aggregate
-li.mt.rank_aggregate(adata_cht, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
-li.mt.rank_aggregate(adata_naive, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
-li.mt.rank_aggregate(adata_nact, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_cht, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_naive, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_nact, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
 
-li.mt.rank_aggregate(adata_primary, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
-li.mt.rank_aggregate(adata_metastasis, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
-li.mt.rank_aggregate(adata_ascites, groupby='ontologies_from_seacells', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_primary, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_metastasis, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
+li.mt.rank_aggregate(adata_ascites, groupby='liana_categories', expr_prop=0.1, verbose=True, use_raw=False)
 
 #%%
 adata_cht.uns['liana_res'].head()
@@ -64,95 +71,11 @@ rank_aggregate.describe()
 
 ## Save the results
 #%%
-adata_cht.write_h5ad(outDir + 'liana_aggregaterank_cht.h5ad')
-adata_naive.write_h5ad(outDir + 'liana_aggregaterank_naive.h5ad')
-adata_nact.write_h5ad(outDir + 'liana_aggregaterank_nact.h5ad')
+adata_cht.write_h5ad(outDir + 'liana_aggregaterank_cht_labels.h5ad')
+adata_naive.write_h5ad(outDir + 'liana_aggregaterank_naive_labels.h5ad')
+adata_nact.write_h5ad(outDir + 'liana_aggregaterank_nact_labels.h5ad')
 
-adata_primary.write_h5ad(outDir + 'liana_aggregaterank_primary.h5ad')
-adata_metastasis.write_h5ad(outDir + 'liana_aggregaterank_metastasis.h5ad')
-adata_ascites.write_h5ad(outDir + 'liana_aggregaterank_ascites.h5ad')
-
-#%%
-# my_plot = li.pl.dotplot(adata = adata_cht,
-#               colour='magnitude_rank',
-#               size='specificity_rank',
-#               inverse_size=True,
-#               inverse_colour=True,
-#               source_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               target_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               top_n=10,
-#               orderby='magnitude_rank',
-#               orderby_ascending=True,
-#               figure_size=(27, 10)
-#              )
-
-# my_plot
-
-# plot = (my_plot +
-#  p9.theme(
-#      # adjust facet size
-#      strip_text=p9.element_text(size=11)
-#  )
-# )
-
-# plot
-# plot.save('Figures/dotplot_rankaggr_cht.png', limitsize=False)
-
-# #%%
-# my_plot = li.pl.dotplot(adata = adata_naive,
-#               colour='magnitude_rank',
-#               size='specificity_rank',
-#               inverse_size=True,
-#               inverse_colour=True,
-#               source_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               target_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               top_n=10,
-#               orderby='magnitude_rank',
-#               orderby_ascending=True,
-#               figure_size=(27, 10)
-#              )
-
-# my_plot
-
-# plot = (my_plot +
-#  p9.theme(
-#      # adjust facet size
-#      strip_text=p9.element_text(size=11)
-#  )
-# )
-
-# plot
-# plot.save('Figures/dotplot_rankaggr_naive.png', limitsize=False)
-
-# #%%
-# my_plot = li.pl.dotplot(adata = adata_nact,
-#               colour='magnitude_rank',
-#               size='specificity_rank',
-#               inverse_size=True,
-#               inverse_colour=True,
-#               source_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               target_labels=['Cancer_primary', 'Cancer_ascites', 'Cancer_metastasis', 'Plasma_cells','Mast_cells', 'B_cells', 
-#                              'M1_macrophages', 'Myeloid_cells', 'Dendritic_cells', 'T_CD4_cells', 'T_CD8_cells', 'NK_cells'],
-#               top_n=10,
-#               orderby='magnitude_rank',
-#               orderby_ascending=True,
-#               figure_size=(27, 10)
-#              )
-
-# my_plot
-
-# plot = (my_plot +
-#  p9.theme(
-#      # adjust facet size
-#      strip_text=p9.element_text(size=11)
-#  )
-# )
-
-# plot
-# plot.save('Figures/dotplot_rankaggr_nact.png', limitsize=False)
+adata_primary.write_h5ad(outDir + 'liana_aggregaterank_primary_labels.h5ad')
+adata_metastasis.write_h5ad(outDir + 'liana_aggregaterank_metastasis_labels.h5ad')
+adata_ascites.write_h5ad(outDir + 'liana_aggregaterank_ascites_labels.h5ad')
 
