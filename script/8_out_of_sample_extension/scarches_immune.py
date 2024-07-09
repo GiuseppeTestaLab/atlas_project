@@ -7,25 +7,25 @@ import numpy as np
 import scarches as sca
 from scarches.dataset.trvae.data_handling import remove_sparsity
 from scipy import sparse
-# from scvi import REGISTRY_KEYS
-# from scvi.data import AnnDataManager
-# from scvi.data.fields import CategoricalObsField, LayerField
-
+from anndata import AnnData
+from typing import Optional, Union
 
 ## Initialize folders
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
+initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/immune/'
+outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/immune/'
+ooseDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/out_of_sample_extension/immune/'
+genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 
 ## Setting fig parameteres
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/cancer/"
+sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/oose/immune/"
 
 ## Loading reference data and creating integration model
 #%%
 ad = sc.read_h5ad(initDir + "seacells_hdg_patients.h5ad")
 ad.obs['tissue-treatment'] = ad.obs['tissue'].astype('str') + '_' + ad.obs['treatment'].astype('str')
+ad.obs['cell_type'] = ad.obs.loc[:, 'tissue-treatment']
 #%%
 sc.pp.log1p(ad)
 hdg = pd.read_csv(genes, index_col=0)
@@ -37,9 +37,7 @@ sc.tl.pca(ad, use_highly_variable=True)
 sc.pp.neighbors(ad, use_rep='X_pca')
 sc.tl.umap(ad)
 
-from scipy import sparse
-import scanpy as sc
-
+#%%
 def remove_sparsity(adata):
     """
     If `adata.X` is a sparse matrix, this will convert it to a normal (dense) matrix.
@@ -62,6 +60,9 @@ ad = remove_sparsity(ad) # remove sparsity
 ad.X = ad.X.astype('float32')
 
 #%%
+condition_key = 'paper_ID'
+cell_type_key = 'cell_type'
+
 epoch = 100
 
 early_stopping_kwargs = {
@@ -75,12 +76,13 @@ early_stopping_kwargs = {
 
 network = sca.models.scgen(adata = ad, hidden_layer_sizes=[800,100])
 
-# %%
+#%%
 network.train(n_epochs=epoch, early_stopping_kwargs = early_stopping_kwargs)
 #%%
-corrected_reference_adata = network.batch_removal(ad, batch_key="paper_ID", cell_label_key="tissue-treatment",return_latent=True)
+corrected_reference_adata = network.batch_removal(ad, batch_key="paper_ID", cell_label_key="cell_type",return_latent=True)
 #%%
 corrected_reference_adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_scarches_tissuetreat.h5ad')
+### Plot latent space
 #%%
 sc.pp.neighbors(corrected_reference_adata, use_rep="latent_corrected")
 sc.tl.umap(corrected_reference_adata)
@@ -89,16 +91,27 @@ sc.pl.umap(corrected_reference_adata,
            frameon=False,
            wspace=0.6,
            )
+
+### Plot corrected data
 #%%
-ref_path = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_scarches'
+sc.pp.neighbors(corrected_reference_adata)
+sc.tl.umap(corrected_reference_adata)
+sc.pl.umap(corrected_reference_adata,
+           color=['paper_ID', 'tissue-treatment', 'tissue', 'treatment'],
+           frameon=False,
+           wspace=0.6,
+           )
+#%%
+ref_path = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/immune_batch_removal_tissuetreatment_scarches'
 network.save(ref_path, overwrite=True)
 
 ## Project query on top of reference
 
 ### Query data needs to be preprocessed same way as reference data with same genes
 #%%
-adata_target = sc.read_h5ad('/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/cancer_seacells_hdg_patients.h5ad')
+adata_target = sc.read_h5ad('/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/immune_seacells_hdg_patients.h5ad')
 adata_target.obs['tissue-treatment'] = adata_target.obs['tissue'].astype('str') + '_' + adata_target.obs['treatment'].astype('str')
+adata_target.obs['cell_type'] = adata_target.obs.loc[:, 'tissue-treatment']
 #%%
 sc.pp.log1p(adata_target)
 hdg = pd.read_csv(genes, index_col=0)
@@ -110,20 +123,23 @@ sc.tl.pca(adata_target, use_highly_variable=True)
 sc.pp.neighbors(adata_target, use_rep='X_pca')
 sc.tl.umap(adata_target)
 #%%
-genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
+genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv', index_col=0)
 missing_gene = genes[~genes.index.isin(adata_target.var_names)].index
 missing_gene
 missing_gene = 'ZBTB20-AS2'
 #%%
 new_adata = adata_target.copy()
-adataX=pd.DataFrame(adata_target.X.todense().T,index=adata_target.var_names,columns=adata_target.obs_names)
+adataX = pd.DataFrame(adata_target.X.todense().T, index = adata_target.var_names, columns = adata_target.obs_names)
 # adata_target
 # list(adata_target.var_names) + ['ZBTB20-AS2']
-adataX=adataX.T
-adataX['ZBTB20-AS2']=adataX['MT-CYB']*0
-adata_new=sc.AnnData(adataX)
-adata_new.obs=adata_target.obs
+adataX = adataX.T
+adataX['ZBTB20-AS2'] = adataX['MT-CYB']*0
+adata_new = sc.AnnData(adataX)
+adata_new.obs = adata_target.obs
 adata_new
+
+adata_new = remove_sparsity(adata_new) # remove sparsity
+adata_new.X = adata_new.X.astype('float32')
 
 ### This function need pretrained reference model, corrected gene expression from reference data and incorrected query data
 
@@ -134,20 +150,30 @@ integrated_query = sca.models.scgen.map_query_data(reference_model = network,
                                                    batch_key = 'paper_ID',
                                                    return_latent=True)
 
+#%%
 ## Plot the latent space of integrated query and reference
 sc.pp.neighbors(integrated_query, use_rep="latent_corrected")
 sc.tl.umap(integrated_query)
-sc.pl.umap(
-    integrated_query,
-    color=['paper_ID', 'tissue-treatment', 'tissue', 'treatment', 'dataset'],
-    frameon=False,
-    wspace=0.6)
 
+category_of_interest = 'Zheng'
+unique_categories = integrated_query.obs['dataset'].cat.categories
+colors = ['#cccccc' if category != category_of_interest else '#C20078' for category in unique_categories]
+#%%
+sc.pl.umap(integrated_query, color='dataset', palette=colors, frameon=False, save='oose_dataset_latent.png')
+sc.pl.umap(integrated_query, color='paper_ID', frameon=False, save='oose_patient_latent.png')
+sc.pl.umap(integrated_query, color='tissue', frameon=False, save='oose_tissue_latent.png')
+sc.pl.umap(integrated_query, color='treatment', frameon=False, save='oose_treatment_latent.png')
+sc.pl.umap(integrated_query, color='tissue-treatment', frameon=False, save='oose_tissue-treatment_latent.png')
+#%%
 ## Plot corrected gene expression space of integrated query and reference
 sc.pp.neighbors(integrated_query)
 sc.tl.umap(integrated_query)
-sc.pl.umap(
-    integrated_query,
-    color=['paper_ID', 'tissue-treatment', 'tissue', 'treatment', 'dataset'],
-    frameon=False,
-    wspace=0.6)
+#%%
+sc.pl.umap(integrated_query, color='dataset', palette=colors, frameon=False, save='oose_dataset.png')
+sc.pl.umap(integrated_query, color='paper_ID', frameon=False, save='oose_patient.png')
+sc.pl.umap(integrated_query, color='tissue', frameon=False, save='oose_tissue.png')
+sc.pl.umap(integrated_query, color='treatment', frameon=False, save='oose_treatment.png')
+sc.pl.umap(integrated_query, color='tissue-treatment', frameon=False, save='oose_tissue-treatment.png')
+
+#%%
+integrated_query.write_h5ad(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat.h5ad')
