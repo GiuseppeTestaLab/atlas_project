@@ -126,14 +126,13 @@ sc.tl.umap(adata_target)
 genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv', index_col=0)
 missing_gene = genes[~genes.index.isin(adata_target.var_names)].index
 missing_gene
-missing_gene = 'ZBTB20-AS2'
+missing_gene = ['ZBTB20-AS2', 'OTUD6A']
 #%%
 new_adata = adata_target.copy()
 adataX = pd.DataFrame(adata_target.X.todense().T, index = adata_target.var_names, columns = adata_target.obs_names)
-# adata_target
-# list(adata_target.var_names) + ['ZBTB20-AS2']
 adataX = adataX.T
-adataX['ZBTB20-AS2'] = adataX['MT-CYB']*0
+adataX['ZBTB20-AS2'] = adataX['MT-CO1']*0
+adataX['OTUD6A'] = adataX['MT-CO1']*0
 adata_new = sc.AnnData(adataX)
 adata_new.obs = adata_target.obs
 adata_new
