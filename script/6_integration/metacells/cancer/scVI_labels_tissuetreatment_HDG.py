@@ -7,51 +7,28 @@ import scvi
 from rich import print
 from scvi.model.utils import mde
 import pandas as pd
+import sys
+sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+from integration import preprocess_scVI_genes
 
 #%%
 initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
 outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
 genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
+sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
+sc.settings.figdir = "/group/testa/Project/OvarianAtlas/atlas_project/plots_def/integration/metacells/cancer/"
+
 #%%
 adata = sc.read(initDir + "seacells_hdg_patients.h5ad")
 adata.obs['tissue-treatment'] = adata.obs['tissue'].astype('str') + '_' + adata.obs['treatment'].astype('str')
 adata
-
-#%%
-hvg = pd.read_csv(genes,  index_col=0)
-hvg[hvg.highly_variable]
-adata.var['highly_variable'] = hvg.highly_variable
-adata.var.highly_variable = adata.var.highly_variable.fillna(False)
-
-### Here, adata.X should have log transformed scran normalized expression.
-sc.pp.normalize_total(adata)
-sc.pp.log1p(adata)
-
-adata.raw = adata # keep full dimension safe
-adata = adata[:, adata.var.highly_variable]
-adata.var_names # HDG genes
-
-#%%
-# adata.raw = adata  # keep full dimension safe
-# sc.pp.highly_variable_genes(
-#     adata,
-#     flavor="seurat_v3",
-#     n_top_genes=adata.var_names,
-#     batch_key="paper_ID",
-#     subset=True,
-# )
-
-#%%
-adata = adata.copy()
+batch = "paper_ID"
+adata = preprocess_scVI_genes(adata, batch, genes)
 
 #%%
 scvi.model.SCVI.setup_anndata(adata, batch_key="paper_ID")
-
-#%%
 vae = scvi.model.SCVI(adata, n_layers=2, n_latent=30, gene_likelihood="nb")
-
-#%%
 vae.train()
 
 #%%
@@ -70,10 +47,6 @@ sc.tl.umap(adata)
 ## embeddings visualization
 adata.obsm["X_mde"] = mde(adata.obsm["X_scVI"])
 
-# #%%
-# sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-# sc.settings.figdir = "figures/"
-
 #%%
 cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
 s_genes = cell_cycle_genes[:43]
@@ -81,7 +54,12 @@ g2m_genes = cell_cycle_genes[43:]
 cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]
 sc.tl.score_genes_cell_cycle(adata, s_genes=s_genes, g2m_genes=g2m_genes, use_raw = True)
 adata.obs
-sc.pl.umap(adata, color=['treatment', 'phase'], frameon=False)
+
+sc.pl.umap(ad, color=['treatment'], frameon=False, save='_treatment_scVI_HDG.png')
+sc.pl.umap(ad, color=['phase'], frameon=False, save='_cellcycle_scVI_HDG.png')
+sc.pl.umap(ad, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scVI_HDG.png')
+sc.pl.umap(ad, color=['paper_ID'], frameon=False, save='_patient_scVI_HDG.png')
+sc.pl.umap(ad, color=['tissue'], frameon=False, save='_tissue_scVI_HDG.png')
 
 #%%
 sc.pl.embedding(
@@ -125,8 +103,11 @@ sc.pl.embedding(
 sc.tl.pca(adata, use_highly_variable=True)
 sc.pp.neighbors(adata, use_rep='X_pca')
 sc.tl.umap(adata)
-sc.pl.umap(adata, color=['tissue-treatment', 'paper_ID'], frameon=False)
+sc.pl.umap(ad, color=['treatment'], frameon=False, save='_treatment_scANVI_HDG.png')
+sc.pl.umap(ad, color=['phase'], frameon=False, save='_cellcycle_scANVI_HDG.png')
+sc.pl.umap(ad, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scANVI_HDG.png')
+sc.pl.umap(ad, color=['paper_ID'], frameon=False, save='_patient_scANVI_HDG.png')
+sc.pl.umap(ad, color=['tissue'], frameon=False, save='_tissue_scANVI_HDG.png')
 
 # %%
 adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scANVI_tissuetreat_embeddings_HDG.h5ad')
-# %%
