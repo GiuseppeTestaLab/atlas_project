@@ -40,11 +40,11 @@ def preprocess_scVI(adata, batch, genes):
 def preprocess_scVI_genes(adata, batch, genes):
     # sc.pp.normalize_total(adata, target_sum=1e4)
     # sc.pp.log1p(adata)
-    adata.raw = adata
     hdg = pd.read_csv(genes, index_col=0)
-    adata = adata[:, adata.var.highly_variable]
     adata.var['highly_variable'] = hdg.highly_variable
     adata.var.highly_variable = adata.var.highly_variable.fillna(False)
+    adata.raw = adata
+    adata = adata[:, adata.var.highly_variable]
     sc.tl.pca(adata, use_highly_variable=True)
     sc.pp.neighbors(adata, use_rep='X_pca')
     sc.tl.umap(adata)
