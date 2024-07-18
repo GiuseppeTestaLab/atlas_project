@@ -142,5 +142,5 @@ sc.tl.umap(ad)
 # sc.pl.umap(ad, color=['tissue'], frameon=False, save='_tissue_scANVI_2500.png')
 
 # %%
-ad.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scANV_celltypes_embeddings_2500.h5ad')
+ad.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scANVI_celltypes_embeddings_2500.h5ad')
 # %%
