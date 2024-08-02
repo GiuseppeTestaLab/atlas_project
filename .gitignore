@@ -164,5 +164,3 @@ cython_debug/
 *.h5ad
 *.png
 *.csv
-*.log
-.*
