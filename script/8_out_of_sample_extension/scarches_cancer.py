@@ -152,18 +152,48 @@ integrated_query = sca.models.scgen.map_query_data(reference_model = network,
 
 #%%
 ## Plot the latent space of integrated query and reference
+
+# integrated_query = sc.read(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat.h5ad')
+integrated_query.obs['dataset_tt'] = integrated_query.obs['tissue-treatment'].astype('str') + '_' + integrated_query.obs['dataset'].astype('str')
+
+#%%
 sc.pp.neighbors(integrated_query, use_rep="latent_corrected")
 sc.tl.umap(integrated_query)
 
+### palettes definition
 category_of_interest = 'Zheng'
 unique_categories = integrated_query.obs['dataset'].cat.categories
 colors = ['#cccccc' if category != category_of_interest else '#C20078' for category in unique_categories]
+
+palette_dataset_tt = {'Ascites_CHT_Ren':'#1f77b433', 
+                      'Ascites_NACT_Loret':'#ff7f0e33', 
+                      'Ascites_Naive_Loret':'#279e6833',
+                      'Ascites_Naive_Vasquez':'#279e6833',
+                      'Ascites_Naive_Zheng':'#279e68',
+                      'Metastasis_CHT_Geistlinger':'#d6272833',
+                      'Metastasis_NACT_Loret':'#aa40fc33',
+                      'Metastasis_NACT_Zhang':'#aa40fc33',
+                      'Metastasis_Naive_Loret':'#8c564b33',
+                      'Metastasis_Naive_Olbrecht':'#8c564b33',
+                      'Metastasis_Naive_Qian':'#8c564b33',
+                      'Metastasis_Naive_Vasquez':'#8c564b33',
+                      'Metastasis_Naive_Zhang':'#8c564b33',
+                      'Metastasis_Naive_Zheng':'#8c564b',
+                      'Primary_CHT_Ren':'#e377c233',
+                      'Primary_NACT_Loret':'#b5bd6133',
+                      'Primary_Naive_Loret':'#17becf33',
+                      'Primary_Naive_Olbrecht':'#17becf33',
+                      'Primary_Naive_Regner':'#17becf33',
+                      'Primary_Naive_Vasquez':'#17becf33',
+                      'Primary_Naive_Xu':'#17becf33',
+                      'Primary_Naive_Zheng':'#17becf'}
 #%%
 sc.pl.umap(integrated_query, color='dataset', palette=colors, frameon=False, save='oose_dataset_latent.png')
 sc.pl.umap(integrated_query, color='paper_ID', frameon=False, save='oose_patient_latent.png')
 sc.pl.umap(integrated_query, color='tissue', frameon=False, save='oose_tissue_latent.png')
 sc.pl.umap(integrated_query, color='treatment', frameon=False, save='oose_treatment_latent.png')
 sc.pl.umap(integrated_query, color='tissue-treatment', frameon=False, save='oose_tissue-treatment_latent.png')
+sc.pl.umap(integrated_query, color='dataset_tt', frameon=False, save='oose_tissue-treatment-dataset_latent.png')
 #%%
 ## Plot corrected gene expression space of integrated query and reference
 sc.pp.neighbors(integrated_query)
