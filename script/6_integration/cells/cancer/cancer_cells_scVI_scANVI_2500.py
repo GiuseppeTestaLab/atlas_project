@@ -16,7 +16,7 @@ initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/ca
 outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/cells/cancer/'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/cancer/"
+sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/cells/cancer/"
 
 #%%
 adata = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')
