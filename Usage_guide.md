@@ -4,7 +4,7 @@ This repository contains the code to reproduce SCAIP method used to generate OvC
 This pipeline allows to integrate complex and very heterogenous cancer derived scRNA-seq data while preserving patients' heterogeneity.  
 If just interested in accessing the atlas resource, you reach it via a cellxgene web platform: [CellXGene](https://cellxgene.bioserver.ieo.it)  
 
-![OvCa](/home/marta.sallese/ov_cancer_atlas/atlas_project/OvCa.png)
+![OvCa](/home/marta.sallese/ov_cancer_atlas/atlas_project/OvCa.png](https://github.com/GiuseppeTestaLab/atlas_project/blob/master/OvCA.png)
 
 
 
