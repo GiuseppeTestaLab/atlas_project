@@ -1,0 +1,37 @@
+#%%
+import numpy as np
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+# Assuming X is your dataset and metadata is your metadata
+# Standardize the dataset
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Perform PCA
+pca = PCA(n_components=3)
+pca_components = pca.fit_transform(X_scaled)
+
+# Assuming metadata is a 1D array or a column from a DataFrame
+metadata = np.random.normal(size=n)  # Replace with your actual metadata
+
+# Calculate correlation between PCA components and metadata
+correlations = []
+for i in range(pca_components.shape[1]):
+    corr = np.corrcoef(pca_components[:, i], metadata)[0, 1]
+    correlations.append(corr)
+
+# Print the correlations
+print("Correlation between PCA components and metadata:")
+for i, corr in enumerate(correlations):
+    print(f"Component {i+1}: {corr:.2f}")
+
+# Optional: Create a DataFrame for better visualization
+correlation_df = pd.DataFrame({
+    'PCA Component': [f'Component {i+1}' for i in range(len(correlations))],
+    'Correlation with Metadata': correlations
+})
+
+print(correlation_df)
+# %%
