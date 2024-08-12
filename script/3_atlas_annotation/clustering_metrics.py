@@ -31,13 +31,12 @@ for dataset in datasets:
         fowlkes_mallows = metrics.fowlkes_mallows_score(y_true, y_pred)
         scores[i] = [adjusted_rand_index, adjusted_mutual_info, fowlkes_mallows]
 
+        print(f'Dataset: {dataset}')
         print(f'Resolution: {round(i,2)}')
-
+        
     pd_scores = pd.DataFrame(scores).T
     
     pd_scores.columns = ['Adjusted Rand Index', 'Adjusted Mutual Information', 'Fowlkes-Mallows Index']
-    
-    sns.lineplot(data=pd_scores)
     
     # Save the results to a file
     finalDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
