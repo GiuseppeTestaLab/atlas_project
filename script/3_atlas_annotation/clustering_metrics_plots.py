@@ -19,9 +19,9 @@ palette = {
 
 #%%
 data = [
-        # 'clustering_metrics_cancer.csv', 
-        # 'clustering_metrics_endothelial.csv', 
-        # 'clustering_metrics_fibroblasts.csv', 
+        'clustering_metrics_cancer.csv', 
+        'clustering_metrics_endothelial.csv', 
+        'clustering_metrics_fibroblasts.csv', 
         'clustering_metrics_immune.csv'
         ]
 
@@ -36,5 +36,3 @@ for i in data:
     output_filename = os.path.join(figDir, i.replace('.csv', '_plot.pdf'))
     ax.figure.savefig(output_filename)
     ax.figure.clear()
-
-# %%
