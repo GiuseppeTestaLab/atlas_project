@@ -39,9 +39,9 @@ print(f'Adjusted Rand Index: {adjusted_rand_index}')
 print(f'Adjusted Mutual Information: {adjusted_mutual_info}')
 print(f'Fowlkes-Mallows Index: {fowlkes_mallows}')
 
-# Adjusted Rand Index: 
-# Adjusted Mutual Information: 
-# Fowlkes-Mallows Index: 
+# Adjusted Rand Index: 0.1663130205776094
+# Adjusted Mutual Information: 0.368091311281982
+# Fowlkes-Mallows Index: 0.2058092921044652
 
 #%%
 # Save the results to a file
@@ -51,4 +51,16 @@ with open('clustering_metrics_endothelial.txt', 'w') as file:
     file.write(f"Adjusted Rand Index: {adjusted_rand_index}\n")
     file.write(f"Adjusted Mutual Information: {adjusted_mutual_info}\n")
     file.write(f"Fowlkes-Mallows Index: {fowlkes_mallows}\n")
+
+# %%
+leidenTotal=[]
+for i in np.arange(1.4, 1.9, 0.1):
+    sc.tl.leiden(adata,resolution = i,key_added="leiden-{}".format(round(i,2)))
+    leidenTotal.append("leiden-{}".format(round(i,2)))
+
+# %%
+leidenTotal=[]
+for i in np.arange(1.9, 2.3, 0.1):
+    sc.tl.leiden(adata,resolution = i,key_added="leiden-{}".format(round(i,2)))
+    leidenTotal.append("leiden-{}".format(round(i,2)))
 # %%
