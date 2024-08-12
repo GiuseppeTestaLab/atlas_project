@@ -1,3 +1,0 @@
-Adjusted Rand Index: 0.1663130205776094
-Adjusted Mutual Information: 0.368091311281982
-Fowlkes-Mallows Index: 0.2058092921044652
