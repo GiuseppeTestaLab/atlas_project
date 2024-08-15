@@ -23,8 +23,8 @@ git clone https://github.com/GiuseppeTestaLab/atlas_project/tree/master
 We organized the scripts repository in folders following the order of the steps used to generate OvCA:
  - [1_original_counts](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/1_original_counts): contains all the scripts that allow to go from counts matrices to preprocessed data and harmonized metadata for every dataset of the atlas. You will find a `.csv` file used to set up the folder containing your data and the preprocessing parameteres. There are then two files that can be used to run all datasets together and then to concatenate the data.
  - [2_original_anndata](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/2_original_anndata): here on filtered and normalized data are computed the embeddings and `anndata var_names` are filtered to have common `var_names` to all datasets
- - [3_atlas_annotation](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/3_atlas_annotation)
- - [4_hdg](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/4_hdg)
+ - [3_atlas_annotation](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/3_atlas_annotation): here we annotated the major cell types and divided the atlas into the four subsets
+ - [4_hdg](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/4_hdg): definition of the highly defining genes
  - [5_metacells]I(https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/5_metacells)
  - [6_integration](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/6_integration)
  - [7_downstream](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream)
