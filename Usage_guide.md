@@ -20,7 +20,7 @@ git clone https://github.com/GiuseppeTestaLab/atlas_project/tree/master
 
 ## Files organization
 
-Every script comes with a `.sh.` file that specifies the conda env to use to run the script.
+Every script comes with a `.sh` file that specifies the conda env to use to run the script.
 We organized the scripts repository in folders following the order of the steps used to generate OvCA:
  - [1_original_counts](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/1_original_counts): contains all the scripts that allow to go from counts matrices to preprocessed data and harmonized metadata for every dataset of the atlas. You will find a `.csv` file used to set up the folder containing your data and the preprocessing parameteres. There are then two files that can be used to run all datasets together and then to concatenate the data.
  - [2_original_anndata](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/2_original_anndata): here on filtered and normalized data are computed the embeddings and `anndata var_names` are filtered to have common `var_names` to all datasets
