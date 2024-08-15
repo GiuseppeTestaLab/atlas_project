@@ -207,3 +207,74 @@ sc.pl.umap(integrated_query, color='tissue-treatment', frameon=False, save='oose
 
 #%%
 integrated_query.write_h5ad(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat.h5ad')
+
+#%%
+# integrated_query = sc.read(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat.h5ad')
+sc.pp.neighbors(integrated_query, use_rep="latent_corrected")
+sc.tl.umap(integrated_query)
+sc.tl.embedding_density(integrated_query, basis='umap', groupby='dataset')
+# %%
+sc.pl.embedding_density(integrated_query, basis='umap', groupby='dataset', save='density_dataset.pdf')
+
+#%%
+integrated_query_sub = integrated_query[integrated_query.obs['tissue-treatment'].isin(['Ascites_Naive', 'Metastasis_Naive', 'Primary_Naive'])]
+sc.pl.umap(integrated_query_sub, color='tissue-treatment', frameon=False)
+
+#%%
+sc.tl.leiden(integrated_query_sub, resolution=0.03, key_added="leiden-0.03")
+sc.pl.umap(integrated_query_sub, color='leiden-0.03', frameon=False)
+# %% ## check the accuracy of the mapping: how many cells from zheng 'Ascites_Naive_Zheng' fall into leiden 0.03 cluster 2
+integrated_query_sub.obs[integrated_query_sub.obs['dataset_tt'] == 'Ascites_Naive_Zheng'].isin(['leiden-0.03' == 2]).sum()
+#%% ## Compute percentage of cells from zheng naive primary assigned to cluster 0
+
+df = pd.crosstab(integrated_query_sub.obs['dataset_tt'], integrated_query_sub.obs['leiden-0.03'])
+#%%
+primary_zheng = df.loc['Primary_Naive_Zheng']
+primary_percentage = (primary_zheng[0] / primary_zheng.sum()) * 100
+
+#%%
+ascites_zheng = df.loc['Ascites_Naive_Zheng']
+ascites_percentage = (ascites_zheng[2] / ascites_zheng.sum()) * 100
+
+#%%
+metastasis_zheng = df.loc['Metastasis_Naive_Zheng']
+metastasis_percentage = (metastasis_zheng[1] / metastasis_zheng.sum()) * 100
+
+#%%
+# Print the results
+print(f"Primary Naive Zheng assigned to cluster 0: {primary_percentage:.2f}%")
+print(f"Ascites Naive Zheng assigned to cluster 2: {ascites_percentage:.2f}%")
+print(f"Metastasis Naive Zheng assigned to cluster 1: {metastasis_percentage:.2f}%")
+# %%
+# Plotting
+import matplotlib.pyplot as plt
+#%%
+# Example data based on previous calculations
+percentages = {
+    'Primary Naive Zheng': 98.12,
+    'Ascites Naive Zheng': 79.55,
+    'Metastasis Naive Zheng': 98.71
+}
+
+# Extract keys and values
+labels = list(percentages.keys())
+values = list(percentages.values())
+
+# Plotting the data
+barWidth = 0.40
+plt.figure(figsize=(5, 6))
+plt.bar(labels, values, color=['#17becf', '#279e68', '#8c564b'], width=0.2)
+plt.grid(False)
+
+# Adding titles and labels
+plt.title('Accuracy % of reference mapping')
+plt.ylabel('Percentage (%)')
+plt.xticks(rotation=45, ha='right', fontsize=10)
+
+# Adding the percentage values on top of the bars
+for i, value in enumerate(values):
+    plt.text(i, value + 1, f'{value:.2f}%', ha='center')
+
+# Show the plot
+plt.show()
+# %%
