@@ -17,10 +17,6 @@ import configparser
 config = configparser.ConfigParser()
 config.read('../../../utils/config.ini')
 scriptsPath = config.get('DEFAULT', 'scriptsPath')
-# Read configuration file
-config = configparser.ConfigParser()
-config.read('../../../utils/config.ini')
-scriptsPath = config.get('DEFAULT', 'scriptsPath')
 #inputs
 parameters = pd.read_csv(scriptsPath+ "1_original_counts/Geistlinger2020/preprocess_params.csv", sep = ';')
 
@@ -105,5 +101,5 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(final_dir + "geistlinger2020_filt_norm_nolog.h5ad")
+adata.write(final_dir + "Geistlinger2020_filt_norm_nolog.h5ad")
 

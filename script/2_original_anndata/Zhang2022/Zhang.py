@@ -6,16 +6,25 @@ import pandas as pd
 import os
 import numpy as np
 import anndata
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../../utils/config.ini')
+rowPath = config.get('DEFAULT', 'rowPath')
 
 #initialize directory
-dir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Zhang2022/'
+dir = rowPath + 'original_anndata/
+
+#initialize directory
+dir = rowPath + 'Zhang2022/'
 
 #Read adata
-adata = sc.read(dir + "zhang2022_filt_norm_nolog.h5ad")
+adata = sc.read(dir + "Zhang2022_filt_norm_nolog.h5ad")
 adata.obs['dataset'] = adata.obs.paper_ID.str.split("_").str[0]
 
 #Filtering out genes not present in the other datasets, taking only the common genes
-common_var_names = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/common_varnames_datasets.csv', index_col=0) #this file is derived from common_var_names.py
+common_var_names = pd.read_csv(rowPath+'original_anndata/common_varnames_datasets.csv', index_col=0)
 
 #Computing embeddings
 sc.pp.log1p(adata)

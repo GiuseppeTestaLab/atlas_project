@@ -100,4 +100,4 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
-adata.write(final_dir + "olbrecht2021_filt_norm_nolog.h5ad")
+adata.write(final_dir + "Olbrecht2021_filt_norm_nolog.h5ad")
