@@ -9,7 +9,25 @@
 #SBATCH --output=%x_%j.log 
 module load singularity
 
-singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
--B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
-docker://testalab/downstream:covidiamo-3.1.0 \
-"/bin/python3 /home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/2_aggregate_datasets.py"
+# Check if dataset name is provided
+if [ -z "$1" ]; then
+  echo "No dataset name provided"
+  exit 1
+fi
+
+dataset=$1
+
+# Load configuration file
+source config.ini
+
+# Set environment variables from the configuration file
+initialPath=${DEFAULT_initialPath}
+scriptsPath=${initialPath}/${scriptsPath}
+bindPaths=$(echo ${SINGULARITY_bindPaths} | tr ',' ' ')
+homePath=${SINGULARITY_homePath}
+image=${SINGULARITY_image}
+
+module load singularity
+
+singularity run -B $bindPaths -H $homePath $image \
+"/bin/python3 ${scriptsPath}1_original_counts/2_aggregate_datasets.py"

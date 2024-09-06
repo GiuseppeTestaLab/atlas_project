@@ -11,13 +11,13 @@ import glob
 import argparse
 import numpy as np
 import anndata
+import configparser
 
 #inputs
+parameters = pd.read_csv(scriptsPath+ "1_original_counts/Olbrecht2021/preprocess_params.csv", sep = ';')
 
-parameters = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/Olbrecht2021/preprocess_params.csv', sep = ';')
-
-init_dir = parameters.init_dir[0]
-out_dir = parameters.out_dir[0]
+init_dir = rowPath+parameters.init_dir[0]
+out_dir = rowPath+parameters.out_dir[0]
 min_genes = int(parameters.min_genes[0])
 min_cells = int(parameters.min_cells[0])
 genes_by_counts = int(parameters.genes_by_counts[0])

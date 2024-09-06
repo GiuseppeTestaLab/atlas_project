@@ -1,2 +1,2 @@
 ﻿min_genes;min_cells;genes_by_counts;pct_counts_mt;target_sum;init_dir;out_dir;final_dir
-200;3;8000;20;1e4;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Regner2021/;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/Regner2021/Adata/;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Regner2021/
+200;3;8000;20;1e4;original_counts/Regner2021/;original_counts/Regner2021/Adata/;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Regner2021/

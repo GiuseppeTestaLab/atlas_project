@@ -6,9 +6,17 @@ import scanpy as sc
 import os
 import subprocess
 import logging
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
+
+# Get datasets and initial path from the configuration file
+rawPath = config.get('DEFAULT', 'rawPath')
 
 ## Directories
-init_dir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_counts/'
+init_dir = rawPath + 'original_counts/'
 #%%
 ## Aggregating datasets
 

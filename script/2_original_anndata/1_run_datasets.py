@@ -2,41 +2,22 @@
 #imports
 import subprocess
 import logging
+import configparser
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
 
-# full list of implemented dataset are:
-# ["Geistlinger2020",
-# "Loret2022",
-# "Olbrecht2021",
-# "Qian2020",
-# "Regner2021",
-# "Ren2022",
-# "Vasquez2022",
-# "Xu2022",
-# "Zhang2022"]
+# Get datasets and initial path from the configuration file
+datasets = config.get('DATASETS', 'datasets').split(', ')
+scriptsPath = config.get('DEFAULT', 'scriptsPath')
 
-# put here the dataset that you want to rerun
-
-datasets=["Geistlinger2020",
-            "Loret2022",
-            "Olbrecht2021",
-            "Qian2020",
-            "Regner2021",
-            "Ren2022",
-            "Vasquez2022",
-            "Xu2022",
-            "Zhang2022"]
-
-
-# to be changed in relative path 
-initialPath="/home/marta.sallese/ov_cancer_atlas/atlas_project/script/2_original_anndata/"
 #%%
 # this will run the python files to generate raw/processed files for each dataset
 
-
 for dataset in datasets:
-  path=initialPath+dataset
+  path=scriptsPath+'2_original_anndata/'+dataset
   print(path)
-  sbatch="sbatch {}".format(path + '/' + dataset + '.sh')
+  sbatch=f"sbatch {path}/{dataset}.sh {dataset} {dataset[0:-4]}"
+  print(sbatch)
   subprocess.check_output(sbatch, shell = True)
-  
