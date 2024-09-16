@@ -1,6 +1,6 @@
 # Ovarian Cancer Atlas (OvCA) and Single Cell transcriptomics Atlas Integration Pipeline (SCAIP)
 
-This repository contains the code to reproduce SCAIP method used to generate OvCA described in the resource [paper]().  
+This repository contains the code to reproduce SCAIP method used to generate OvCA described in the resource [paper]() (available soon).  
 This pipeline allows to integrate complex and very heterogenous cancer derived scRNA-seq data while preserving patients' heterogeneity.  
 
 If just interested in accessing the atlas resource, you can reach it via a cellxgene web platform: [CellXGene](https://cellxgene.bioserver.ieo.it)  
@@ -15,8 +15,10 @@ Python 3.7 or higher.
 
 You can build the documentation locally by following these steps:
 ```
-git clone https://github.com/GiuseppeTestaLab/atlas_project/tree/master
+git clone https://github.com/GiuseppeTestaLab/atlas_project.git
 ```
+The full atlas repo and data will be available in a couple of weeks after testing, in the meanwhile in the master branch there is the local version that need to be modified for general deployment.
+
 
 ## Files organization
 
