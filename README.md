@@ -1,6 +1,6 @@
 # Ovarian Cancer Atlas (OvCA) and Single Cell transcriptomics Atlas Integration Pipeline (SCAIP)
 
-This repository contains the code to reproduce SCAIP method used to generate OvCA described in the resource [paper]().  
+This repository contains the code to reproduce SCAIP method used to generate OvCA described in the resource [paper]() (available soon).  
 This pipeline allows to integrate complex and very heterogenous cancer derived scRNA-seq data while preserving patients' heterogeneity.  
 
 If just interested in accessing the atlas resource, you can reach it via a cellxgene web platform: [CellXGene](https://cellxgene.bioserver.ieo.it)  
@@ -15,8 +15,10 @@ Python 3.7 or higher.
 
 You can build the documentation locally by following these steps:
 ```
-git clone https://github.com/GiuseppeTestaLab/atlas_project/tree/master
+git clone https://github.com/GiuseppeTestaLab/atlas_project.git
 ```
+The full atlas repo and data will be available in a couple of weeks after testing, in the meanwhile in the master branch there is the local version that need to be modified for general deployment.
+
 
 ## Files organization
 
@@ -30,3 +32,4 @@ We organized the scripts repository in folders following the order of the steps 
  - [6_integration](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/6_integration): metacells and cells integration in the HDG space with scGen
  - [7_downstream](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream): divided bt cell type, here we firstly divide the dataset by the three main tissue types (primary, ascites, metastasis), perform clusteirng and [differential expression analysis](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream/clustering/cancer/1_differential_expression), [cluster stability analysis](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream/clustering/cancer/2_sankey), and then [cluster assignment](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream/clustering/cancer/3_cluster_assignments) defined by cell ontologies. Then we mapped the cell states defined in metacells to parental cells and performed [cell to cell interaction analyses](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/7_downstream/LR_interactions).
  - [8_out_of_sample_extension](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/8_out_of_sample_extension): here we used scArches to perform refernce mapping of a new dataset on the atlas. For the new dataset firstly we define [HDGs](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/8_out_of_sample_extension/Zheng_hdg), derive [metacells per cell type](https://github.com/GiuseppeTestaLab/atlas_project/tree/master/script/8_out_of_sample_extension/Zheng_metacells) and then used the model generated for atlas integration to integrate the new dataset.
+
