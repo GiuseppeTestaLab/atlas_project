@@ -41,8 +41,8 @@
 # adata9 = sc.read(init_dir + "Vasquez2022/Vasquez2022_filt_norm_nolog.h5ad")
 
 # #%%
-# common_var_names = (adata1.var_names) & (adata2.var_names) & (adata3.var_names) & (adata4.var_names) & (adata5.var_names) & (adata6.var_names) & (adata7.var_names) & (adata8.var_names) & (adata9.var_names) 
+# common_var_names = (adata1.var_names) & (adata2.var_names) & (adata3.var_names) & (adata4.var_names) & (adata5.var_names) & (adata6.var_names) & (adata7.var_names) & (adata8.var_names) & (adata9.var_names)
 
 # pd.DataFrame(index = common_var_names).to_csv(out_dir + 'common_varnames_datasets.csv')
 
-rawPath+'original_anndata/common_varnames_datasets.csv'
+rawPath + "original_anndata/common_varnames_datasets.csv"

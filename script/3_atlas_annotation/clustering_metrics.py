@@ -1,5 +1,4 @@
-
-#%%
+# %%
 import numpy as np
 from sklearn import metrics
 import scanpy as sc
@@ -8,30 +7,37 @@ import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
-config.read('../../utils/config.ini')
+config.read("../../utils/config.ini")
 
-utilsPath = config.get('DEFAULT', 'utilsPath')
-rawPath = config.get('DEFAULT', 'rawPath')
-figPath = config.get('DEFAULT', 'figPath')
-#%%
-initDir = rawPath + 'atlas_annotated/'
-finalDir = rawPath + 'atlas_annotated/'
-datasets = ['atlas_endothelial_embeddings.h5ad', 'atlas_cancer_embeddings.h5ad', 'atlas_immune_embeddings.h5ad', 'atlas_fibroblasts_embeddings.h5ad']
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
+# %%
+initDir = rawPath + "atlas_annotated/"
+finalDir = rawPath + "atlas_annotated/"
+datasets = [
+    "atlas_endothelial_embeddings.h5ad",
+    "atlas_cancer_embeddings.h5ad",
+    "atlas_immune_embeddings.h5ad",
+    "atlas_fibroblasts_embeddings.h5ad",
+]
 
-#%%
+# %%
 for dataset in datasets:
     adata = sc.read(initDir + dataset)
 
-    leidenTotal=[]
+    leidenTotal = []
     scores = {}
     for i in np.arange(0.3, 2.2, 0.2):
-        sc.tl.leiden(adata,resolution = i,key_added="leiden-{}".format(round(i,2)))
+        sc.tl.leiden(adata, resolution=i, key_added="leiden-{}".format(round(i, 2)))
 
         # Step 1: Access UMAP coordinates from the AnnData object
-        y_true = adata.obs['paper_ID'].to_numpy()
+        y_true = adata.obs["paper_ID"].to_numpy()
 
         # Step 2: Access the Leiden cluster labels from the AnnData object
-        y_pred = adata.obs[f'leiden-{round(i,2)}'].to_numpy()  # Predicted labels (Leiden clusters)
+        y_pred = adata.obs[
+            f"leiden-{round(i,2)}"
+        ].to_numpy()  # Predicted labels (Leiden clusters)
 
         # Step 3: Compute the supervised clustering metrics
         adjusted_rand_index = metrics.adjusted_rand_score(y_true, y_pred)
@@ -39,13 +45,17 @@ for dataset in datasets:
         fowlkes_mallows = metrics.fowlkes_mallows_score(y_true, y_pred)
         scores[i] = [adjusted_rand_index, adjusted_mutual_info, fowlkes_mallows]
 
-        print(f'Dataset: {dataset}')
-        print(f'Resolution: {round(i,2)}')
-        
+        print(f"Dataset: {dataset}")
+        print(f"Resolution: {round(i,2)}")
+
     pd_scores = pd.DataFrame(scores).T
-    
-    pd_scores.columns = ['Adjusted Rand Index', 'Adjusted Mutual Information', 'Fowlkes-Mallows Index']
-    
+
+    pd_scores.columns = [
+        "Adjusted Rand Index",
+        "Adjusted Mutual Information",
+        "Fowlkes-Mallows Index",
+    ]
+
     # Save the results to a file
-    pd_scores.to_csv(finalDir + 'clustering_metrics_' + dataset.split('_')[1] + '.csv')
+    pd_scores.to_csv(finalDir + "clustering_metrics_" + dataset.split("_")[1] + ".csv")
 # %%
