@@ -5,6 +5,7 @@ import scanpy as sc
 import pandas as pd
 import seaborn as sns
 import os
+import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()

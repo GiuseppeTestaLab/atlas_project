@@ -4,10 +4,18 @@ import numpy as np
 from sklearn import metrics
 import scanpy as sc
 import pandas as pd
+import configparser
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
+
+utilsPath = config.get('DEFAULT', 'utilsPath')
+rawPath = config.get('DEFAULT', 'rawPath')
+figPath = config.get('DEFAULT', 'figPath')
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-
+initDir = rawPath + 'atlas_annotated/'
+finalDir = rawPath + 'atlas_annotated/'
 datasets = ['atlas_endothelial_embeddings.h5ad', 'atlas_cancer_embeddings.h5ad', 'atlas_immune_embeddings.h5ad', 'atlas_fibroblasts_embeddings.h5ad']
 
 #%%
@@ -39,6 +47,5 @@ for dataset in datasets:
     pd_scores.columns = ['Adjusted Rand Index', 'Adjusted Mutual Information', 'Fowlkes-Mallows Index']
     
     # Save the results to a file
-    finalDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
     pd_scores.to_csv(finalDir + 'clustering_metrics_' + dataset.split('_')[1] + '.csv')
 # %%
