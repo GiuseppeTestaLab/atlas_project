@@ -1,2 +1,2 @@
 ﻿min_genes;min_cells;genes_by_counts;pct_counts_mt;target_sum;init_dir;out_dir;final_dir
-200;3;4000;12;1e4;original_counts/Qian2020/Counts/;original_counts/Qian2020/Adata/;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Qian2020/
+200;3;4000;12;1e4;original_counts/Qian2020/Counts/;original_counts/Qian2020/Adata/;original_anndata/Qian2020/

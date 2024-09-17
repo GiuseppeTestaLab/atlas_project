@@ -17,11 +17,13 @@ import configparser
 config = configparser.ConfigParser()
 config.read('../../../utils/config.ini')
 scriptsPath = config.get('DEFAULT', 'scriptsPath')
-#inputs
-parameters = pd.read_csv(scriptsPath+ "1_original_counts/Geistlinger2020/preprocess_params.csv", sep = ';')
+rawPath = config.get('DEFAULT', 'rawPath')
 
-init_dir = rowPath+parameters.init_dir[0]
-out_dir = rowPath+parameters.out_dir[0]
+#inputs
+parameters = pd.read_csv(scriptsPath+ "1_original_counts/Geistlinger2020/preprocess_params.tsv", sep = ';')
+
+init_dir = rawPath+parameters.init_dir[0]
+out_dir = rawPath+parameters.out_dir[0]
 min_genes = int(parameters.min_genes[0])
 min_cells = int(parameters.min_cells[0])
 genes_by_counts = int(parameters.genes_by_counts[0])

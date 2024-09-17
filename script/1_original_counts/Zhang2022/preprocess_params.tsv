@@ -1,2 +1,2 @@
 ﻿min_genes;min_cells;genes_by_counts;pct_counts_mt;target_sum;init_dir;out_dir;final_dir
-200;3;5000;8;1e4;original_counts/Zhang2022/;original_counts/Zhang2022/Adata/;/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/Zhang2022/
+200;3;5000;8;1e4;original_counts/Zhang2022/;original_counts/Zhang2022/Adata/;original_anndata/Zhang2022/

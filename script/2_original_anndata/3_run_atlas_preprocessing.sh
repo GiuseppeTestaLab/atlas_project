@@ -7,8 +7,17 @@
 #SBATCH --mem=500GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=%x_%j.log 
+
+# Load configuration file
+source ../../config.ini
+
+# Set environment variables from the configuration file
+scriptsPath=${DEFAULT_scriptsPath}
+bindPaths=$(echo ${SINGULARITY_bindPaths} | tr ',' ' ')
+homePath=${SINGULARITY_homePath}
+image=${SINGULARITY_image}
+
 module load singularity
 
 singularity run -B $bindPaths -H $homePath $image \
 "/bin/python3 ${scriptsPath}2_original_anndata/2_run_atlas_preprocessing.py"
-

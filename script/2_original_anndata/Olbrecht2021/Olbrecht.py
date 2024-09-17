@@ -11,20 +11,20 @@ import configparser
 # Read configuration file
 config = configparser.ConfigParser()
 config.read('../../../utils/config.ini')
-rowPath = config.get('DEFAULT', 'rowPath')
+rawPath = config.get('DEFAULT', 'rawPath')
 
 #initialize directory
-dir = rowPath + 'original_anndata/
+dir = rawPath + 'original_anndata/
 
 #initialize directory
-dir = rowPath + 'Olbrecht2021/'
+dir = rawPath + 'Olbrecht2021/'
 
 #Read adata
 adata = sc.read(dir + "Olbrecht2021_filt_norm_nolog.h5ad")
 adata.obs['dataset'] = adata.obs.paper_ID.str.split("_").str[0]
 
 #Filtering out genes not present in the other datasets, taking only the common genes
-common_var_names = pd.read_csv(rowPath+'original_anndata/common_varnames_datasets.csv', index_col=0)
+common_var_names = pd.read_csv(rawPath+'original_anndata/common_varnames_datasets.csv', index_col=0)
 
 #Computing embeddings
 sc.pp.log1p(adata)

@@ -5,12 +5,21 @@ import numpy as np
 import pandas as pd
 import scanpy as sc
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
 from cell_labeller import assign_scores, actual_labeller, create_cancer_adata, immune_labeller, fibroblast_labeller
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
+
+utilsPath = config.get('DEFAULT', 'utilsPath')
+rawPath = config.get('DEFAULT', 'rawPath')
+
+sys.path.insert(1, utilsPath)
 
 ## Cell labelling
 
-adata = sc.read("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/atlas_embeddings.h5ad")
+adata = sc.read(rawPath+"original_anndata/atlas_embeddings.h5ad")
 adata.obs['dataset'] = adata.obs.paper_ID.str.split("_").str[0]
 
 ### Creating annotation columns with Vasquez-Garcia et al. signatures genes
@@ -47,5 +56,5 @@ adata.obs['cell_types'][adata.obs.index.isin(fibro_cells.index)] = fibro_cells['
 
 adata.obs.cell_types.astype('category')
 
-adata.write('/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/atlas_embeddings_cell_labelled.h5ad')
+adata.write(rawPath + 'atlas_annotated/atlas_embeddings_cell_labelled.h5ad')
 
