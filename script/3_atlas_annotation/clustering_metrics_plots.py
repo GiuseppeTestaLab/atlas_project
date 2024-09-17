@@ -6,9 +6,16 @@ import pandas as pd
 import seaborn as sns
 import os
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
+
+utilsPath = config.get('DEFAULT', 'utilsPath')
+rawPath = config.get('DEFAULT', 'rawPath')
+figPath = config.get('DEFAULT', 'figPath')
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/atlas_annotated/'
+initDir = rawPath + 'atlas_annotated/'
+figDir = figPath + 'atlas_annotated/'
 
 #%%
 palette = {

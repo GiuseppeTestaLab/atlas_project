@@ -1,7 +1,12 @@
 import scanpy as sc
 import pandas as pd
 
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
+# Read configuration file
+config = configparser.ConfigParser()
+config.read('../../utils/config.ini')
+rawPath = config.get('DEFAULT', 'rawPath')
+
+initDir = rawPath + 'atlas_annotated/'
 
 adata = sc.read(initDir + 'atlas_embeddings_cell_labelled.h5ad')
 
