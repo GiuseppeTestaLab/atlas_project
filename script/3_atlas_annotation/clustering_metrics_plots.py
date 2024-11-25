@@ -34,6 +34,8 @@ data = [
 ]
 
 # %%
+all_data = []
+# Load all data and find the global y-axis limits
 for i in data:
     df = pd.read_csv(initDir + i)
     df.columns = [
@@ -42,10 +44,17 @@ for i in data:
         "Adjusted Mutual Information",
         "Fowlkes-Mallows Index",
     ]
-    df = df.set_index("Leiden")
+    all_data.append(df.set_index("Leiden"))
+# %%
+# Find the global y-axis limits
+ymin = min([df.min().min() for df in all_data])
+ymax = max([df.max().max() for df in all_data])
+# %%
+# Make plot with the same y-axis limits
+for i, df in enumerate(all_data):
     ax = sns.lineplot(data=df, palette=palette)
     ax.set(xlabel="Leiden Resolution", ylabel="Score")
-    # ax.set_title(f'Clustering Metrics for {i.split("_")[2].capitalize()} Cells')
-    output_filename = os.path.join(figDir, i.replace(".csv", "_plot.pdf"))
+    ax.set_ylim(ymin, ymax)
+    output_filename = os.path.join(figDir, data[i].replace(".csv", "_plot_consistent_axis.pdf"))
     ax.figure.savefig(output_filename)
     ax.figure.clear()
