@@ -28,8 +28,8 @@ adata_combined = primary.concatenate(metastasis, ascites, batch_key='tissue', ba
 #%%
 # Extract and shift UMAP embeddings
 umap1 = primary.obsm['X_umap']
-umap2 = metastasis.obsm['X_umap'] + np.array([20, 0])  
-umap3 = ascites.obsm['X_umap'] + np.array([15, 20])  
+umap2 = metastasis.obsm['X_umap'] + np.array([25, 0])  
+umap3 = ascites.obsm['X_umap'] + np.array([15, 25])  
 
 #%%
 umap_combined = np.vstack([umap1, umap2, umap3])
