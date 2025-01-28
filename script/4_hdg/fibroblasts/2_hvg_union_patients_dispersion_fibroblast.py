@@ -4,8 +4,17 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
+import configparser
 
-dir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/"
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+
+dir = scriptsPath + "4_hdg/Tables/"
 
 # %%
 dispersion_table = pd.read_csv(dir + "dispersion_table_fibroblasts.csv", index_col=0)

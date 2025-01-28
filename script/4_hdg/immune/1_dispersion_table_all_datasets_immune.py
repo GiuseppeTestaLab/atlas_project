@@ -4,16 +4,27 @@ import pandas as pd
 import numpy as np
 import glob
 import sys
-
-sys.path.insert(1, "/home/marta.sallese/ov_cancer_atlas/atlas_project/utils")
 from cell_labeller import assign_scores, actual_labeller, create_immune_adata
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 
 # %%
 # initialize directories
 paths = pd.read_csv(
-    "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/filepaths.csv",
+    scriptsPath+ "4_hdg/filepaths.csv",
     sep=";",
 )
+
+sys.path.insert(1, "/home/marta.sallese/ov_cancer_atlas/atlas_project/utils")
 
 geistlinger = paths.Geistlinger[0]
 loret = paths.Loret[0]
@@ -123,24 +134,24 @@ adata_immune = create_immune_adata(adata)
 
 adata_immune.write(zhang + "zhang2022_adata_immune.h5ad")
 
-
 # %%
-
-tableDir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/"
-dataDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/"
+dataDir = rawPath + "original_anndata/"
 dataName = [
-    "regner2021",
     "geistlinger2020",
-    "qian2020",
-    "ren2022",
     "loret2022",
     "olbrecht2021",
+    "qian2020",
+    "regner2021",
+    "ren2022",
+    "vasquez2022",
     "xu2022",
     "zhang2022",
-    "vasquez2022",
 ]
 
-common_var_names = pd.read_csv(tableDir + "common_varnames_datasets.csv", index_col=0)
+common_var_names = pd.read_csv(
+    scriptsPath + "4_hdg/Tables/common_varnames_datasets.csv",
+    index_col=0,
+)
 
 dispersion_table = pd.DataFrame(index=common_var_names.index)
 hvg_table = pd.DataFrame(index=common_var_names.index)
@@ -168,7 +179,10 @@ for j in dataName:
         dispersion_table[i] = dispersion_gene_xpatient[i]
         hvg_table[i] = highly_variable_genes_per_patient[i]
 
-dispersion_table.to_csv(tableDir + "dispersion_table_immune.csv")
-hvg_table.to_csv(tableDir + "hvg_table_immune.csv")
-
+dispersion_table.to_csv(
+    scriptsPath + "4_hdg/Tables/dispersion_table_cancer.csv"
+)
+hvg_table.to_csv(
+    scriptsPath + "4_hdg/Tables/hvg_table_cancer.csv"
+)
 # %%
