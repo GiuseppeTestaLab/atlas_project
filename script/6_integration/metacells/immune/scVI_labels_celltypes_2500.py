@@ -90,7 +90,7 @@ sc.tl.umap(ad)
 ad.obsm["X_mde"] = mde(ad.obsm["X_scVI"])
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]
 cell_cycle_genes = [x for x in cell_cycle_genes if x in ad.var_names]

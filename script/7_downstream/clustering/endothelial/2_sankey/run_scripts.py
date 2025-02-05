@@ -2,14 +2,20 @@
 #imports
 import subprocess
 import logging
+import configparser
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+scriptsPath = config.get("DEFAULT", "scriptsPath")
 
 # put here the scripts that you want to run
 #%%
 scripts = ["primary_sankey", "ascites_sankey", "metastasis_sankey"]
 
 # to be changed in relative path 
-initialPath = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/clustering/endothelial/2_sankey/"
+initialPath = scriptsPath + "7_downstream/clustering/endothelial/2_sankey/"
 
 # this will run the python files to generate gene ontologies for each tissue
 

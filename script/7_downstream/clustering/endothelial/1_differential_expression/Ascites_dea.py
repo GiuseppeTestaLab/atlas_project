@@ -42,7 +42,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 initDir = rawPath + 'integration/metacells/endothelial/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/'
+outDir = rawPath + 'downstream/clustering/endothelial/'
 
 ## loading data
 #%%

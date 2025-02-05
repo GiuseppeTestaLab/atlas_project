@@ -17,6 +17,7 @@ config.read("../../utils/config.ini")
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
@@ -25,11 +26,12 @@ from metacells_derivation import preprocess, assign_metacells, create_mc_matrix,
 #%%
 initDir = rawPath + 'atlas_annotated/'
 destDir = rawPath + 'metacells/endothelial/'
+scriptsPath = config.get("DEFAULT", "scriptsPath")
 
 ## Load data
 #%%
 adata = sc.read(initDir + "atlas_endothelial_filt_norm_nolog.h5ad")
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 ## Preprocessing
 #%%
@@ -53,7 +55,7 @@ ad.write(destDir + 'seacells_hdg_patients.h5ad')
 
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/metacells/endothelial/"
+sc.settings.figdir = figPath + "metacells/endothelial/"
 
 #%%
 adata = sc.read(destDir + 'seacells_hdg_patients.h5ad')

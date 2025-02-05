@@ -9,10 +9,18 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/'
-figDir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/'
+tissueDir = rawPath + 'downstream/clustering/cancer/'
+figDir = figPath + ''
 
 #%%
 ## Loading data
@@ -77,7 +85,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Primary", width=80
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/cancer_primary_treatment.png')
+fig.write_image(figPath + 'cancer_primary_treatment.png')
 
 #%%
 ## Plotting a sankey for ascites metacells
@@ -132,7 +140,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Ascites", width=80
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/cancer_ascites_treatment.png')
+fig.write_image(figPath + 'cancer_ascites_treatment.png')
 
 #%%
 ## Plotting a sankey for metastasis metacells
@@ -190,4 +198,4 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Metastasis", width
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/cancer_metastasis_treatment.png')
+fig.write_image(figPath + 'cancer_metastasis_treatment.png')

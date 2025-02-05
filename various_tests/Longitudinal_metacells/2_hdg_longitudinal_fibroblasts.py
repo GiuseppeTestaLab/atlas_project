@@ -19,7 +19,7 @@ from cell_labeller import assign_scores, actual_labeller, create_fibroblast_adat
 
 ## Initialize directories
 initDir = '/group/testa/Project/OvarianAtlas/Longitudinal/'
-destDir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/'
+destDir = scriptsPath + '4_hdg/Tables/'
 
 #%%
 adata = sc.read(initDir + 'RnaAdataLongitudinalwithSubtypes_meta_cell_labelled.h5ad')
@@ -39,7 +39,7 @@ adata_fibroblasts.write(initDir + 'longitudinal_adata_fibroblasts.h5ad')
 dataDir = '/group/testa/Project/OvarianAtlas/'
 dataName = ['longitudinal']
 
-# common_var_names = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/common_varnames_datasets.csv', index_col=0)
+# common_var_names = pd.read_csv(scriptsPath + '4_hdg/Tables/common_varnames_datasets.csv', index_col=0)
 
 dispersion_table = pd.DataFrame(index = common_var_names)
 hvg_table = pd.DataFrame(index = common_var_names)
@@ -67,7 +67,7 @@ hvg_table.to_csv(destDir + 'hvg_table_fibroblasts_longitudinal.csv')
 # 2_hvg_union_patients_dispersion_fibroblasts longitudinal
 ## Computing HDG by patient based on dispersion values
 
-dir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/'
+dir = scriptsPath + '4_hdg/Tables/'
 #%%
 dispersion_table = pd.read_csv(dir + 'dispersion_table_fibroblasts_longitudinal.csv', index_col=0)
 
