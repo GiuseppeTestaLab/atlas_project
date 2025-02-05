@@ -181,4 +181,8 @@ adata = adata[adata.obs.n_genes_by_counts < genes_by_counts, :]
 adata = adata[adata.obs.pct_counts_mt < pct_counts_mt, :]
 sc.pp.normalize_total(adata, target_sum=target_sum)
 
+
+if not os.path.exists(final_dir):
+    os.makedirs(final_dir)
+
 adata.write(final_dir + "Xu2022_filt_norm_nolog.h5ad")
