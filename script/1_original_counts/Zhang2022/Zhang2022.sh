@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --time=24:00:00
+#SBATCH --time=00:45:00
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
 #SBATCH --partition=cpuq
 #SBATCH --job-name=zhang
-#SBATCH --mem=200GB
+#SBATCH --mem=86GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 

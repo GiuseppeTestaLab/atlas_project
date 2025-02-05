@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --time=24:00:00
+#SBATCH --time=00:30:00
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
 #SBATCH --partition=cpuq
 #SBATCH --job-name=vasquez
-#SBATCH --mem=300GB
+#SBATCH --mem=64GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 

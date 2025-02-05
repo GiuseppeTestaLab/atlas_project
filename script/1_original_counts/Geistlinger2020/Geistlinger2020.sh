@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
 #SBATCH --partition=cpuq
 #SBATCH --job-name=geistlinger
 #SBATCH --mem=16GB
