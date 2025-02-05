@@ -1,2 +1,2 @@
 ﻿min_genes;min_cells;genes_by_counts;pct_counts_mt;target_sum;init_dir;out_dir;final_dir
-200;3;6000;20;1e4;original_counts/;original_counts/Olbrecht2021/Adata/;original_anndata/Olbrecht2021/
+200;3;6000;20;1e4;original_counts/Olbrecht2021/;original_counts/Olbrecht2021/Adata/;original_anndata/Olbrecht2021/
