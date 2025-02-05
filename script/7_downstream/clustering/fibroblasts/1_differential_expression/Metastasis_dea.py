@@ -14,7 +14,17 @@ from matplotlib import colors
 from matplotlib import rcParams
 from gprofiler import GProfiler
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from plotting_bubble import scale_data_5_75, plot_enrich 
 from ontologies import annotate_ontolgies
 
@@ -23,8 +33,8 @@ sc.logging.print_versions()
 
 ## inizializing directories
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/fibroblasts/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
+initDir = rawPath + 'integration/metacells/fibroblasts/'
+outDir = rawPath + 'downstream/clustering/fibroblasts/'
 
 ## loading data
 #%%

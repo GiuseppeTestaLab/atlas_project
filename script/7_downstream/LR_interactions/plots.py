@@ -11,7 +11,15 @@ import plotnine as p9
 import numpy as np
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_endothelial/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'downstream/LR_interactions/cancer_endothelial/'
 figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_endothelial/'
 
 ## Primary

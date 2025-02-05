@@ -12,7 +12,15 @@ from typing import Optional, Union
 
 ## Initialize folders
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/endothelial/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'metacells/endothelial/'
 outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/endothelial/'
 ooseDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/out_of_sample_extension/endothelial/'
 genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'

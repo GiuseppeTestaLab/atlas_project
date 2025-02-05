@@ -6,7 +6,15 @@ import pandas as pd
 import scvi
 from scib_metrics.benchmark import Benchmarker
 
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/cells/cancer/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'integration/cells/cancer/'
 
 adata_list={'cells_hdg_patients_batch_corr_scgen_tissuetreat_embeddings.h5ad':'scGen_HVG',
             'scvi_batch_corr_tissue-treatment_2500.h5ad':'scVI_HVG',

@@ -7,7 +7,15 @@ import numpy as np
 
 ## Initialize directories
 
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'atlas_annotated/'
 fibroDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/cluster_assignments/'
 endoDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/cluster_assignments/'
 cancerDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/cluster_assignments/'

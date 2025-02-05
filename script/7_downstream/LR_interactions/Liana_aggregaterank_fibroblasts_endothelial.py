@@ -9,7 +9,15 @@ import pandas as pd
 import plotnine as p9
 
 ## Inizialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'atlas_annotated/'
 outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/fibroblasts_endothelial/'
 sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/fibroblasts_endothelial/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')

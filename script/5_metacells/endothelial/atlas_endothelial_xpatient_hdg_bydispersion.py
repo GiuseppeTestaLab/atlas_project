@@ -8,13 +8,23 @@ import scanpy as sc
 import SEACells
 #%%
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-destDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/endothelial/'
+initDir = rawPath + 'atlas_annotated/'
+destDir = rawPath + 'metacells/endothelial/'
 
 ## Load data
 #%%

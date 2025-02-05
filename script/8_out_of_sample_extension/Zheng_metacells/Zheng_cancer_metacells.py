@@ -6,7 +6,17 @@ import numpy as np
 import pandas as pd
 import scanpy as sc
 import SEACells
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 ## Initialize directories

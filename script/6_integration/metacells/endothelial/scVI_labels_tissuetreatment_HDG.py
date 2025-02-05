@@ -8,12 +8,22 @@ from rich import print
 from scvi.model.utils import mde
 import pandas as pd
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from integration import preprocess_scVI_genes
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/endothelial/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/endothelial/'
+initDir = rawPath + 'metacells/endothelial/'
+outDir = rawPath + 'integration/metacells/endothelial/'
 genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
