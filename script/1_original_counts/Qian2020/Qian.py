@@ -15,7 +15,7 @@ import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
-config.read("../../../utils/config.ini")
+config.read("../../utils/config.ini")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 
@@ -24,8 +24,8 @@ parameters = pd.read_csv(
     scriptsPath + "1_original_counts/Qian2020/preprocess_params.tsv", sep=";"
 )
 
-init_dir = rawPath + parameters.init_dir[0]
-out_dir = rawPath + parameters.out_dir[0]
+init_dir = os.path.join(rawPath, parameters.init_dir[0])
+out_dir = os.path.join(rawPath, parameters.out_dir[0])
 min_genes = int(parameters.min_genes[0])
 min_cells = int(parameters.min_cells[0])
 genes_by_counts = int(parameters.genes_by_counts[0])
@@ -172,7 +172,7 @@ adata.write_h5ad(out_dir + "qian2020_rawcounts.h5ad")
 
 # Preprocessing
 
-final_dir = parameters.final_dir[0]
+final_dir = os.path.join(rawPath, parameters.final_dir[0])
 
 sc.pp.filter_cells(adata, min_genes=min_genes)
 sc.pp.filter_genes(adata, min_cells=min_cells)
