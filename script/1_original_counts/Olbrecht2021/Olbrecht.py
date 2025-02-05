@@ -39,13 +39,13 @@ target_sum = float(parameters.target_sum[0])
 # Counts file: standard 10X files (matrix + features + barcodes)
 
 filename_data = os.path.join(
-    rawPath + "Olbrecht2021/10xCounts", "matrix.mtx"
+    rawPath, "Olbrecht2021/10xCounts", "matrix.mtx"
 )
 filename_genes = os.path.join(
-    rawPath + "Olbrecht2021/10xCounts", "genes.tsv"
+    rawPath, "Olbrecht2021/10xCounts", "genes.tsv"
 )
 filename_barcodes = os.path.join(
-    rawPath + " "barcodes.tsv"
+    rawPath, "barcodes.tsv"
 )
 adata = sc.read(filename_data, cache=True).transpose()
 adata.var_names = np.genfromtxt(filename_genes, dtype=str)[:, 1]
