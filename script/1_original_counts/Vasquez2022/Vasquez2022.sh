@@ -29,5 +29,5 @@ image=${SINGULARITY_image}
 
 module load singularity
 
-singularity run -B $bindPaths -H $homePath $image \
-"/bin/python3 ${datasetPath}/${datasetPy}.py"
+singularity run --nv -B $bindPaths -H $homePath $image \
+                 "source ~/.bashrc && mamba activate ovarian && python3 ${datasetPath}/${datasetPy}.py
