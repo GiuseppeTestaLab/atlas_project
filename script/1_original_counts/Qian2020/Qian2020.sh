@@ -6,7 +6,7 @@
 #SBATCH --job-name=qian
 #SBATCH --mem=100GB
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x_%j.log 
+#SBATCH --output=logs/%x_%j.log
 
 # Check if dataset name is provided
 if [ -z "$1" ]; then
