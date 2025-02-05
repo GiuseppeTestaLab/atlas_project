@@ -13,10 +13,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 # initialize directory
-dir = rawPath + "original_anndata/"
-
-# initialize directory
-dir = rawPath + "Loret2022/"
+dir = rawPath + "original_anndata/Loret2022/"
 
 # Read adata
 adata = sc.read(dir + "Loret2022_filt_norm_nolog.h5ad")

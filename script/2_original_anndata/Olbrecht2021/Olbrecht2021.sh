@@ -4,7 +4,7 @@
 #SBATCH --ntasks=4
 #SBATCH --partition=cpuq
 #SBATCH --job-name=olbrecht
-#SBATCH --mem=200GB
+#SBATCH --mem=16GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 
