@@ -73,7 +73,7 @@ for lei in leidenTotal:
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/metastasis/"
+directory_root = rawPath + "downstream/clustering/cancer/metastasis/"
 log_file = directory_root + 'metastasis.log'
 adata = adata_mt
 adata_mt = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)

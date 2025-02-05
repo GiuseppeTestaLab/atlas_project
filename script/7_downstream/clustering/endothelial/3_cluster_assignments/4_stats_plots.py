@@ -14,11 +14,12 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 #%%
 ## Initialize directories
 tissueDir = rawPath + 'downstream/clustering/endothelial/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/endothelial/'
+figDir = figPath + 'cluster_assignments/endothelial/'
 
 ## Plotting parameters
 # plt.rcParams['font.family'] = 'sans-serif'

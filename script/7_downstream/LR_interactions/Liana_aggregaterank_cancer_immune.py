@@ -16,10 +16,11 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'atlas_annotated/'
 outDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_immune/'
+figDir = figPath + 'LR_interactions/cancer_immune/'
 
 
 #%%

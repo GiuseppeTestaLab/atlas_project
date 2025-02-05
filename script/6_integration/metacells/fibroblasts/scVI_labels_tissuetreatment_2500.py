@@ -16,6 +16,7 @@ config.read("../../utils/config.ini")
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
 CCGenes = config.get("DEFAULT", "CCGenes")
 
 sys.path.insert(1, utilsPath)
@@ -26,7 +27,7 @@ initDir = rawPath + 'metacells/fibroblasts/'
 outDir = rawPath + 'integration/metacells/fibroblasts/'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/group/testa/Project/OvarianAtlas/atlas_project/plots_def/integration/metacells/fibroblasts/"
+sc.settings.figdir = figPath + "integration/metacells/fibroblasts/"
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")

@@ -70,7 +70,7 @@ scgen.SCGEN.setup_anndata(ad, batch_key="paper_ID", labels_key="tissue-treatment
 
 #%%
 model = scgen.SCGEN(ad)
-model.save("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/immune_batch_removal_tissue-treatment.pt", overwrite=True)
+model.save(rawPath + "integration/metacells/saved_models/immune_batch_removal_tissue-treatment.pt", overwrite=True)
 
 #%%
 model.train(

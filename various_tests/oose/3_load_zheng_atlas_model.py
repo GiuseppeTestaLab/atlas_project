@@ -35,7 +35,7 @@ sc.pp.neighbors(adata, use_rep='X_pca')
 sc.tl.umap(adata)
 
 #%%
-model = scgen.SCGEN.load("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", adata=adata)
+model = scgen.SCGEN.load(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", adata=adata)
 # ValueError: Number of vars in adata_target not the same as source. Expected: 5191 Received: 5192
 
 #%%
@@ -93,7 +93,7 @@ sc.tl.umap(ad)
 # new_adata.var.drop(columns=['highly_variable-0'], inplace=True)
 
 #%%
-# model = scgen.SCGEN.load("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", adata=adata_full)
+# model = scgen.SCGEN.load(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", adata=adata_full)
 
 # ### TypeError: '<' not supported between instances of 'float' and 'str'
 

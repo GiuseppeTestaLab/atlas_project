@@ -16,10 +16,11 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'atlas_annotated/'
 outDir = rawPath + 'downstream/LR_interactions/cancer_fibroblasts/'
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_fibroblasts/'
+sc.settings.figdir = figPath + 'LR_interactions/cancer_fibroblasts/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
 #%%

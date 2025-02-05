@@ -16,6 +16,7 @@ config.read("../../utils/config.ini")
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
 from integration import preprocess_scVI
@@ -25,7 +26,7 @@ initDir = rawPath + 'metacells/immune/'
 outDir = rawPath + 'integration/metacells/immune/'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/group/testa/Project/OvarianAtlas/atlas_project/plots_def/integration/metacells/immune/"
+sc.settings.figdir = figPath + "integration/metacells/immune/"
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")

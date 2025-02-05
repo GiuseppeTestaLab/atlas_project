@@ -14,13 +14,14 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'atlas_annotated/'
 fibroDir = rawPath + 'downstream/clustering/fibroblasts/cluster_assignments/'
 endoDir = rawPath + 'downstream/clustering/endothelial/cluster_assignments/'
 cancerDir = rawPath + 'downstream/clustering/cancer/cluster_assignments/'
 
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/atlas_annotated/'
+sc.settings.figdir = figPath + 'atlas_annotated/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
 ## Load the data

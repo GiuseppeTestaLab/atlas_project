@@ -32,23 +32,6 @@ pct_counts_mt = float(parameters.pct_counts_mt[0])
 target_sum = float(parameters.target_sum[0])
 
 
-files = glob.glob(os.path.join(init_dir, "Olbrecht2021/10xCounts"))
-samplenames = [
-    "SOL1303",
-    "SOL1304",
-    "SOL1305",
-    "SOL1306",
-    "SOL1307",
-    "SOL003",
-    "SOL004",
-    "SOL006",
-    "SOL007",
-    "SOL008",
-    "SOL012",
-    "SOL016",
-]
-filesdict = dict(zip(samplenames, files))
-
 # create anndata
 
 # Paper: Olbrecht S et al. High-grade serous tubo-ovarian cancer refined with single-cell RNA sequencing: specific cell subtypes influence survival and determine molecular subtype classification. Genome Medicine 2021 Jul 9. PMID: 34238352
@@ -56,13 +39,13 @@ filesdict = dict(zip(samplenames, files))
 # Counts file: standard 10X files (matrix + features + barcodes)
 
 filename_data = os.path.join(
-    "/group/testa/Project/OvarianAtlas/Olbrecht2021/10xCounts", "matrix.mtx"
+    rawPath + "Olbrecht2021/10xCounts", "matrix.mtx"
 )
 filename_genes = os.path.join(
-    "/group/testa/Project/OvarianAtlas/Olbrecht2021/10xCounts", "genes.tsv"
+    rawPath + "Olbrecht2021/10xCounts", "genes.tsv"
 )
 filename_barcodes = os.path.join(
-    "/group/testa/Project/OvarianAtlas/Olbrecht2021/10xCounts", "barcodes.tsv"
+    rawPath + " "barcodes.tsv"
 )
 adata = sc.read(filename_data, cache=True).transpose()
 adata.var_names = np.genfromtxt(filename_genes, dtype=str)[:, 1]

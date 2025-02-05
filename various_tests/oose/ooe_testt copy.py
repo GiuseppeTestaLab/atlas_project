@@ -117,10 +117,10 @@ model = scgen.SCGEN(ad)
 model.register_manager(model.adata_manager.transfer_fields(adata_target=adata_new, extend_categories=True))
 # model._register_manager_for_instance(model.adata_manager.transfer_fields(adata_target=adata_new, extend_categories=True))
 #%%
-model.save("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", overwrite=True)
+model.save(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", overwrite=True)
 
 #%%
-model = scgen.SCGEN.load("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", adata=adata_new)
+model = scgen.SCGEN.load(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", adata=adata_new)
 
 #%%
 model.train(

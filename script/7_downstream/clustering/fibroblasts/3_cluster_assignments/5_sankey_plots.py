@@ -20,7 +20,7 @@ figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
 tissueDir = rawPath + 'downstream/clustering/fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
+figDir = figPath + 'cluster_assignments/fibroblasts/'
 
 #%%
 ## Loading data

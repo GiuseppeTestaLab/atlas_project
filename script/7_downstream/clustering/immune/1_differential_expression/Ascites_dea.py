@@ -162,7 +162,7 @@ for i in np.arange(0.01, 2.0, 0.1):
 
 # ## Assigning gene ontologies to clusters
 # #%%
-# directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/ascites/"
+# directory_root = rawPath + "downstream/clustering/immune/ascites/"
 # log_file = directory_root + 'ascites.log'
 # adata = adata_as
 # adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)

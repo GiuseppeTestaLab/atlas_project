@@ -11,11 +11,12 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 #%%
 ## Initialize directories
 tissueDir = rawPath + 'downstream/clustering/fibroblasts/'
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
+sc.settings.figdir = figPath + '
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
 #%%
