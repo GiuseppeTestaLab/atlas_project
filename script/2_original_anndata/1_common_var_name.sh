@@ -1,31 +1,29 @@
 #!/bin/bash
-#SBATCH --time=24:00:00
+#SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --partition=cpuq
 #SBATCH --job-name=varnames
-#SBATCH --mem=300GB
+#SBATCH --mem=64GB
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x_%j.log 
+#SBATCH --output=logs/%x_%j.log
 
 module load singularity
 
-# Check if dataset name is provided
-if [ -z "$1" ]; then
-  echo "No dataset name provided"
-  exit 1
-fi
-
-dataset=$1
-
-source config.ini
+# Load configuration file
+source ../../utils/bash_ini_parser/read_ini.sh
+read_ini ../../utils/config.ini
 
 # Set environment variables from the configuration file
-initialPath=${DEFAULT_initialPath}
-scriptsPath=${initialPath}/${scriptsPath}
-bindPaths=$(echo ${SINGULARITY_bindPaths} | tr ',' ' ')
-homePath=${SINGULARITY_homePath}
-image=${SINGULARITY_image}
+scriptsPath=${INI__DEFAULT__scriptsPath}
+bindPaths=${INI__SINGULARITY__bindPaths}
+bindPaths=$(eval echo $bindPaths)
+homePath=${INI__SINGULARITY__homePath}
+image=${INI__SINGULARITY__image}
 
-singularity run -B $bindPaths -H $homePath $image \
-"/bin/python3 ${scriptsPath}2_original_anndata/1_common_var_name.py"
+echo script=${scriptsPath} dataset=${datasetPath} bind=${bindPaths} home=${homePath} image=${image}
+
+module load singularity
+
+singularity exec -B $bindPaths -H $homePath $image \
+                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}2_original_anndata/1_common_var_name.py"
