@@ -7,9 +7,16 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
+tissueDir = rawPath + '
 figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
 
 #%%

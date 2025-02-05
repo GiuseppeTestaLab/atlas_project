@@ -18,7 +18,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 initDir = rawPath + 'atlas_annotated/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_immune/'
+outDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
 figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_immune/'
 
 

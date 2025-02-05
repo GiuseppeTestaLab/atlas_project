@@ -4,14 +4,20 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
+import configparser
 
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
 #%%
 ## Initialize directories
-cancerDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/'
-fibroDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-endoDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/'
-immuneDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/'
-finalDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/'
+cancerDir = rawPath + 'downstream/clustering/cancer/'
+fibroDir = rawPath + 'downstream/clustering/fibroblasts/'
+endoDir = rawPath + 'downstream/clustering/endothelial/'
+immuneDir = rawPath + 'downstream/clustering/immune/'
+finalDir = rawPath + 'downstream/clustering/'
 sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 

@@ -14,6 +14,7 @@ config.read("../../utils/config.ini")
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
 from integration import preprocess_scgen_genes
@@ -21,7 +22,7 @@ from integration import preprocess_scgen_genes
 #%%
 initDir = rawPath + 'metacells/immune/'
 outDir = rawPath + 'integration/cells/immune/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 #%%
 ad = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')
 ad.obs['tissue-treatment'] = ad.obs['tissue'].astype('str') + '_' + ad.obs['treatment'].astype('str')
@@ -93,13 +94,13 @@ corrected_adata.write_h5ad(outDir + 'scgen_batch_corr_celltypes_HDG.h5ad')
 
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/cells/immune/"
+sc.settings.figdir = figPath + "integration/cells/immune/"
 
 #%%
 adata = sc.read(outDir + 'scgen_batch_corr_celltypes_HDG.h5ad')
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

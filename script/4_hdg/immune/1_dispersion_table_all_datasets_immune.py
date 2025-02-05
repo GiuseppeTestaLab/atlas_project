@@ -24,8 +24,6 @@ paths = pd.read_csv(
     sep=";",
 )
 
-sys.path.insert(1, "/home/marta.sallese/ov_cancer_atlas/atlas_project/utils")
-
 geistlinger = paths.Geistlinger[0]
 loret = paths.Loret[0]
 olbrecht = paths.Olbrecht[0]

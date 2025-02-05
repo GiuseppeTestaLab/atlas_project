@@ -14,10 +14,11 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'metacells/immune/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/immune/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
+outDir = rawPath + 'integration/metacells/immune/'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")
@@ -89,13 +90,13 @@ corrected_adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_cell
 ## Processing of integrated metacells in the same HDG space used to generate metacells
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/immune/"
+sc.settings.figdir = figPath + "integration/metacells/immune/"
 
 #%%
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_celltypes_HDG.h5ad')
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

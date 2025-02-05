@@ -4,9 +4,16 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
 
 ## Initialize directories
-clustersDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/cluster_assignments/'
+clustersDir = rawPath + 'downstream/clustering/endothelial/cluster_assignments/'
 
 ## Load the data
 clusters = sc.read(clustersDir + 'atlas_endothelial_clusters_from_seacells.h5ad')

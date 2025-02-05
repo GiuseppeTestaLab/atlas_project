@@ -7,10 +7,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
 
 #%%
 ## Initialize directories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/'
+tissueDir = rawPath + 'downstream/clustering/cancer/'
 figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/cancer/'
 
 ## Plotting parameters

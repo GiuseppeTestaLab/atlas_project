@@ -19,9 +19,10 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
-figDir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/'
+figDir = figPath + ''
 
 #%%
 ## Load the data

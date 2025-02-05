@@ -16,6 +16,7 @@ config.read("../../utils/config.ini")
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
@@ -24,7 +25,7 @@ from metacells_derivation import preprocess, assign_metacells, create_mc_matrix,
 initDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Adata/'
 destDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/metacells/fibroblasts/"
+sc.settings.figdir = figPath + "metacells/fibroblasts/"
 
 ## Load data
 #%%

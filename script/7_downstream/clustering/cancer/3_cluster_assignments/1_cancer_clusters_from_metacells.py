@@ -18,10 +18,10 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 initDir = rawPath + 'atlas_annotated/'
-metacellsDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/figures/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/cluster_assignments/'
+metacellsDir = rawPath + 'metacells/cancer/'
+tissueDir = rawPath + 'downstream/clustering/cancer/'
+figDir = rawPath + 'downstream/clustering/cancer/figures/'
+outDir = rawPath + 'downstream/clustering/cancer/cluster_assignments/'
 
 ## Load the data
 cells = sc.read(initDir + 'atlas_cancer_filt_norm_nolog.h5ad')

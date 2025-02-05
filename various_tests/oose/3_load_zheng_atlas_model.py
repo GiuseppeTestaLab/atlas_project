@@ -7,13 +7,21 @@ import scgen
 import numpy as np
 import pandas as pd
 import anndata
+import configparser
 
-oldDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+oldDir = rawPath + 'metacells/cancer/'
 
 #%%
 ## load data
 adata = sc.read_h5ad('/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/cancer_seacells_hdg_patients.h5ad')
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 adata.obs['tissue-treatment'] = adata.obs['tissue'].astype('str') + '_' + adata.obs['treatment'].astype('str')
 
 sc.pp.log1p(adata)
@@ -33,7 +41,7 @@ model = scgen.SCGEN.load("/group/testa/Project/OvarianAtlas/atlas_project/raw_da
 #%%
 ## I need to add the missing gene to the adata_target
 ## Identify the missing gene from genes and add it to adata_target
-genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
+genes = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
 missing_gene = genes[~genes.index.isin(adata.var_names)].index
 missing_gene
 

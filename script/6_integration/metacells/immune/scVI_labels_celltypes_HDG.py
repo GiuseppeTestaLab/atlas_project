@@ -24,7 +24,7 @@ from integration import preprocess_scVI_genes
 #%%
 initDir = rawPath + 'metacells/immune/'
 outDir = rawPath + 'integration/metacells/immune/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 sc.settings.figdir = "/group/testa/Project/OvarianAtlas/atlas_project/plots_def/integration/metacells/immune/"
@@ -90,7 +90,7 @@ sc.tl.umap(adata)
 adata.obsm["X_mde"] = mde(adata.obsm["X_scVI"])
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]
 cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]
