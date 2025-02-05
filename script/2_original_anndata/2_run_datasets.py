@@ -1,10 +1,7 @@
 # %%
 # imports
 import subprocess
-import logging
 import configparser
-import scanpy as sc
-import pandas as pd
 
 # Read configuration file
 config = configparser.ConfigParser()
@@ -24,3 +21,5 @@ for dataset in datasets:
     sbatch = f"sbatch {path}/{dataset}.sh {dataset} {dataset[0:-4]}"
     print(sbatch)
     subprocess.check_output(sbatch, shell=True)
+
+# %%
