@@ -6,7 +6,7 @@
 #SBATCH --job-name=zhang
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x_%j.log 
+#SBATCH --output=logs/%x_%j.log
 
 # Check if dataset name is provided
 if [ -z "$1" ]; then
@@ -18,16 +18,22 @@ dataset=$1
 datasetPy=$2
 
 # Load configuration file
-source config.ini
+# Load configuration file
+source ../../utils/bash_ini_parser/read_ini.sh
+read_ini ../../utils/config.ini
 
 # Set environment variables from the configuration file
-scriptsPath=${DEFAULT_scriptsPath}
-datasetPath=${scriptsPath}/1_original_counts/${dataset}
-bindPaths=$(echo ${SINGULARITY_bindPaths} | tr ',' ' ')
-homePath=${SINGULARITY_homePath}
-image=${SINGULARITY_image}
+scriptsPath=${INI__DEFAULT__scriptsPath}
+datasetPath=${INI__DEFAULT__scriptsPath}1_original_counts/${dataset}
+bindPaths=${INI__SINGULARITY__bindPaths}
+bindPaths=$(eval echo $bindPaths)
+homePath=${INI__SINGULARITY__homePath}
+image=${INI__SINGULARITY__image}
+
+echo script=${scriptsPath} dataset=${datasetPath} bind=${bindPaths} home=${homePath} image=${image}
 
 module load singularity
 
-singularity run -B $bindPaths -H $homePath $image \
-"/bin/python3 ${datasetPath}/${datasetPy}.py"
+singularity exec -B $bindPaths -H $homePath $image \
+                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${datasetPath}/${datasetPy}.py"
+

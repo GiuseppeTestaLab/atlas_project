@@ -6,7 +6,7 @@
 #SBATCH --job-name=vasquez
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x_%j.log 
+#SBATCH --output=logs/%x_%j.log
 
 # Check if dataset name is provided
 if [ -z "$1" ]; then
@@ -29,5 +29,5 @@ image=${SINGULARITY_image}
 
 module load singularity
 
-singularity run -B $bindPaths -H $homePath $image \
-"/bin/python3 ${datasetPath}/${datasetPy}.py"
+singularity run --nv -B $bindPaths -H $homePath $image \
+                 "source ~/.bashrc && mamba activate ovarian && python3 ${datasetPath}/${datasetPy}.py
