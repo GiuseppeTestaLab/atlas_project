@@ -22,8 +22,8 @@ sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Adata/'
-destDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/'
+initDir = rawPath + 'Zheng2023/Adata/'
+destDir = rawPath + 'Zheng2023/Metacells/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 sc.settings.figdir = figPath + "metacells/endothelial/"
 
