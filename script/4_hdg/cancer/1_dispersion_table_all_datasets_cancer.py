@@ -3,7 +3,7 @@ import scanpy as sc
 import pandas as pd
 import sys
 import configparser
-
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -22,15 +22,15 @@ paths = pd.read_csv(
     sep=";",
 )
 
-geistlinger = paths.Geistlinger[0]
-loret = paths.Loret[0]
-olbrecht = paths.Olbrecht[0]
-qian = paths.Qian[0]
-regner = paths.Regner[0]
-ren = paths.Ren[0]
-vasquez = paths.Vasquez[0]
-xu = paths.Xu[0]
-zhang = paths.Zhang[0]
+geistlinger = os.path.join(rawPath, paths.Geistlinger[0])
+loret = os.path.join(rawPath, paths.Loret[0])
+olbrecht = os.path.join(rawPath, paths.Olbrecht[0])
+qian = os.path.join(rawPath, paths.Qian[0])
+regner = os.path.join(rawPath, paths.Regner[0])
+ren = os.path.join(rawPath, paths.Ren[0])
+vasquez = os.path.join(rawPath, paths.Vasquez[0])
+xu = os.path.join(rawPath, paths.Xu[0])
+zhang = os.path.join(rawPath, paths.Zhang[0])
 
 # %%
 ## Geistlinger
