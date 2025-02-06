@@ -1,9 +1,7 @@
 # Computing HDG by patient based on dispersion values
 
 # %%
-import scanpy as sc
 import pandas as pd
-import numpy as np
 import configparser
 
 # Read configuration file

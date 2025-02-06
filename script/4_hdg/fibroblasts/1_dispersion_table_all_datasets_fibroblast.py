@@ -1,8 +1,6 @@
 # %%
 import scanpy as sc
 import pandas as pd
-import numpy as np
-import glob
 import sys
 import configparser
 
@@ -15,6 +13,7 @@ rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 
 sys.path.insert(1, utilsPath)
+from cell_labeller import assign_scores, actual_labeller, create_fibroblast_adata # type: ignore
 
 # %%
 # initialize directories
