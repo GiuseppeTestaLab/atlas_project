@@ -30,7 +30,7 @@ sc.settings.figdir = figPath + "metacells/fibroblasts/"
 ## Load data
 #%%
 adata= sc.read("/group/testa/Project/OvarianAtlas/Zheng2023/Adata/zheng_fibroblast_filt_norm_nolog.h5ad")
-genes = '/home/marta.sallese/ov_cancer_atlas/Atlas_scripts/HDG_new/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv'
+genes = scriptsPath + 'HDG/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv'
 
 ## Preprocessing
 #%%
@@ -39,7 +39,7 @@ raw_ad = sc.AnnData(adata.X)
 raw_ad.obs_names, raw_ad.var_names = adata.obs_names, adata.var_names
 adata.raw = raw_ad
 sc.pp.log1p(adata)
-hdg = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/Atlas_scripts/HDG_new/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv',  index_col=0)
+hdg = pd.read_csv(scriptsPath + 'HDG/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv',  index_col=0)
 hdg[hdg.highly_variable]
 adata.var['highly_variable']=hdg.highly_variable
 adata.var.highly_variable = adata.var.highly_variable.fillna(False)
