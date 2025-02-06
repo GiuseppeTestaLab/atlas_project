@@ -18,6 +18,7 @@ scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
+
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 ## Initialize directories
