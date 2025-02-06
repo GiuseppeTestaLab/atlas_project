@@ -2,11 +2,8 @@
 
 ## Import libraries
 #%%
-import numpy as np
-import pandas as pd
+
 import scanpy as sc
-import SEACells
-#%%
 import sys
 import configparser
 
@@ -20,7 +17,7 @@ scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
 
 sys.path.insert(1, utilsPath)
-from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
+from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc # type: ignore
 
 
 #%%
