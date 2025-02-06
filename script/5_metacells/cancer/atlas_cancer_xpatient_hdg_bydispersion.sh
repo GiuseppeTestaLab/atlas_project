@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
-#SBATCH --job-name=metacells
+#SBATCH --job-name=cancer
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
@@ -21,4 +21,4 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}4_hdg/cancer/2_hvg_union_patients_dispersion_immune.py"
+                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}5_metacells/cancer/atlas_cancer_xpatient_hdg_bydispersion.py"
