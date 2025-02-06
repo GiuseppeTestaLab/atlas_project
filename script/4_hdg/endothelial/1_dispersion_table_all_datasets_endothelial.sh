@@ -11,7 +11,8 @@
 module load singularity
 
 # Load configuration file
-source config.ini
+source ../../utils/bash_ini_parser/read_ini.sh
+read_ini ../../utils/config.ini
 
 # Set environment variables from the configuration file
 scriptsPath=${INI__DEFAULT__scriptsPath}
