@@ -149,6 +149,10 @@ adata.obs.index = adata.obs_names
    
 #%%
 #Write raw adata with metadata
+
+if not os.path.exists(out_dir):
+    os.makedirs(out_dir)
+
 adata.write_h5ad(out_dir + "zheng2023_wholedataset_rawcounts.h5ad")
 
 #%%
@@ -216,9 +220,6 @@ sc.tl.pca(adata, svd_solver='arpack', use_highly_variable=True)
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
 sc.tl.umap(adata)
 
-if not os.path.exists(final_dir):
-    os.makedirs(final_dir)
-
-adata.write(final_dir + "zheng2023_embeddings.h5ad")
+adata.write(out_dir + "zheng2023_embeddings.h5ad")
 
 # %%
