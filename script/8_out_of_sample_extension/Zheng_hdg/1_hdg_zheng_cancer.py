@@ -20,7 +20,7 @@ sys.path.insert(1, utilsPath)
 from cell_labeller import assign_scores, actual_labeller, create_cancer_adata
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Adata/'
+initDir = rawPath + 'Zheng2023/Adata/'
 
 #%%
 ## Zheng

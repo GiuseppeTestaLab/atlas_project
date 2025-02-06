@@ -1,0 +1,2 @@
+﻿min_genes;min_cells;genes_by_counts;pct_counts_mt;target_sum;init_dir;out_dir;final_dir
+200;3;7000;8;1e4;original_counts/Zheng2023/;original_counts/Zheng2023/Adata/;original_anndata/Zheng2023/
