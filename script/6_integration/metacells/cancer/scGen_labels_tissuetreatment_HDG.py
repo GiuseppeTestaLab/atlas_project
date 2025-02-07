@@ -19,6 +19,7 @@ initDir = rawPath + 'metacells/cancer/'
 outDir = rawPath + 'integration/metacells/cancer/'
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
 
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 

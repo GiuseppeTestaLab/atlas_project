@@ -15,6 +15,7 @@ config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
 figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
 
 initDir = rawPath + 'metacells/immune/'
 outDir = rawPath + 'integration/metacells/immune/'

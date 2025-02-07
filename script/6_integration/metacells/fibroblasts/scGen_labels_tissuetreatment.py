@@ -73,7 +73,7 @@ adata.var['highly_variable']=hvg.highly_variable
 adata.var.highly_variable = adata.var.highly_variable.fillna(False)
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('figPath + 'regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

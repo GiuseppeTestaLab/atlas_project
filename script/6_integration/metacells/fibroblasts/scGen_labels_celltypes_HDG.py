@@ -14,6 +14,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
 #%%
 initDir = rawPath + 'metacells/fibroblasts/'
 outDir = rawPath + 'integration/metacells/fibroblasts/'
