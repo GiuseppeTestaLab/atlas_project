@@ -145,7 +145,7 @@ dataName = [
 ]
 
 common_var_names = pd.read_csv(
-    scriptsPath + "4_hdg/Tables/common_varnames_datasets.csv",
+    rawPath + "original_anndata/common_varnames_datasets.csv",
     index_col=0,
 )
 dispersion_table = pd.DataFrame(index=common_var_names.index)
@@ -171,6 +171,11 @@ for j in dataName:
         print(dispersion_gene_xpatient[i])
         dispersion_table[i] = dispersion_gene_xpatient[i]
         hvg_table[i] = highly_variable_genes_per_patient[i]
+
+
+if not os.path.exists(scriptsPath + "4_hdg/Tables/"):
+    os.makedirs(scriptsPath + "4_hdg/Tables/")
+    
 dispersion_table.to_csv(
     scriptsPath + "4_hdg/Tables/dispersion_table_endothelial.csv"
 )
