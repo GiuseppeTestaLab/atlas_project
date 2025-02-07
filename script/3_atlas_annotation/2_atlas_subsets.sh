@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --time=24:00:00
+#SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --partition=cpuq
 #SBATCH --job-name=atlas_sub
-#SBATCH --mem=400GB
+#SBATCH --mem=128GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 
@@ -19,7 +19,7 @@ bindPaths=$(eval echo $bindPaths)
 homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
-echo script=${scriptsPath} dataset=${datasetPath} bind=${bindPaths} home=${homePath} image=${image}
+echo script=${scriptsPath} bind=${bindPaths} home=${homePath} image=${image}
 
 module load singularity
 
