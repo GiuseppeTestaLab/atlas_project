@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --time=144:00:00
+#SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
-#SBATCH --partition=cpuq
+#SBATCH --partition=gpuq
 #SBATCH --job-name=immune
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
@@ -20,5 +20,5 @@ bindPaths=$(eval echo $bindPaths)
 homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
-singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}5_metacells/immune/atlas_immune_xpatient_hdg_bydispersion.py"
+singularity exec --nv -B $bindPaths -H $homePath $image \
+                 /bin/bash -c "source ~/.bashrc && mamba activate seacells && python3 ${scriptsPath}5_metacells/immune/atlas_immune_xpatient_hdg_bydispersion.py"
