@@ -18,7 +18,7 @@ from cell_labeller import assign_scores, actual_labeller, create_fibroblast_adat
 # %%
 # initialize directories
 paths = pd.read_csv(
-    scriptsPath+ "4_hdg/filepaths.csv",
+    scriptsPath+ "4_hdg/filepaths.tsv",
     sep=";",
 )
 geistlinger = os.path.join(rawPath, paths.Geistlinger[0])
@@ -178,7 +178,7 @@ for j in dataName:
 
 if not os.path.exists(scriptsPath + "4_hdg/Tables/"):
     os.makedirs(scriptsPath + "4_hdg/Tables/")
-    
+
 dispersion_table.to_csv(
     scriptsPath + "4_hdg/Tables/dispersion_table_fibroblasts.csv"
 )

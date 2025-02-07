@@ -18,7 +18,7 @@ from cell_labeller import assign_scores, actual_labeller, create_immune_adata # 
 # %%
 # initialize directories
 paths = pd.read_csv(
-    scriptsPath+ "4_hdg/filepaths.csv",
+    scriptsPath+ "4_hdg/filepaths.tsv",
     sep=";",
 )
 
