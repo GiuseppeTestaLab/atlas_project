@@ -5,7 +5,7 @@
 import scanpy as sc
 import sys
 import configparser
-
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -21,6 +21,8 @@ from metacells_derivation import preprocess, assign_metacells, create_mc_matrix,
 #%%
 initDir = rawPath + 'atlas_annotated/'
 destDir = rawPath + 'metacells/immune/'
+if not os.path.exists(destDir):
+    os.makedirs(destDir)
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 
 ## Load data
