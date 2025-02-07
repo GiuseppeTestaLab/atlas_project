@@ -43,7 +43,7 @@ def assign_metacells(adata):
                                     build_kernel_on=build_kernel_on, 
                                     n_SEACells=n_SEACells, 
                                     n_waypoint_eigs=n_waypoint_eigs, 
-                                    convergence_epsilon = 1e-5,verbose=False)
+                                    convergence_epsilon = 1e-5,verbose=False,use_gpu=True)
         model.construct_kernel_matrix()
         M = model.kernel_matrix 
         try:

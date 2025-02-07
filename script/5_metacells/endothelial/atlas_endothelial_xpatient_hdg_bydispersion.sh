@@ -7,6 +7,7 @@
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
+#SBATCH --gres=gpu:2
 module load singularity
 
 # Load configuration file
