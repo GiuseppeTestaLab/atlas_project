@@ -3,6 +3,13 @@ import scanpy as sc
 import numpy as np
 import pandas as pd
 import SEACells
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+CCGenes = config.get("DEFAULT", "CCGenes")
 
 
 ## Preprocessing

@@ -14,6 +14,7 @@ utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
 
 sys.path.insert(1, utilsPath)
 from integration import preprocess_scgen_genes
@@ -60,6 +61,7 @@ adata = sc.read(outDir + 'scgen_batch_corr_tissue-treatment.h5ad')
 
 #%%
 cell_cycle_genes = [x.strip() for x in open(CCGenes)]
+
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]
