@@ -5,6 +5,7 @@ import pandas as pd
 import scanpy as sc
 import sys
 import configparser
+import os
 
 # Read configuration file
 config = configparser.ConfigParser()
@@ -81,6 +82,10 @@ adata.obs["cell_types"][adata.obs.index.isin(fibro_cells.index)] = fibro_cells[
 
 adata.obs.cell_types.astype("category")
 
-adata.write(rawPath + "atlas_annotated/atlas_embeddings_cell_labelled.h5ad")
+final_dir = rawPath + "atlas_annotated/"
+if not os.path.exists(final_dir):
+    os.makedirs(final_dir)
+
+adata.write(final_dir + "atlas_embeddings_cell_labelled.h5ad")
 
 # %%
