@@ -6,6 +6,7 @@ import scgen
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -22,6 +23,9 @@ from integration import preprocess_scgen_genes
 #%%
 initDir = rawPath + 'metacells/cancer/'
 outDir = rawPath + 'integration/cells/cancer/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 #%%
 ad = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')
 ad.obs['tissue-treatment'] = ad.obs['tissue'].astype('str') + '_' + ad.obs['treatment'].astype('str')

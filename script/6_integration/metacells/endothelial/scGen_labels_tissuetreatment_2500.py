@@ -8,6 +8,7 @@ import numpy as np
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -23,6 +24,9 @@ from integration import preprocess_scgen_genes
 #%%
 initDir = rawPath + 'metacells/endothelial/'
 outDir = rawPath + 'integration/metacells/endothelial/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")

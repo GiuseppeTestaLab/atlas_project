@@ -4,12 +4,13 @@
 #%%
 import scanpy as sc
 import scvi
-from rich import print
+
 from scvi.model.utils import mde
 import pandas as pd
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -26,6 +27,9 @@ from integration import preprocess_scVI_genes
 #%%
 initDir = rawPath + 'metacells/endothelial/'
 outDir = rawPath + 'integration/metacells/endothelial/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')

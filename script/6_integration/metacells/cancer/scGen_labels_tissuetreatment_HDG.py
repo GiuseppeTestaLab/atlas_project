@@ -9,6 +9,7 @@ import numpy as np
 #%%
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -17,6 +18,9 @@ rawPath = config.get("DEFAULT", "rawPath")
 
 initDir = rawPath + 'metacells/cancer/'
 outDir = rawPath + 'integration/metacells/cancer/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
 CCGenes = config.get("DEFAULT", "CCGenes")

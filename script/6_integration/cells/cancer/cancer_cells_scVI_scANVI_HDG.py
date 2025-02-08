@@ -5,11 +5,12 @@ import scanpy as sc
 import scvi
 import pandas as pd
 import numpy as np
-from rich import print
+
 from scvi.model.utils import mde
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -26,6 +27,9 @@ from integration import preprocess_scVI_genes
 #%%
 initDir = rawPath + 'metacells/cancer/'
 outDir = rawPath + 'integration/cells/cancer/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')

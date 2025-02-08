@@ -9,6 +9,7 @@ import numpy as np
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -25,6 +26,9 @@ from integration import preprocess_scgen
 #%%
 initDir = rawPath + 'metacells/endothelial/'
 outDir = rawPath + 'integration/metacells/endothelial/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 
 
 #%%
