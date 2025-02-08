@@ -2,7 +2,8 @@
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
-#SBATCH --partition=cpuq
+#SBATCH --partition=gpuq
+#SBATCH --gres=gpu:1
 #SBATCH --job-name=seacells_scgen
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
