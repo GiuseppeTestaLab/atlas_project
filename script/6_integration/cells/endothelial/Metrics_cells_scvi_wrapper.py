@@ -6,7 +6,7 @@ import pandas as pd
 import scvi
 from scib_metrics.benchmark import Benchmarker
 
-initDir = import configparser
+import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
