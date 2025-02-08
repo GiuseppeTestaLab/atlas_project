@@ -2,12 +2,12 @@
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
-#SBATCH --partition=gpuq
+#SBATCH --partition=cpuq
 #SBATCH --job-name=immune
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
-#SBATCH --gres=gpu:2
+
 module load singularity
 # Load configuration file
 source ../../utils/bash_ini_parser/read_ini.sh
