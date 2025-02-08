@@ -9,8 +9,9 @@ from scib_metrics.benchmark import Benchmarker
 initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/cells/cancer/'
 
 adata_list={'cells_hdg_patients_batch_corr_scgen_tissuetreat_embeddings.h5ad':'scGen_HVG',
-            'scvi_batch_corr_tissue-treatment_2500.h5ad':'scVI_HVG',
-            'scanvi_batch_corr_tissue-treatment_2500.h5ad':'scANVI_HVG'}
+            # 'scvi_batch_corr_tissue-treatment_2500.h5ad':'scVI_HVG',
+            # 'scanvi_batch_corr_tissue-treatment_2500.h5ad':'scANVI_HVG'
+            }
 
 # Load the first AnnData object to store all embeddings
 first_file = list(adata_list.keys())[0]
@@ -41,7 +42,10 @@ bm = Benchmarker(
     adata_first,
     batch_key="paper_ID",
     label_key="tissue-treatment",
-    embedding_obsm_keys = ['scGen_HVG', 'scVI_HVG', 'scANVI_HVG'],
+    embedding_obsm_keys = ['scGen_HVG', 
+                           'scVI_HVG', 
+                           'scANVI_HVG'
+                           ],
     n_jobs=-1,
 )
 bm.benchmark()
