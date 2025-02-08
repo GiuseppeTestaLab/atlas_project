@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=8
 #SBATCH --partition=cpuq
 #SBATCH --job-name=scib_endothelial
-#SBATCH --mem=300GB
+#SBATCH --mem=150GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 module load singularity

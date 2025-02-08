@@ -17,11 +17,12 @@ rawPath = config.get("DEFAULT", "rawPath")
 initDir = rawPath + 'integration/cells/fibroblasts/'
 
 adata_list={'scgen_batch_corr_celltypes_embeddings.h5ad':'scGen_HVG',
-            'scgen_batch_corr_celltypes_embeddings_HDG.h5ad':'scGen_HDG',
+            # 'scgen_batch_corr_celltypes_embeddings_HDG.h5ad':'scGen_HDG',
             'scvi_batch_corr_celltypes_2500.h5ad':'scVI_HVG',
             'scanvi_batch_corr_celltypes_2500.h5ad':'scANVI_HVG',
-            'scvi_batch_corr_celltypes_HDG.h5ad':'scVI_HDG',
-            'scanvi_batch_corr_celltypes_HDG.h5ad':'scANVI_HDG'}
+            # 'scvi_batch_corr_celltypes_HDG.h5ad':'scVI_HDG',
+            # 'scanvi_batch_corr_celltypes_HDG.h5ad':'scANVI_HDG'
+            }
 
 # Load the first AnnData object to store all embeddings
 first_file = list(adata_list.keys())[0]
@@ -52,7 +53,13 @@ bm = Benchmarker(
     adata_first,
     batch_key="paper_ID",
     label_key="cell_types",
-    embedding_obsm_keys = ['scGen_HVG', 'scGen_HDG', 'scVI_HVG', 'scANVI_HVG', 'scVI_HDG', 'scANVI_HDG'],
+    embedding_obsm_keys = ['scGen_HVG', 
+                        #    'scGen_HDG', 
+                           'scVI_HVG', 
+                           'scANVI_HVG', 
+                        #    'scVI_HDG', 
+                        #    'scANVI_HDG'
+                           ],
     n_jobs=-1,
 )
 bm.benchmark()
