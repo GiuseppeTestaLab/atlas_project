@@ -1,29 +1,37 @@
 # %%
 import scanpy as sc
 import pandas as pd
-import numpy as np
-import glob
 import sys
+import configparser
+import os
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
 
-sys.path.insert(1, "/home/marta.sallese/ov_cancer_atlas/atlas_project/utils")
-from cell_labeller import assign_scores, actual_labeller, create_endothelial_adata
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
+from cell_labeller import assign_scores, actual_labeller, create_endothelial_adata # type: ignore
 
 # %%
 # initialize directories
 paths = pd.read_csv(
-    "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/filepaths.csv",
+    scriptsPath+ "4_hdg/filepaths.tsv",
     sep=";",
 )
 
-geistlinger = paths.Geistlinger[0]
-loret = paths.Loret[0]
-olbrecht = paths.Olbrecht[0]
-qian = paths.Qian[0]
-regner = paths.Regner[0]
-ren = paths.Ren[0]
-vasquez = paths.Vasquez[0]
-xu = paths.Xu[0]
-zhang = paths.Zhang[0]
+
+geistlinger = os.path.join(rawPath, paths.Geistlinger[0])
+loret = os.path.join(rawPath, paths.Loret[0])
+olbrecht = os.path.join(rawPath, paths.Olbrecht[0])
+qian = os.path.join(rawPath, paths.Qian[0])
+regner = os.path.join(rawPath, paths.Regner[0])
+ren = os.path.join(rawPath, paths.Ren[0])
+vasquez = os.path.join(rawPath, paths.Vasquez[0])
+xu = os.path.join(rawPath, paths.Xu[0])
+zhang = os.path.join(rawPath, paths.Zhang[0])
 
 # %%
 ## Geistlinger
@@ -123,23 +131,23 @@ adata_endothelial = create_endothelial_adata(adata)
 adata_endothelial.write(zhang + "zhang2022_adata_endothelial.h5ad")
 
 # %%
-
-tableDir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/"
-dataDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/original_anndata/"
+dataDir = rawPath + "original_anndata/"
 dataName = [
-    "regner2021",
     "geistlinger2020",
-    "qian2020",
-    "ren2022",
     "loret2022",
     "olbrecht2021",
+    "qian2020",
+    "regner2021",
+    "ren2022",
+    "vasquez2022",
     "xu2022",
     "zhang2022",
-    "vasquez2022",
 ]
 
-common_var_names = pd.read_csv(tableDir + "common_varnames_datasets.csv", index_col=0)
-
+common_var_names = pd.read_csv(
+    rawPath + "original_anndata/common_varnames_datasets.csv",
+    index_col=0,
+)
 dispersion_table = pd.DataFrame(index=common_var_names.index)
 hvg_table = pd.DataFrame(index=common_var_names.index)
 
@@ -164,7 +172,14 @@ for j in dataName:
         dispersion_table[i] = dispersion_gene_xpatient[i]
         hvg_table[i] = highly_variable_genes_per_patient[i]
 
-dispersion_table.to_csv(tableDir + "dispersion_table_endothelial.csv")
-hvg_table.to_csv(tableDir + "hvg_table_endothelial.csv")
 
+if not os.path.exists(scriptsPath + "4_hdg/Tables/"):
+    os.makedirs(scriptsPath + "4_hdg/Tables/")
+
+dispersion_table.to_csv(
+    scriptsPath + "4_hdg/Tables/dispersion_table_endothelial.csv"
+)
+hvg_table.to_csv(
+    scriptsPath + "4_hdg/Tables/hvg_table_endothelial.csv"
+)
 # %%

@@ -7,12 +7,21 @@ import numpy as np
 
 ## Initialize directories
 
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-fibroDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/cluster_assignments/'
-endoDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/cluster_assignments/'
-cancerDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/cluster_assignments/'
+import configparser
 
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/atlas_annotated/'
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'atlas_annotated/'
+fibroDir = rawPath + 'downstream/clustering/fibroblasts/cluster_assignments/'
+endoDir = rawPath + 'downstream/clustering/endothelial/cluster_assignments/'
+cancerDir = rawPath + 'downstream/clustering/cancer/cluster_assignments/'
+
+sc.settings.figdir = figPath + 'atlas_annotated/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
 ## Load the data

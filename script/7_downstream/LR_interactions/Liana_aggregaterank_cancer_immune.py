@@ -9,9 +9,18 @@ import pandas as pd
 import plotnine as p9
 
 ## Inizialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_immune/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_immune/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'atlas_annotated/'
+outDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
+figDir = figPath + 'LR_interactions/cancer_immune/'
 
 
 #%%

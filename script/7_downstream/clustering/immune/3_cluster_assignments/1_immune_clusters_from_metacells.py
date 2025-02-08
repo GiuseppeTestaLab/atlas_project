@@ -9,11 +9,19 @@ import numpy as np
 import gc
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-metacellsDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/immune/'
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/figures/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/cluster_assignments/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'atlas_annotated/'
+metacellsDir = rawPath + 'metacells/immune/'
+tissueDir = rawPath + 'downstream/clustering/immune/'
+figDir = rawPath + 'downstream/clustering/immune/figures/'
+outDir = rawPath + 'downstream/clustering/immune/cluster_assignments/'
 #%%
 ## Load the data
 cells = sc.read(initDir + 'atlas_immune_filt_norm_nolog.h5ad')

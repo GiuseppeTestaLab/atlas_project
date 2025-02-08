@@ -1,18 +1,11 @@
 # atlas total cell labelling strategy
 
 # %%
-import numpy as np
 import pandas as pd
 import scanpy as sc
 import sys
 import configparser
-from cell_labeller import (
-    assign_scores,
-    actual_labeller,
-    create_cancer_adata,
-    immune_labeller,
-    fibroblast_labeller,
-)
+import os
 
 # Read configuration file
 config = configparser.ConfigParser()
@@ -22,6 +15,14 @@ utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
 
 sys.path.insert(1, utilsPath)
+
+from cell_labeller import ( # type: ignore
+    assign_scores,
+    actual_labeller,
+    create_cancer_adata,
+    immune_labeller,
+    fibroblast_labeller,
+)
 
 ## Cell labelling
 
@@ -81,4 +82,10 @@ adata.obs["cell_types"][adata.obs.index.isin(fibro_cells.index)] = fibro_cells[
 
 adata.obs.cell_types.astype("category")
 
-adata.write(rawPath + "atlas_annotated/atlas_embeddings_cell_labelled.h5ad")
+final_dir = rawPath + "atlas_annotated/"
+if not os.path.exists(final_dir):
+    os.makedirs(final_dir)
+
+adata.write(final_dir + "atlas_embeddings_cell_labelled.h5ad")
+
+# %%

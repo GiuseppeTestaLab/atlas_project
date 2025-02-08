@@ -5,11 +5,19 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 #%%
 ## Initialize directories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/endothelial/'
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/endothelial/'
+tissueDir = rawPath + 'downstream/clustering/endothelial/'
+sc.settings.figdir = figPath + 'cluster_assignments/endothelial/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
 #%%

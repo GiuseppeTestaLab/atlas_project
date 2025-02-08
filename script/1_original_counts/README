@@ -1,0 +1,3 @@
+# 1_original_counts
+    - launch 1_run_datasets.py from a worker slurm instance
+    - launch sbatch 2_aggregate

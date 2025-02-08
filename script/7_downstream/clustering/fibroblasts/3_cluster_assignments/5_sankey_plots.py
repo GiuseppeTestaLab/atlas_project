@@ -9,10 +9,18 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
+tissueDir = rawPath + 'downstream/clustering/fibroblasts/'
+figDir = figPath + 'cluster_assignments/fibroblasts/'
 
 #%%
 ## Loading data
@@ -77,7 +85,7 @@ fig.update_layout(title_text="Sankey Diagram of CAFs - Primary", width=800, heig
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/caf_primary.png')
+fig.write_image(figPath + 'caf_primary.png')
 
 
 #%%
@@ -135,7 +143,7 @@ fig.update_layout(title_text="Sankey Diagram of CAFs - Ascites", width=800, heig
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/caf_ascites.png')
+fig.write_image(figPath + 'caf_ascites.png')
 
 #%%
 ## Plotting a sankey for metastasis metacells
@@ -195,5 +203,5 @@ fig.update_layout(title_text="Sankey Diagram of CAFs - Metastasis", width=800, h
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/caf_metastasis.png')
+fig.write_image(figPath + 'caf_metastasis.png')
 # %%

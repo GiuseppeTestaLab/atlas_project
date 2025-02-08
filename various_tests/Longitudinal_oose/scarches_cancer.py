@@ -12,14 +12,24 @@ from typing import Optional, Union
 
 ## Initialize folders
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
-ooseDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/out_of_sample_extension/cancer/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'metacells/cancer/'
+outDir = rawPath + 'integration/metacells/cancer/'
+ooseDir = rawPath + 'out_of_sample_extension/cancer/'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
 ## Setting fig parameteres
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/oose/cancer/"
+sc.settings.figdir = figPath + "oose/cancer/"
 
 #%%
 def remove_sparsity(adata):
@@ -45,7 +55,7 @@ def remove_sparsity(adata):
 corrected_reference_adata = sc.read_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_scarches_tissuetreat.h5ad')
 
 #%%
-ref_path = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_scarches'
+ref_path = rawPath + 'integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_scarches'
 network = sca.models.scgen.load(ref_path, corrected_reference_adata)
 
 ## Project query on top of reference
@@ -66,7 +76,7 @@ sc.tl.pca(adata_target, use_highly_variable=True)
 sc.pp.neighbors(adata_target, use_rep='X_pca')
 sc.tl.umap(adata_target)
 #%%
-genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
+genes = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
 missing_gene = genes[~genes.index.isin(adata_target.var_names)].index
 missing_gene
 missing_gene = ['FAM19A3', 'FAM129A', 'FAM84A', 'C2orf70', 'C2orf40', 'ALS2CR12',

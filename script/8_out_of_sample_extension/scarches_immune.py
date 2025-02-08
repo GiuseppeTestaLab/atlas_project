@@ -12,14 +12,24 @@ from typing import Optional, Union
 
 ## Initialize folders
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/immune/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/immune/'
-ooseDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/out_of_sample_extension/immune/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'metacells/immune/'
+outDir = rawPath + 'integration/metacells/immune/'
+ooseDir = rawPath + 'out_of_sample_extension/immune/'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 
 ## Setting fig parameteres
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/oose/immune/"
+sc.settings.figdir = figPath + "oose/immune/"
 
 ## Loading reference data and creating integration model
 #%%
@@ -102,7 +112,7 @@ sc.pl.umap(corrected_reference_adata,
            wspace=0.6,
            )
 #%%
-ref_path = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/immune_batch_removal_tissuetreatment_scarches'
+ref_path = rawPath + 'integration/metacells/saved_models/immune_batch_removal_tissuetreatment_scarches'
 network.save(ref_path, overwrite=True)
 
 ## Project query on top of reference
@@ -123,7 +133,7 @@ sc.tl.pca(adata_target, use_highly_variable=True)
 sc.pp.neighbors(adata_target, use_rep='X_pca')
 sc.tl.umap(adata_target)
 #%%
-# genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv', index_col=0)
+# genes = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv', index_col=0)
 # missing_gene = genes[~genes.index.isin(adata_target.var_names)].index
 # missing_gene
 # missing_gene = 'ZBTB20-AS2'

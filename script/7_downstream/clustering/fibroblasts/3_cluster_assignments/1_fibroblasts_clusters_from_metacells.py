@@ -9,11 +9,19 @@ import numpy as np
 import gc
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-metacellsDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/fibroblasts/'
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/cluster_assignments/'
-sc.settings.figdir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/figures/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'atlas_annotated/'
+metacellsDir = rawPath + 'metacells/fibroblasts/'
+tissueDir = rawPath + 'downstream/clustering/fibroblasts/'
+outDir = rawPath + 'downstream/clustering/fibroblasts/cluster_assignments/'
+sc.settings.figdir = rawPath + 'downstream/clustering/fibroblasts/figures/'
 
 ## Load the data
 cells = sc.read(initDir + 'atlas_fibroblasts_filt_norm_nolog.h5ad')

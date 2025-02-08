@@ -9,10 +9,18 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/immune/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/immune/'
+tissueDir = rawPath + 'downstream/clustering/immune/'
+figDir = figPath + 'cluster_assignments/immune/'
 
 #%%
 ## Loading data
@@ -82,7 +90,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell Types - Primary", width=800
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/immune/immune_primary_treatment.png')
+fig.write_image(figPath + 'cluster_assignments/immune/immune_primary_treatment.png')
 
 #%%
 ## Plotting a sankey for ascites metacells
@@ -145,7 +153,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell Subtypes - Ascites", width=
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/immune/immune_ascites_treatment.png')
+fig.write_image(figPath + 'cluster_assignments/immune/immune_ascites_treatment.png')
 
 #%%
 ## Plotting a sankey for metastasis metacells
@@ -208,5 +216,5 @@ fig.update_layout(title_text="Sankey Diagram of Cell Subtypes - Metastasis", wid
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/immune/immune_metastasis_treatment.png')
+fig.write_image(figPath + 'cluster_assignments/immune/immune_metastasis_treatment.png')
 # %%

@@ -6,12 +6,24 @@ import scgen
 import pandas as pd
 import numpy as np
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
+
+sys.path.insert(1, utilsPath)
 from integration import preprocess_scgen
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/fibroblasts/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/fibroblasts/'
+initDir = rawPath + 'metacells/fibroblasts/'
+outDir = rawPath + 'integration/metacells/fibroblasts/'
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")
@@ -49,7 +61,7 @@ scgen.SCGEN.setup_anndata(ad, batch_key="paper_ID", labels_key="cell_types")
 
 #%%
 model = scgen.SCGEN(ad)
-model.save("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/fibroblasts_batch_removal_celltypes.pt", overwrite=True)
+model.save(rawPath + "integration/metacells/saved_models/fibroblasts_batch_removal_celltypes.pt", overwrite=True)
 
 #%%
 model.train(
@@ -66,7 +78,7 @@ corrected_adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_cell
 ## Processing of integrated metacells in the same HDG space used to generate metacells
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/fibroblasts/"
+sc.settings.figdir = figPath + "integration/metacells/fibroblasts/"
 
 #%%
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_celltypes.h5ad')
@@ -77,13 +89,13 @@ adata.obs = adata.obs.drop(columns=['ID', 'sample_name', 'cell_type', 'cell_subt
                                     'cell_labels_ratio', 'max', 'assignment', 'leiden-1.8', '_scvi_batch', '_scvi_labels'])
 
 #%% 
-hvg = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv', index_col=0)
+hvg = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv', index_col=0)
 adata.var['highly_variable']=hvg.highly_variable
 
 adata.var.highly_variable = adata.var.highly_variable.fillna(False)
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

@@ -3,6 +3,13 @@ import scanpy as sc
 import numpy as np
 import pandas as pd
 import SEACells
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+CCGenes = config.get("DEFAULT", "CCGenes")
 
 
 ## Preprocessing
@@ -36,7 +43,7 @@ def assign_metacells(adata):
                                     build_kernel_on=build_kernel_on, 
                                     n_SEACells=n_SEACells, 
                                     n_waypoint_eigs=n_waypoint_eigs, 
-                                    convergence_epsilon = 1e-5,verbose=False)
+                                    convergence_epsilon = 1e-5,verbose=False,use_gpu=True)
         model.construct_kernel_matrix()
         M = model.kernel_matrix 
         try:
@@ -90,7 +97,7 @@ def create_mc_matrix(adata):
     return(ad)
 
 def preprocess_mc(adata, genes):
-    cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+    cell_cycle_genes = [x.strip() for x in open(CCGenes)]
     s_genes = cell_cycle_genes[:43]
     g2m_genes = cell_cycle_genes[43:]
     cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]

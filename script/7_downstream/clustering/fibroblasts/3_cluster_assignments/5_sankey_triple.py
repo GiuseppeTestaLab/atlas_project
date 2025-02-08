@@ -7,10 +7,18 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
+tissueDir = rawPath + '
+figDir = figPath + 'cluster_assignments/fibroblasts/'
 
 #%%
 ## Loading data
@@ -88,7 +96,7 @@ fig.update_layout(title_text="Tripartite Sankey Diagram", font_size=10, width=80
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/caf_primary_triple.png')
+fig.write_image(figPath + 'cluster_assignments/fibroblasts/caf_primary_triple.png')
 # %%
 ## Plotting a sankey for metastasis metacells
 # %%
@@ -162,7 +170,7 @@ fig.update_layout(title_text="Tripartite Sankey Diagram", font_size=10, width=80
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/caf_metastasis_triple.png')
+fig.write_image(figPath + 'cluster_assignments/fibroblasts/caf_metastasis_triple.png')
 
 ## Plotting a sankey for ascites metacells
 # %%
@@ -232,5 +240,5 @@ fig.update_layout(title_text="Tripartite Sankey Diagram", font_size=10, width=80
 fig.show()
 
 # Save plot
-fig.write_image('/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/caf_ascites_triple.png')
+fig.write_image(figPath + 'cluster_assignments/fibroblasts/caf_ascites_triple.png')
 # %%

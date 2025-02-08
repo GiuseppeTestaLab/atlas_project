@@ -14,7 +14,17 @@ from matplotlib import colors
 from matplotlib import rcParams
 from gprofiler import GProfiler
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from plotting_bubble import scale_data_5_75, plot_enrich 
 from ontologies import annotate_ontolgies
 
@@ -23,8 +33,8 @@ sc.logging.print_versions()
 
 ## inizializing directories
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/'
+initDir = rawPath + 'integration/metacells/cancer/'
+outDir = rawPath + 'downstream/clustering/cancer/'
 
 ## loading data
 #%%
@@ -63,7 +73,7 @@ for lei in leidenTotal:
 
 ## Assigning gene ontologies to clusters
 #%%
-directory_root = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/cancer/ascites/"
+directory_root = rawPath + "downstream/clustering/cancer/ascites/"
 log_file = directory_root + 'ascites.log'
 adata = adata_as
 adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)

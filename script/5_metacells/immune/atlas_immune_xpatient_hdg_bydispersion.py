@@ -2,22 +2,33 @@
 
 ## Import libraries
 #%%
-import numpy as np
-import pandas as pd
 import scanpy as sc
-import SEACells
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
-from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
+import configparser
+import os
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+
+sys.path.insert(1, utilsPath)
+from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc # type: ignore
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated/'
-destDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/immune/'
+initDir = rawPath + 'atlas_annotated/'
+destDir = rawPath + 'metacells/immune/'
+if not os.path.exists(destDir):
+    os.makedirs(destDir)
+scriptsPath = config.get("DEFAULT", "scriptsPath")
 
 ## Load data
 #%%
 adata= sc.read(initDir + "atlas_immune_filt_norm_nolog.h5ad")
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_immune.csv'
 
 ## Preprocessing
 #%%
@@ -45,7 +56,7 @@ ad.write(destDir + 'seacells_hdg_patients.h5ad')
 ## Compute embeddings and plot metacells
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/metacells/immune/"
+sc.settings.figdir = figPath + "metacells/immune/"
 
 adata = sc.read(destDir + 'seacells_hdg_patients.h5ad')
 

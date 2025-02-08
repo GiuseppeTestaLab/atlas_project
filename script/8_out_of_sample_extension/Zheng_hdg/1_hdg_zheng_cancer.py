@@ -6,11 +6,21 @@ import pandas as pd
 import numpy as np
 import glob
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+sys.path.insert(1, utilsPath)
 from cell_labeller import assign_scores, actual_labeller, create_cancer_adata
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Adata/'
+initDir = rawPath + 'Zheng2023/Adata/'
 
 #%%
 ## Zheng
@@ -31,7 +41,7 @@ adata_cancer.write(initDir + 'zheng2023_adata_cancer.h5ad')
 dataDir = '/group/testa/Project/OvarianAtlas/'
 dataName = ['zheng2023']
 
-# common_var_names = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/common_varnames_datasets.csv', index_col=0)
+# common_var_names = pd.read_csv(scriptsPath + '4_hdg/Tables/common_varnames_datasets.csv', index_col=0)
 
 dispersion_table = pd.DataFrame(index = common_var_names)
 hvg_table = pd.DataFrame(index = common_var_names)
@@ -53,15 +63,15 @@ for j in dataName:
         dispersion_table[i] = dispersion_gene_xpatient[i]
         hvg_table[i] = highly_variable_genes_per_patient[i]
 
-dispersion_table.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/dispersion_table_cancer_zheng.csv')
-hvg_table.to_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/hvg_table_cancer_zheng.csv')
+dispersion_table.to_csv(scriptsPath + '4_hdg/Tables/dispersion_table_cancer_zheng.csv')
+hvg_table.to_csv(scriptsPath + '4_hdg/Tables/hvg_table_cancer_zheng.csv')
 
 # 2_hvg_union_patients_dispersion_cancer zheng
 ## Computing HDG by patient based on dispersion values
 
-dir = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/'
+dir = scriptsPath + '4_hdg/Tables/'
 #%%
-dispersion_table = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/dispersion_table_cancer_zheng.csv', index_col=0)
+dispersion_table = pd.read_csv(scriptsPath + '4_hdg/Tables/dispersion_table_cancer_zheng.csv', index_col=0)
 
 #%%
 dispersion_table

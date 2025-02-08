@@ -7,19 +7,30 @@ import pandas as pd
 import scanpy as sc
 import SEACells
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+
+sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Adata/'
-destDir = '/group/testa/Project/OvarianAtlas/Zheng2023/Metacells/'
+initDir = rawPath + 'Zheng2023/Adata/'
+destDir = rawPath + 'Zheng2023/Metacells/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/metacells/endothelial/"
+sc.settings.figdir = figPath + "metacells/endothelial/"
 
 ## Load data
 #%%
 adata= sc.read(initDir + "zheng_endothelial_filt_norm_nolog.h5ad")
-genes = '/home/marta.sallese/ov_cancer_atlas/Atlas_scripts/HDG_new/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
+genes = scriptsPath + 'HDG/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 ## Preprocessing
 #%%
@@ -28,7 +39,7 @@ raw_ad = sc.AnnData(adata.X)
 raw_ad.obs_names, raw_ad.var_names = adata.obs_names, adata.var_names
 adata.raw = raw_ad
 sc.pp.log1p(adata)
-hdg = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/Atlas_scripts/HDG_new/Tables/atlas_hdg_dispersion_patients_endothelial.csv',  index_col=0)
+hdg = pd.read_csv(scriptsPath + 'HDG/Tables/atlas_hdg_dispersion_patients_endothelial.csv',  index_col=0)
 hdg[hdg.highly_variable]
 adata.var['highly_variable']=hdg.highly_variable
 adata.var.highly_variable = adata.var.highly_variable.fillna(False)

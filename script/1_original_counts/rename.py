@@ -1,4 +1,19 @@
 # %%
+
+import os
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+
+# to be changed in relative path
+initialPath = (
+    scriptsPath + "1_original_counts/"
+)
+
 datasets = [
     "Geistlinger2020",
     "Loret2022",
@@ -10,15 +25,6 @@ datasets = [
     "Xu2022",
     "Zhang2022",
 ]
-
-
-# to be changed in relative path
-initialPath = (
-    "/home/marta.sallese/ov_cancer_atlas/atlas_project/script/1_original_counts/"
-)
-
-import os
-
 
 for dataset in datasets:
     path = initialPath + dataset

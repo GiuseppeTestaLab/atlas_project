@@ -9,10 +9,18 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
-tissueDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/cluster_assignments/fibroblasts/'
+tissueDir = rawPath + 'downstream/clustering/fibroblasts/'
+figDir = figPath + 'cluster_assignments/fibroblasts/'
 
 #%%
 ## Loading data
@@ -73,7 +81,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Primary", width=80
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/fibroblasts_primary_treatment.png')
+fig.write_image(figPath + 'fibroblasts_primary_treatment.png')
 
 
 #%%
@@ -129,7 +137,7 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Ascites", width=80
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/fibroblasts_ascites_treatment.png')
+fig.write_image(figPath + 'fibroblasts_ascites_treatment.png')
 
 #%%
 ## Plotting a sankey for metastasis metacells
@@ -188,5 +196,5 @@ fig.update_layout(title_text="Sankey Diagram of Cell States - Metastasis", width
 fig.show()
 
 # Save plot
-fig.write_image('/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_gc/fibroblasts_metastasis_treatment.png')
+fig.write_image(figPath + 'fibroblasts_metastasis_treatment.png')
 # %%

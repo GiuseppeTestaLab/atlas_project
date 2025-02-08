@@ -1,0 +1,4 @@
+sbatch cancer/atlas_cancer_xpatient_hdg_bydispersion.sh
+sbatch endothelial/atlas_endothelial_xpatient_hdg_bydispersion.sh
+sbatch fibroblasts/atlas_fibroblast_xpatient_hdg_bydispersion.sh
+sbatch immune/atlas_immune_xpatient_hdg_bydispersion.sh

@@ -14,8 +14,17 @@ import pandas as pd
 
 #%%
 ## Initialize directories
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/LR_interactions/cancer_fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/LR_interactions/cancer_fibroblasts/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'downstream/LR_interactions/cancer_fibroblasts/'
+figDir = figPath + 'LR_interactions/cancer_fibroblasts/'
 
 ## Create Color Palette
 #%%

@@ -9,14 +9,12 @@ import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
-config.read("../../../utils/config.ini")
+config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 # initialize directory
-dir = rawPath + "original_anndata/"
+dir = rawPath + "original_anndata/Regner2021/"
 
-# initialize directory
-dir = rawPath + "Regner2021/"
 
 # Read adata
 adata = sc.read(dir + "Regner2021_filt_norm_nolog.h5ad")

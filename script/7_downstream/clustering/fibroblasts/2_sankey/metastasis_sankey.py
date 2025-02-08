@@ -12,8 +12,17 @@ import plotly.express as px
 sc.logging.print_versions()
 #%%
 ## Inizializing folders
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/downstream/clustering/fibroblasts/'
-figDir = '/group/testa/Project/OvarianAtlas/atlas_project/plots_def/sankey/'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
+
+initDir = rawPath + 'downstream/clustering/fibroblasts/'
+figDir = figPath + 'sankey/'
 
 ## Loading data
 #%%

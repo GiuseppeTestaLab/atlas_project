@@ -7,9 +7,21 @@ import pandas as pd
 import numpy as np
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+
+initDir = rawPath + 'metacells/cancer/'
+outDir = rawPath + 'integration/metacells/cancer/'
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
+
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
 #%%
 ad = sc.read(initDir + "seacells_hdg_patients.h5ad")
@@ -31,7 +43,7 @@ scgen.SCGEN.setup_anndata(ad, batch_key="paper_ID", labels_key="tissue-treatment
 
 #%%
 model = scgen.SCGEN(ad)
-model.save("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", overwrite=True)
+model.save(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG.pt", overwrite=True)
 
 #%%
 model.train(
@@ -48,13 +60,13 @@ corrected_adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_tiss
 ## Processing of integrated metacells in the same HDG space used to generate metacells
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/cancer/"
+sc.settings.figdir = figPath + "integration/metacells/cancer/"
 
 #%%
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat_HDG.h5ad')
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

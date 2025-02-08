@@ -6,7 +6,7 @@
 #SBATCH --job-name=primary
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
-#SBATCH --output=%x_%j.log 
+#SBATCH --output=logs/%x_%j.log
 module load singularity
 
 singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \

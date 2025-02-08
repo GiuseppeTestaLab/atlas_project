@@ -8,15 +8,27 @@ import numpy as np
 from rich import print
 from scvi.model.utils import mde
 import sys
-sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+utilsPath = config.get("DEFAULT", "utilsPath")
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
+
+sys.path.insert(1, utilsPath)
 from integration import preprocess_scVI
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/fibroblasts/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/cells/fibroblasts/'
+initDir = rawPath + 'metacells/fibroblasts/'
+outDir = rawPath + 'integration/cells/fibroblasts/'
 
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/fibroblasts/"
+sc.settings.figdir = figPath + "integration/metacells/fibroblasts/"
 
 #%%
 adata = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')
@@ -71,7 +83,7 @@ sc.tl.umap(adata)
 adata.obsm["X_mde"] = mde(adata.obsm["X_scVI"])
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]
 cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]

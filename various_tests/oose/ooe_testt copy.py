@@ -10,9 +10,20 @@ from scvi.data import AnnDataManager
 from scvi.data.fields import CategoricalObsField, LayerField
 
 #%%
-initDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells/cancer/'
-outDir = '/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/cancer/'
-genes = '/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
+import configparser
+
+# Read configuration file
+config = configparser.ConfigParser()
+config.read("../../utils/config.ini")
+
+rawPath = config.get("DEFAULT", "rawPath")
+scriptsPath = config.get("DEFAULT", "scriptsPath")
+figPath = config.get("DEFAULT", "figPath")
+CCGenes = config.get("DEFAULT", "CCGenes")
+
+initDir = rawPath + 'metacells/cancer/'
+outDir = rawPath + 'integration/metacells/cancer/'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
 #%%
 ad = sc.read_h5ad(initDir + "seacells_hdg_patients.h5ad")
@@ -44,7 +55,7 @@ sc.tl.pca(adata_target, use_highly_variable=True)
 sc.pp.neighbors(adata_target, use_rep='X_pca')
 sc.tl.umap(adata_target)
 #%%
-genes = pd.read_csv('/home/marta.sallese/ov_cancer_atlas/atlas_project/script/4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
+genes = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv', index_col=0)
 missing_gene = genes[~genes.index.isin(adata_target.var_names)].index
 missing_gene
 missing_gene = 'ZBTB20-AS2'
@@ -107,10 +118,10 @@ model = scgen.SCGEN(ad)
 model.register_manager(model.adata_manager.transfer_fields(adata_target=adata_new, extend_categories=True))
 # model._register_manager_for_instance(model.adata_manager.transfer_fields(adata_target=adata_new, extend_categories=True))
 #%%
-model.save("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", overwrite=True)
+model.save(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", overwrite=True)
 
 #%%
-model = scgen.SCGEN.load("/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", adata=adata_new)
+model = scgen.SCGEN.load(rawPath + "integration/metacells/saved_models/cancer_batch_removal_tissuetreatment_HDG_oose.pt", adata=adata_new)
 
 #%%
 model.train(
@@ -127,13 +138,13 @@ corrected_adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scgen_tiss
 ## Processing of integrated metacells in the same HDG space used to generate metacells
 #%%
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
-sc.settings.figdir = "/home/marta.sallese/ov_cancer_atlas/atlas_project/plots_def/integration/metacells/cancer/"
+sc.settings.figdir = figPath + "integration/metacells/cancer/"
 
 #%%
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat_HDG.h5ad')
 
 #%%
-cell_cycle_genes = [x.strip() for x in open('/home/marta.sallese/ov_cancer_atlas/regev_lab_cell_cycle_genes.txt')]
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]

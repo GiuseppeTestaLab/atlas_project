@@ -1,5 +1,6 @@
 import scanpy as sc
 import pandas as pd
+import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
