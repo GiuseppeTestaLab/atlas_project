@@ -22,4 +22,4 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 singularity exec --nv -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate integration && python3 ${scriptsPath}6_integration/metacells/immune/scVI_labels_celltypes_2500.py"
+                 /bin/bash -c "source ~/.bashrc && mamba activate scvi && python3 ${scriptsPath}6_integration/metacells/immune/scVI_labels_celltypes_2500.py"
