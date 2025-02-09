@@ -3,13 +3,23 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
+#SBATCH --gres=gpu:1
 #SBATCH --job-name=endothelial_immune
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
 module load singularity
 
-singularity run -B /group/testa -B /run/user -B $TMPDIR:/tmp \
--B /home/marta.sallese -H /home/marta.sallese/ov_cancer_atlas \
-docker://testalab/downstream:covidiamo-3.1.0 \
-"/home/marta.sallese/ov_cancer_atlas/miniconda3/envs/liana/bin/python /home/marta.sallese/ov_cancer_atlas/atlas_project/script/7_downstream/LR_interactions/Liana_aggregaterank_endothelial_immune.py"
+# Load configuration file
+source ../../utils/bash_ini_parser/read_ini.sh
+read_ini ../../utils/config.ini
+
+# Set environment variables from the configuration file
+scriptsPath=${INI__DEFAULT__scriptsPath}
+bindPaths=${INI__SINGULARITY__bindPaths}
+bindPaths=$(eval echo $bindPaths)
+homePath=${INI__SINGULARITY__homePath}
+image=${INI__SINGULARITY__image}
+
+singularity exec --nv -B $bindPaths -H $homePath $image \
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scvi && python3 ${scriptsPath}7_downstream/LR_interactions/Liana_aggregaterank_endothelial_immune.py"
