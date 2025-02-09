@@ -22,4 +22,4 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}4_hdg/endothelial/2_hvg_union_patients_dispersion_endothelial.py"
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate ovarian && python3 ${scriptsPath}4_hdg/endothelial/2_hvg_union_patients_dispersion_endothelial.py"

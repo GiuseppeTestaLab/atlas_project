@@ -26,4 +26,4 @@ echo script=${scriptsPath} dataset=${datasetPath} bind=${bindPaths} home=${homeP
 module load singularity
 
 singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}2_original_anndata/1_common_var_name.py"
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate ovarian && python3 ${scriptsPath}2_original_anndata/1_common_var_name.py"
