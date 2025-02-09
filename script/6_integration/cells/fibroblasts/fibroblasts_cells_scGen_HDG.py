@@ -7,6 +7,7 @@ import pandas as pd
 import sys
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -23,6 +24,9 @@ from integration import preprocess_scgen
 #%%
 initDir = rawPath + 'metacells/fibroblasts/'
 outDir = rawPath + 'integration/cells/fibroblasts/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv'
 #%%
 ad = sc.read(initDir + 'seacells_assignment_hdg_patients.h5ad')

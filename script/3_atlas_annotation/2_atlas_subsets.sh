@@ -24,4 +24,4 @@ echo script=${scriptsPath} bind=${bindPaths} home=${homePath} image=${image}
 module load singularity
 
 singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "source ~/.bashrc && mamba activate ovarian && python3 ${scriptsPath}3_atlas_annotation/2_atlas_subsets.py"
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate ovarian && python3 ${scriptsPath}3_atlas_annotation/2_atlas_subsets.py"

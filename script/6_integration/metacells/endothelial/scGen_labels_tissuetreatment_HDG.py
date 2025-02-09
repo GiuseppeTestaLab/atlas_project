@@ -9,6 +9,7 @@ import numpy as np
 #%%
 import configparser
 
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -20,6 +21,9 @@ CCGenes = config.get("DEFAULT", "CCGenes")
 
 initDir = rawPath + 'metacells/endothelial/'
 outDir = rawPath + 'integration/metacells/endothelial/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
 #%%
