@@ -2,8 +2,6 @@
 
 #%%
 import scanpy as sc
-import pandas as pd
-import scvi
 from scib_metrics.benchmark import Benchmarker
 
 import configparser
