@@ -23,6 +23,8 @@ outDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
 figDir = figPath + 'LR_interactions/cancer_immune/'
 if not os.path.exists(outDir):
     os.makedirs(outDir)
+if not os.path.exists(figDir):
+    os.makedirs(figDir)
 #%%
 adata = sc.read(initDir + 'atlas_embeddings_cell_labelled_with_ontologies.h5ad')
 adata
