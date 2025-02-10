@@ -79,10 +79,15 @@ for lei in leidenTotal:
 #%%
 directory_root = rawPath + "downstream/clustering/fibroblasts/metastasis/"
 log_file = directory_root + 'metastasis.log'
+if not os.path.exists(directory_root):
+    os.makedirs(directory_root)
+
 adata = adata_mt
 adata_mt = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
 
 logging.shutdown()
 
 ## Savings
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
 adata_mt.write_h5ad(outDir + 'adata_metastasis_embeddings.h5ad')

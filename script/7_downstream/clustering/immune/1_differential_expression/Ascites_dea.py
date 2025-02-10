@@ -164,10 +164,15 @@ for i in np.arange(0.01, 2.0, 0.1):
 # #%%
 # directory_root = rawPath + "downstream/clustering/immune/ascites/"
 # log_file = directory_root + 'ascites.log'
+if not os.path.exists(directory_root):
+    os.makedirs(directory_root)
+
 # adata = adata_as
 # adata_as = annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file)
 
 # logging.shutdown()
 
 ## Savings
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
 adata_as.write_h5ad(outDir + 'adata_ascites_embeddings.h5ad')
