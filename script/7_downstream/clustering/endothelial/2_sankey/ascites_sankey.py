@@ -9,7 +9,6 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import os
-import os
 sc.logging.print_versions()
 #%%
 ## Inizializing folders
