@@ -2,7 +2,7 @@
 #SBATCH --time=96:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
-#SBATCH --partition=cpuq
+#SBATCH --partition=gpuq
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=cancer_immune
 #SBATCH --mem=200GB
