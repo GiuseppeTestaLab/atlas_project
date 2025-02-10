@@ -7,6 +7,7 @@ from scanpy.pl import umap
 import liana as li
 import pandas as pd
 import plotnine as p9
+import os
 
 ## Inizialize directories
 import configparser
@@ -20,6 +21,9 @@ figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'atlas_annotated/'
 outDir = rawPath + 'downstream/LR_interactions/cancer_endothelial/'
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
+
 sc.settings.figdir = figPath + 'LR_interactions/cancer_endothelial/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 

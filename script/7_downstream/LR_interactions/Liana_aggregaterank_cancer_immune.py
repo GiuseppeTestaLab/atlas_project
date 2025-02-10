@@ -7,7 +7,7 @@ from scanpy.pl import umap
 import liana as li
 import pandas as pd
 import plotnine as p9
-
+import os
 ## Inizialize directories
 import configparser
 
@@ -21,8 +21,8 @@ figPath = config.get("DEFAULT", "figPath")
 initDir = rawPath + 'atlas_annotated/'
 outDir = rawPath + 'downstream/LR_interactions/cancer_immune/'
 figDir = figPath + 'LR_interactions/cancer_immune/'
-
-
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
 #%%
 adata = sc.read(initDir + 'atlas_embeddings_cell_labelled_with_ontologies.h5ad')
 adata
