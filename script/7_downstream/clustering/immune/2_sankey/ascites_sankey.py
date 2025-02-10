@@ -9,6 +9,10 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import os
+#kaleido cluster flag error fix see (https://github.com/plotly/Kaleido/issues/90)
+import plotly.io as pio
+pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
+
 
 sc.logging.print_versions()
 #%%

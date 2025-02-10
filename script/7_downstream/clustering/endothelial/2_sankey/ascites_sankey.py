@@ -9,6 +9,10 @@ import kaleido
 import matplotlib
 import plotly.express as px
 import os
+#kaleido cluster flag error fix see (https://github.com/plotly/Kaleido/issues/90)
+import plotly.io as pio
+pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
+
 sc.logging.print_versions()
 #%%
 ## Inizializing folders
@@ -16,7 +20,7 @@ import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
-config.read("/group/testa/Users/vittorio.aiello/singularity/ovarian/atlas_project/utils/config.ini")
+config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
 figPath = config.get("DEFAULT", "figPath")
