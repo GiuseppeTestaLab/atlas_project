@@ -1,4 +1,26 @@
 #!bin/sh
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --partition=cpuq
+#SBATCH --job-name=primary
+#SBATCH --mem=200GB
+#SBATCH --mail-type=ALL
+#SBATCH --output=logs/%x_%j.log
+module load singularity
+
+# Load configuration file
+source ../../utils/bash_ini_parser/read_ini.sh
+read_ini ../../utils/config.ini
+
+# Set environment variables from the configuration file
+scriptsPath=${INI__DEFAULT__scriptsPath}
+bindPaths=${INI__SINGULARITY__bindPaths}
+bindPaths=$(eval echo $bindPaths)
+homePath=${INI__SINGULARITY__homePath}
+image=${INI__SINGULARITY__image}
+
+
 python 1_fibroblasts_clusters_from_metacells.py
 python 2_assigning_ontologies_to_clusters.py
 python 3_plots_metacells.py
