@@ -8,7 +8,7 @@ import numpy as np
 import kaleido
 import matplotlib
 import plotly.express as px
-
+import os
 sc.logging.print_versions()
 #%%
 ## Inizializing folders
@@ -16,13 +16,15 @@ import configparser
 
 # Read configuration file
 config = configparser.ConfigParser()
-config.read("../../utils/config.ini")
+config.read("/group/testa/Users/vittorio.aiello/singularity/ovarian/atlas_project/utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
 figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'downstream/clustering/endothelial/'
 figDir = figPath + 'sankey/'
+if not os.path.exists(figDir):
+    os.makedirs(figDir)
 
 ## Loading data
 #%%

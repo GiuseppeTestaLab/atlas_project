@@ -23,6 +23,8 @@ figPath = config.get("DEFAULT", "figPath")
 
 initDir = rawPath + 'downstream/clustering/immune/'
 figDir = figPath + 'sankey/'
+if not os.path.exists(figDir):
+    os.makedirs(figDir)
 
 ## Loading data
 #%%
