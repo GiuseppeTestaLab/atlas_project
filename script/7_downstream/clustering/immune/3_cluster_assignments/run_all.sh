@@ -22,6 +22,6 @@ image=${INI__SINGULARITY__image}
 
 singularity exec -B $bindPaths -H $homePath $image \
                  /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate downstream && \
-                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assigments/1_immune_clusters_from_metacells.py && \
-                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assigments/5_sankey_plots.py && \
-                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assigments/6_global_embeddings.py"
+                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assignments/1_immune_clusters_from_metacells.py && \
+                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assignments/5_sankey_plots.py && \
+                 python ${scriptsPath}7_downstream/clustering/immune/3_cluster_assignments/6_global_embeddings.py"
