@@ -8,6 +8,7 @@ import numpy as np
 import kaleido
 import matplotlib
 import plotly.express as px
+import os
 
 sc.logging.print_versions()
 #%%
