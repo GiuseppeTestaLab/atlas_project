@@ -86,7 +86,7 @@ sc.settings.figdir = figPath + "integration/cells/fibroblasts/"
 adata = sc.read(outDir + 'scgen_batch_corr_celltypes.h5ad')
 
 #%%
-cell_cycle_genes = [x.strip() for x in open(CCGenes
+cell_cycle_genes = [x.strip() for x in open(CCGenes)]
 
 s_genes = cell_cycle_genes[:43]
 g2m_genes = cell_cycle_genes[43:]
