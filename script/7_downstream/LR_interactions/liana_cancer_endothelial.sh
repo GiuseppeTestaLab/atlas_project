@@ -22,4 +22,4 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 singularity exec --nv -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scvi && python3 ${scriptsPath}7_downstream/LR_interactions/Liana_aggregaterank_cancer_endothelial.py"
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate liana && python3 ${scriptsPath}7_downstream/LR_interactions/Liana_aggregaterank_cancer_endothelial.py"
