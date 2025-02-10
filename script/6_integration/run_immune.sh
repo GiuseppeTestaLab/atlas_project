@@ -1,0 +1,14 @@
+#!/bin/bash
+sbatch cells/immune/immune_cells_scGen_HDG.sh
+sbatch cells/immune/immune_cells_scGen.sh
+sbatch cells/immune/immune_cells_scVI_scANVI_2500.sh
+sbatch cells/immune/immune_cells_scVI_scANVI_HDG.sh
+sbatch metacells/immune/scGen_labels_tissuetreatment_2500.sh
+sbatch metacells/immune/scGen_labels_tissuetreatment_HDG.sh
+sbatch metacells/immune/scGen_labels_tissuetreatment.sh
+sbatch metacells/immune/scVI_labels_tissuetreatment_2500.sh
+sbatch metacells/immune/scVI_labels_tissuetreatment_HDG.sh
+sbatch metacells/immune/scGen_labels_celltypes_2500.sh
+sbatch metacells/immune/scGen_labels_celltypes_HDG.sh
+sbatch metacells/immune/scVI_labels_celltypes_2500.sh
+sbatch metacells/immune/scVI_labels_celltypes_HDG.sh

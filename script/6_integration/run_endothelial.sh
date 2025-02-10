@@ -1,0 +1,10 @@
+#!/bin/bash
+sbatch cells/endothelial/endothelial_cells_scGen_HDG.sh
+sbatch cells/endothelial/endothelial_cells_scGen.sh
+sbatch cells/endothelial/endothelial_cells_scVI_scANVI_2500.sh
+sbatch cells/endothelial/endothelial_cells_scVI_scANVI_HDG.sh
+sbatch metacells/endothelial/scGen_labels_tissuetreatment_2500.sh
+sbatch metacells/endothelial/scGen_labels_tissuetreatment_HDG.sh
+sbatch metacells/endothelial/scGen_labels_tissuetreatment.sh
+sbatch metacells/endothelial/scVI_labels_tissuetreatment_2500.sh
+sbatch metacells/endothelial/scVI_labels_tissuetreatment_HDG.sh

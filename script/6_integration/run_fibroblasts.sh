@@ -1,0 +1,14 @@
+#!/bin/bash
+sbatch cells/fibroblasts/fibroblasts_cells_scGen_HDG.sh
+sbatch cells/fibroblasts/fibroblasts_cells_scGen.sh
+sbatch cells/fibroblasts/fibroblasts_cells_scVI_scANVI_2500.sh
+sbatch cells/fibroblasts/fibroblasts_cells_scVI_scANVI_HDG.sh
+sbatch metacells/fibroblasts/scGen_labels_tissuetreatment_2500.sh
+sbatch metacells/fibroblasts/scGen_labels_tissuetreatment_HDG.sh
+sbatch metacells/fibroblasts/scGen_labels_tissuetreatment.sh
+sbatch metacells/fibroblasts/scVI_labels_tissuetreatment_2500.sh
+sbatch metacells/fibroblasts/scVI_labels_tissuetreatment_HDG.shz
+sbatch metacells/fibroblasts/scGen_labels_celltypes_2500.sh
+sbatch metacells/fibroblasts/scGen_labels_celltypes_HDG.sh
+sbatch metacells/fibroblasts/scVI_labels_celltypes_2500.sh
+sbatch metacells/fibroblasts/scVI_labels_celltypes_HDG.sh

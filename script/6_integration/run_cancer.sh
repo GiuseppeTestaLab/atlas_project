@@ -3,3 +3,8 @@ sbatch cells/cancer/cancer_cells_scGen_HDG.sh
 sbatch cells/cancer/cancer_cells_scGen.sh
 sbatch cells/cancer/cancer_cells_scVI_scANVI_2500.sh
 sbatch cells/cancer/cancer_cells_scVI_scANVI_HDG.sh
+sbatch metacells/cancer/scGen_labels_tissuetreatment_2500.sh
+sbatch metacells/cancer/scGen_labels_tissuetreatment_HDG.sh
+sbatch metacells/cancer/scGen_labels_tissuetreatment.sh
+sbatch metacells/cancer/scVI_labels_tissuetreatment_2500.sh
+sbatch metacells/cancer/scVI_labels_tissuetreatment_HDG.sh
