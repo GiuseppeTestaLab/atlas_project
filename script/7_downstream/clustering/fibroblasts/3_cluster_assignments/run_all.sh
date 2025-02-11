@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
-#SBATCH --job-name=primary
+#SBATCH --job-name=cluster_fibro
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
@@ -21,9 +21,11 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 
-python 1_fibroblasts_clusters_from_metacells.py
-python 2_assigning_ontologies_to_clusters.py
-python 3_plots_metacells.py
-python 4_stats_plots.py
-python 5_sankey_plots.py
-python 6_global_embeddings.py
+singularity exec -B $bindPaths -H $homePath $image \
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate downstream && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/1_fibroblasts_clusters_from_metacells.py && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/2_assigning_ontologies_to_clusters.py && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/3_plots_metacells.py && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/4_stats_plots.py && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/5_sankey_plots.py && \
+                 python ${scriptsPath}7_downstream/clustering/fibroblasts/3_cluster_assignments/6_global_embeddings.py"
