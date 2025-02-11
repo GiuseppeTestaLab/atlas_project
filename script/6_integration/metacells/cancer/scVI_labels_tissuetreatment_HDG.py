@@ -71,11 +71,11 @@ cell_cycle_genes = [x for x in cell_cycle_genes if x in adata.var_names]
 sc.tl.score_genes_cell_cycle(adata, s_genes=s_genes, g2m_genes=g2m_genes, use_raw = True)
 adata.obs
 
-sc.pl.umap(ad, color=['treatment'], frameon=False, save='_treatment_scVI_HDG.png')
-sc.pl.umap(ad, color=['phase'], frameon=False, save='_cellcycle_scVI_HDG.png')
-sc.pl.umap(ad, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scVI_HDG.png')
-sc.pl.umap(ad, color=['paper_ID'], frameon=False, save='_patient_scVI_HDG.png')
-sc.pl.umap(ad, color=['tissue'], frameon=False, save='_tissue_scVI_HDG.png')
+sc.pl.umap(adata, color=['treatment'], frameon=False, save='_treatment_scVI_HDG.png')
+sc.pl.umap(adata, color=['phase'], frameon=False, save='_cellcycle_scVI_HDG.png')
+sc.pl.umap(adata, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scVI_HDG.png')
+sc.pl.umap(adata, color=['paper_ID'], frameon=False, save='_patient_scVI_HDG.png')
+sc.pl.umap(adata, color=['tissue'], frameon=False, save='_tissue_scVI_HDG.png')
 
 #%%
 sc.pl.embedding(
@@ -119,11 +119,11 @@ sc.pl.embedding(
 sc.tl.pca(adata, use_highly_variable=True)
 sc.pp.neighbors(adata, use_rep='X_pca')
 sc.tl.umap(adata)
-sc.pl.umap(ad, color=['treatment'], frameon=False, save='_treatment_scANVI_HDG.png')
-sc.pl.umap(ad, color=['phase'], frameon=False, save='_cellcycle_scANVI_HDG.png')
-sc.pl.umap(ad, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scANVI_HDG.png')
-sc.pl.umap(ad, color=['paper_ID'], frameon=False, save='_patient_scANVI_HDG.png')
-sc.pl.umap(ad, color=['tissue'], frameon=False, save='_tissue_scANVI_HDG.png')
+sc.pl.umap(adata, color=['treatment'], frameon=False, save='_treatment_scANVI_HDG.png')
+sc.pl.umap(adata, color=['phase'], frameon=False, save='_cellcycle_scANVI_HDG.png')
+sc.pl.umap(adata, color=['tissue-treatment'], frameon=False, save='_tissue-treatment_scANVI_HDG.png')
+sc.pl.umap(adata, color=['paper_ID'], frameon=False, save='_patient_scANVI_HDG.png')
+sc.pl.umap(adata, color=['tissue'], frameon=False, save='_tissue_scANVI_HDG.png')
 
 # %%
 adata.write_h5ad(outDir + 'seacells_hdg_patients_batch_corr_scANVI_tissuetreat_embeddings_HDG.h5ad')

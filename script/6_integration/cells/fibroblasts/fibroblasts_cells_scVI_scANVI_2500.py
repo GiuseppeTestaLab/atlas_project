@@ -50,7 +50,7 @@ sc.tl.score_genes(adata, ['ACTA2', 'COL11A1', 'MFAP5', 'SFRP2', 'ISLR', 'COL10A1
 score_name = "mCAF", use_raw=False)
 
 # vascular cancer-associated fibroblasts CAFs (vCAF)
-sc.tl.score_genes(aadatad, ['COX4I2', 'HIGD1B', 'PTP4A3', 'MCAM', 'PPP1R14A'], 
+sc.tl.score_genes(adata, ['COX4I2', 'HIGD1B', 'PTP4A3', 'MCAM', 'PPP1R14A'], 
 score_name = "vCAF", use_raw=False)
 
 # STAR gene expressing CAFs (starCAF)
