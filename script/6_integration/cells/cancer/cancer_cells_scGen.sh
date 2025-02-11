@@ -1,9 +1,8 @@
 #!/bin/bash
 #SBATCH --time=120:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
-#SBATCH --partition=gpuq
-#SBATCH --gres=gpu:1
+#SBATCH --ntasks-per-node=8
+#SBATCH --partition=cpuq
 #SBATCH --job-name=cells_integr
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
