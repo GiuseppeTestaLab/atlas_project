@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=4
 #SBATCH --partition=gpuq
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=seacells_scVI
