@@ -50,10 +50,9 @@ adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients.h5ad')
 adata = sc.read(destDir + 'seacells_assignment_hdg_patients.h5ad')
 ad = create_mc_matrix(adata)
 
-ad.obs.drop(columns=['ID', 'sample_name', 'cell_type', 'cell_subtype', 'sample_ID', 
-                                    'patient_id', 'n_genes', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 
+ad.obs.drop(columns=['n_genes', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 
                                     'pct_counts_mt', 'CancerMSK', 'EndothelialMSK', 'FibroblastsMSK', 'HematopoieticMSK', 
-                                    'cell_labels_ratio', 'max', 'assignment', 'leiden-1.8'], inplace=True)
+                                    'max'], inplace=True)
 
 ad.write(destDir + 'seacells_hdg_patients.h5ad')
 
