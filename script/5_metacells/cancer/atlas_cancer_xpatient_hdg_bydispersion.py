@@ -49,11 +49,6 @@ adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients.h5ad')
 #%%
 adata = sc.read(destDir + 'seacells_assignment_hdg_patients.h5ad')
 ad = create_mc_matrix(adata)
-
-ad.obs.drop(columns=['n_genes', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 
-                                    'pct_counts_mt', 'CancerMSK', 'EndothelialMSK', 'FibroblastsMSK', 'HematopoieticMSK', 
-                                    'max'], inplace=True)
-
 ad.write(destDir + 'seacells_hdg_patients.h5ad')
 
 ## Compute embeddings and plot metacells
