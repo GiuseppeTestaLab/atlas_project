@@ -16,6 +16,7 @@ config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
 
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 
 ## Initialize directiories
 tissueDir = rawPath + 'downstream/clustering/endothelial/'
@@ -103,7 +104,8 @@ node_colors = {
     'RNA_metabolism': 'rgba(210, 200, 151, 0.6)',
     'NACT': 'rgba(232, 186, 134, 0.6)',
     'Angiogenesis': 'rgba(254, 168, 184, 0.6)',
-    'Immunoreactive_cells-B_cells': 'rgba(219, 217, 247, 0.6)'
+    'Immunoreactive_cells-B_cells': 'rgba(219, 217, 247, 0.6)',
+    '13': 'rgba(255, 255, 255, 0.6)'
 }
 
 # Define links
@@ -196,3 +198,4 @@ fig.show()
 
 # Save plot
 fig.write_image(figPath + 'endothelial_metastasis_treatment.png')
+# %%

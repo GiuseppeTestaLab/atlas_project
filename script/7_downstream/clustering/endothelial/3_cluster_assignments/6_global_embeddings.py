@@ -5,7 +5,7 @@ import scanpy as sc
 import pandas as pd
 import numpy as np
 import configparser
-
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -16,6 +16,9 @@ figPath = config.get("DEFAULT", "figPath")
 #%%
 ## Initialize directories
 tissueDir = rawPath + 'downstream/clustering/endothelial/'
+if not os.path.exists(tissueDir):
+    os.makedirs(tissueDir)
+
 sc.settings.figdir = figPath + 'cluster_assignments/endothelial/'
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 
@@ -48,4 +51,5 @@ adata_combined.obsm['X_umap_shifted'] = umap_combined
 sc.pl.embedding(adata_combined, color=['tissue'], basis="X_umap_shifted", frameon=False)
 
 #%%
+
 adata_combined.write(tissueDir + "tissues_combined_cellstates_embeddings.h5ad")
