@@ -65,11 +65,6 @@ sc.settings.figdir = figPath + "integration/metacells/fibroblasts/"
 #%%
 adata = sc.read(outDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat.h5ad')
 adata.obs
-adata.obs = adata.obs.drop(columns=['ID', 'sample_name', 'cell_type', 'cell_subtype', 'sample_ID', 
-                                    'patient_id', 'n_genes', 'n_genes_by_counts', 'total_counts', 'total_counts_mt', 
-                                    'pct_counts_mt', 'CancerMSK', 'EndothelialMSK', 'FibroblastsMSK', 'HematopoieticMSK', 
-                                    'cell_labels_ratio', 'max', 'assignment', 'leiden-1.8', '_scvi_batch', '_scvi_labels'])
-
 #%% 
 hvg = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv', index_col=0)
 adata.var['highly_variable']=hvg.highly_variable
