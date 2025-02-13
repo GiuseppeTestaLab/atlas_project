@@ -15,6 +15,7 @@ config.read("../../utils/config.ini")
 
 utilsPath = config.get("DEFAULT", "utilsPath")
 rawPath = config.get("DEFAULT", "rawPath")
+figPath = config.get("DEFAULT", "figPath")
 scriptsPath = config.get("DEFAULT", "scriptsPath")
 CCGenes = config.get("DEFAULT", "CCGenes")
 
