@@ -43,9 +43,9 @@ adata = sc.read(initDir + 'seacells_hdg_patients_batch_corr_scgen_tissuetreat_em
 adata
 adata.obs
 
-adata.obs.drop(columns = ['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
-                          'sample_ID', 'cell_labels_ratio', 
-                          'assignment', 'leiden-1.8'], inplace = True)
+# adata.obs.drop(columns = ['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
+#                           'sample_ID', 'cell_labels_ratio', 
+#                           'assignment', 'leiden-1.8'], inplace = True)
 
 ## Clustering
 #%%
