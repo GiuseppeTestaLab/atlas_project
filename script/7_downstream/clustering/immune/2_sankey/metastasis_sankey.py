@@ -93,13 +93,13 @@ fig.write_html(figDir + 'immune_metastasis_cellcycle.html')
 fig.show()
 
 #%%
-fig = px.parallel_categories(LeidenDF, 
-                             dimensions=[i for i in adata.obs.columns if "leiden-" in i],
-                             color_continuous_scale=px.colors.sequential.Agsunset,color="tumor_stage",
-                             width=2000,height=700)
-fig.write_image(figDir + 'immune_metastasis_tumorstage.png')
-fig.write_html(figDir + 'immune_metastasis_tumorstage.html')
-fig.show()
+# fig = px.parallel_categories(LeidenDF, 
+#                              dimensions=[i for i in adata.obs.columns if "leiden-" in i],
+#                              color_continuous_scale=px.colors.sequential.Agsunset,color="tumor_stage",
+#                              width=2000,height=700)
+# fig.write_image(figDir + 'immune_metastasis_tumorstage.png')
+# fig.write_html(figDir + 'immune_metastasis_tumorstage.html')
+# fig.show()
 
 #%%
 fig = px.parallel_categories(LeidenDF, 
