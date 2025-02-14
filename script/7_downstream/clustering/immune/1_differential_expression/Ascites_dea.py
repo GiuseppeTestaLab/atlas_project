@@ -162,8 +162,8 @@ for i in np.arange(0.01, 2.0, 0.1):
 
 # ## Assigning gene ontologies to clusters
 # #%%
-# directory_root = rawPath + "downstream/clustering/immune/ascites/"
-# log_file = directory_root + 'ascites.log'
+directory_root = rawPath + "downstream/clustering/immune/ascites/"
+log_file = directory_root + 'ascites.log'
 if not os.path.exists(directory_root):
     os.makedirs(directory_root)
 
