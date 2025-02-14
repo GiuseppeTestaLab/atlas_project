@@ -15,7 +15,7 @@ scriptsPath = config.get("DEFAULT", "scriptsPath")
 scripts = ["primary_sankey", "ascites_sankey", "metastasis_sankey"]
 
 # to be changed in relative path 
-initialPath = scriptsPath + "y/"
+initialPath = scriptsPath + "7_downstream/clustering/fibroblasts/2_sankey/"
 
 # this will run the python files to generate gene ontologies for each tissue
 
