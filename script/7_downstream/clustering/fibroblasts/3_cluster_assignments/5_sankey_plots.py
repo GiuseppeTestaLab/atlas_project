@@ -10,6 +10,8 @@ import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
 import configparser
+import plotly.io as pio
+pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
 
 # Read configuration file
 config = configparser.ConfigParser()

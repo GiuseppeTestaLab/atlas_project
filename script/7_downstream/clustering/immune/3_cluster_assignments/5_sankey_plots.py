@@ -10,7 +10,10 @@ import matplotlib
 import plotly.express as px
 import plotly.graph_objects as go
 import configparser
-
+#kaleido cluster flag error fix see (https://github.com/plotly/Kaleido/issues/90)
+import plotly.io as pio
+pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
+import os
 # Read configuration file
 config = configparser.ConfigParser()
 config.read("../../utils/config.ini")
@@ -21,6 +24,8 @@ figPath = config.get("DEFAULT", "figPath")
 ## Initialize directiories
 tissueDir = rawPath + 'downstream/clustering/immune/'
 figDir = figPath + 'cluster_assignments/immune/'
+if not os.path.exists(figDir):
+    os.makedirs(figDir)
 
 #%%
 ## Loading data

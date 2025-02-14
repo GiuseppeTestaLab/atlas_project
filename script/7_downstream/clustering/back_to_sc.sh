@@ -2,8 +2,8 @@
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
-#SBATCH --partition=back_to_sc
-#SBATCH --job-name=primary
+#SBATCH --partition=cpuq
+#SBATCH --job-name=back_to_sc
 #SBATCH --mem=200GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log

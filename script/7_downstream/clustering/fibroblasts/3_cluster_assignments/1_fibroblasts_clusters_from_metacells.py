@@ -24,7 +24,7 @@ outDir = rawPath + 'downstream/clustering/fibroblasts/cluster_assignments/'
 sc.settings.figdir = rawPath + 'downstream/clustering/fibroblasts/figures/'
 
 ## Load the data
-cells = sc.read(initDir + 'atlas_fibroblasts_filt_norm_nolog.h5ad')
+cells = sc.read(initDir + 'atlas_fibroblast_filt_norm_nolog.h5ad')
 adata = sc.read(metacellsDir + 'seacells_assignment_hdg_patients.h5ad')
 
 ## Appending the metacells to the cells they belong to

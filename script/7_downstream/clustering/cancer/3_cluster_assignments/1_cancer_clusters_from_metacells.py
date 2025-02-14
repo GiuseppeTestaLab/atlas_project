@@ -7,7 +7,7 @@ import scanpy as sc
 import pandas as pd
 import numpy as np
 import gc
-
+import os
 ## Initialize directories
 import configparser
 
@@ -30,9 +30,9 @@ adata = sc.read(metacellsDir + 'seacells_assignment_hdg_patients.h5ad')
 ## Appending the metacells to the cells they belong to
 cells.obs.index.equals(adata.obs.index)
 
-cells.obs.drop(columns=['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
-                          'sample_ID', 'cell_labels_ratio', 
-                          'assignment', 'leiden-1.8'], inplace = True)
+# cells.obs.drop(columns=['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
+#                           'sample_ID', 'cell_labels_ratio', 
+#                           'assignment', 'leiden-1.8'], inplace = True)
 
 cells.obs = pd.concat([cells.obs, adata.obs.SEACell], axis='columns')
 
@@ -120,7 +120,7 @@ gc.collect()
 
 ## Plotting the clusters from metacells on the original cells
 
-sc.pl.umap(cells, color=['tissue', 'cluster_from_seacells'], frameon=False, save='_cancer_clusters_from_metacells.png')
+# sc.pl.umap(cells, color=['tissue', 'cluster_from_seacells'], frameon=False, save='_cancer_clusters_from_metacells.png')
 
 ## Checking for NA values
 
