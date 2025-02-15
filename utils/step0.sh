@@ -4,14 +4,13 @@ INIT_DIR=/group/testa/Project/OvarianAtlas/atlas_project/raw_data
 source bash_ini_parser/read_ini.sh
 read_ini config.ini
 
-DEST_DIR=$INI__DEFAULT__rawPath
+DEST_RAW=$INI__DEFAULT__rawPath
 
 ORIGINAL_COUNTS=$INIT_DIR/original_counts_backup/original_counts
-DEST_RAW=$DEST_DIR/raw_data
 DEST_COUNTS=$DEST_RAW/original_counts
 
-echo "Builing directory tree for raw data at:" $DEST_DIR
-mkdir -p $DEST_DIR
+echo "Builing directory tree for raw data at:" $DEST_RAW
+
 mkdir -p $DEST_COUNTS/Geistlinger2020/Adata
 cp -R $ORIGINAL_COUNTS/Geistlinger2020/Samples $DEST_COUNTS/Geistlinger2020/
 
