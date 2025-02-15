@@ -30,9 +30,9 @@ adata = sc.read(metacellsDir + 'seacells_assignment_hdg_patients.h5ad')
 ## Appending the metacells to the cells they belong to
 cells.obs.index.equals(adata.obs.index)
 
-cells.obs.drop(columns=['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
-                          'sample_ID', 'cell_labels_ratio', 
-                          'assignment', 'leiden-1.8'], inplace = True)
+# cells.obs.drop(columns=['ID', 'sample_name', 'patient_id', 'cell_type', 'cell_subtype', 
+#                           'sample_ID', 'cell_labels_ratio', 
+#                           'assignment', 'leiden-1.8'], inplace = True)
 
 cells.obs = pd.concat([cells.obs, adata.obs.SEACell], axis='columns')
 
