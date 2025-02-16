@@ -14,7 +14,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 #%%
-adata = sc.read(rawPath + "Zheng2023/Adata/zheng2023_embeddings.h5ad")
+adata = sc.read(rawPath + "original_counts/Zheng2023/Adata/zheng2023_embeddings.h5ad")
 
 #%%
 ## Creating annotation columns with Vasquez-Garcia et al. signatures genes
@@ -79,4 +79,4 @@ for dataset in adata.obs.dataset.unique():
     counter = counter + 1
 
 #%%
-adata.write(rawPath + 'Adata/zheng2023_embeddings_cell_labelled.h5ad')
+adata.write(rawPath + 'original_counts/Zheng2023/Adata/zheng2023_embeddings_cell_labelled.h5ad')

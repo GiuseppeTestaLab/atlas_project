@@ -21,9 +21,8 @@ rawPath = config.get("DEFAULT", "rawPath")
 
 # inputs
 parameters = pd.read_csv(
-    scriptsPath + "8_out_of_sample_extension/Zheng2023/preprocess_params.tsv", sep=";"
+    scriptsPath + "8_out_of_sample_extension/01_Zheng2023/preprocess_params.tsv", sep=";"
 )
-
 #inputs
 
 init_dir = os.path.join(rawPath, parameters.init_dir[0])

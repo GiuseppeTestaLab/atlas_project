@@ -13,7 +13,7 @@ config.read("../../utils/config.ini")
 rawPath = config.get("DEFAULT", "rawPath")
 
 #%%
-initDir = rawPath + 'Zheng2023/Adata/'
+initDir = rawPath + 'original_counts/Zheng2023/Adata/'
 
 #%%
 adata = sc.read(initDir + 'zheng2023_embeddings_cell_labelled.h5ad')
