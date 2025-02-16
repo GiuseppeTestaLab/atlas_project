@@ -7,6 +7,8 @@ import pandas as pd
 import scanpy as sc
 import SEACells
 import configparser
+import sys
+import os 
 
 # Read configuration file
 config = configparser.ConfigParser()
@@ -22,15 +24,18 @@ sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc
 
 ## Initialize directories
-initDir = rawPath + 'Zheng2023/Adata/'
-destDir = rawPath + 'Zheng2023/Metacells/'
+initDir = rawPath + 'original_counts/Zheng2023/Adata/'
+destDir = rawPath + 'metacells/cancer/zheng/'
+if(not os.path.exists(destDir)):
+    os.makedirs(destDir)
+
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 sc.settings.figdir = figPath + "metacells/cancer/"
 
 ## Load data
 #%%
-adata= sc.read(initDir + "zheng_cancer_filt_norm_nolog.h5ad")
-genes = scriptsPath + 'HVG/atlas_cancer_hdg_dispersion_patients.csv'
+adata= sc.read(initDir + "zheng2023_cancer_filt_norm_nolog.h5ad")
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv'
 
 ## Preprocessing
 #%%
@@ -39,7 +44,7 @@ raw_ad = sc.AnnData(adata.X)
 raw_ad.obs_names, raw_ad.var_names = adata.obs_names, adata.var_names
 adata.raw = raw_ad
 sc.pp.log1p(adata)
-hdg = pd.read_csv(scriptsPath + 'HVG/atlas_cancer_hdg_dispersion_patients.csv',  index_col=0)
+hdg = pd.read_csv(scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_cancer.csv',  index_col=0)
 hdg[hdg.highly_variable]
 adata.var['highly_variable']=hdg.highly_variable
 adata.var.highly_variable = adata.var.highly_variable.fillna(False)

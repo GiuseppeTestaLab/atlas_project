@@ -1,0 +1,5 @@
+#!/bin/bash
+sbatch 03_Zheng_metacells/zheng_cancer_metacells.sh
+sbatch 03_Zheng_metacells/zheng_endothelial_metacells.sh
+sbatch 03_Zheng_metacells/zheng_fibroblast_metacells.sh
+sbatch 03_Zheng_metacells/zheng_immune_metacells.sh
