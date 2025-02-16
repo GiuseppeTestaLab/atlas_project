@@ -20,7 +20,7 @@ sys.path.insert(1, utilsPath)
 from cell_labeller import assign_scores, actual_labeller, create_cancer_adata
 
 ## Initialize directories
-initDir = rawPath + 'Zheng2023/Adata/'
+initDir = rawPath + 'original_counts/Zheng2023/Adata/'
 
 #%%
 ## Zheng
@@ -38,7 +38,7 @@ adata_cancer = create_cancer_adata(adata)
 adata_cancer.write(initDir + 'zheng2023_adata_cancer.h5ad')
 
 #%%
-dataDir = '/group/testa/Project/OvarianAtlas/'
+dataDir = rawPath + 'original_counts/'
 dataName = ['zheng2023']
 
 # common_var_names = pd.read_csv(scriptsPath + '4_hdg/Tables/common_varnames_datasets.csv', index_col=0)
