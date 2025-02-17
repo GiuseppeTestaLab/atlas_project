@@ -35,7 +35,7 @@ sc.settings.figdir = figPath + "metacells/fibroblasts/"
 ## Load data
 #%%
 adata= sc.read(initDir + "zheng2023_fibroblast_filt_norm_nolog.h5ad")
-genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblats.csv'
+genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_fibroblasts.csv'
 
 ## Preprocessing
 #%%
