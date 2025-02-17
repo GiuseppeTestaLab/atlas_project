@@ -25,5 +25,5 @@ echo script=${scriptsPath} dataset=${datasetPath} bind=${bindPaths} home=${homeP
 module load singularity
 
 singularity exec -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scvi && \
+                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scarches && \
                  python3 04_Zheng_integration/scarches_immune.py"

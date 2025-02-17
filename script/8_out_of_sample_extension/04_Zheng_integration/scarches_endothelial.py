@@ -1,8 +1,6 @@
 # Reference mapping with scarches
 #%%
 import os
-os.environ["SCIPY_ARRAY_API"] = "1"
-
 #%%
 import scanpy as sc
 import pandas as pd
