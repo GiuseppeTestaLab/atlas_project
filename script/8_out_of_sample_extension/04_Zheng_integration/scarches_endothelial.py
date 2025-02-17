@@ -1,4 +1,7 @@
 # Reference mapping with scarches
+#%%
+import os
+os.environ["SCIPY_ARRAY_API"] = "1"
 
 #%%
 import scanpy as sc
@@ -185,4 +188,7 @@ sc.pl.umap(integrated_query, color='treatment', frameon=False, save='oose_treatm
 sc.pl.umap(integrated_query, color='tissue-treatment', frameon=False, save='oose_tissue-treatment.png')
 
 #%%
+if not os.path.exists(ooseDir):
+    os.makedirs(ooseDir)
+
 integrated_query.write_h5ad(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat.h5ad')
