@@ -1,0 +1,5 @@
+#!/bin/bash
+sbatch 04_Zheng_integration/scarches_cancer.sh
+sbatch 04_Zheng_integration/scarches_endothelial.sh
+sbatch 04_Zheng_integration/scarches_fibroblasts.sh
+sbatch 04_Zheng_integration/scarches_immune.sh
