@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --partition=cpuq
-#SBATCH --job-name=sea_zheng
+#SBATCH --job-name=sea_zheng_imm
 #SBATCH --mem=128GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
