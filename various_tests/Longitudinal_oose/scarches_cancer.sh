@@ -2,7 +2,8 @@
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
-#SBATCH --partition=cpuq
+#SBATCH --partition=gpuq
+#SBATCH --gres=gpu:1
 #SBATCH --job-name=oose_cancer
 #SBATCH --mem=100GB
 #SBATCH --mail-type=ALL
