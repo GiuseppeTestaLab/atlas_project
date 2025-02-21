@@ -7,7 +7,7 @@ import sys
 import configparser
 import os
 import numpy as np
-np.random.seed(17)
+np.random.seed(12)
 
 
 # Read configuration file
@@ -46,7 +46,7 @@ adata.write_h5ad(initDir + 'atlas_cancer_embeddings.h5ad')
 ## Metacells generation per patient
 #%%
 adata = assign_metacells(adata)
-adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_seed_2.h5ad')
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_seed_3.h5ad')
 
 # Creating metacell matrix
 # #%%
