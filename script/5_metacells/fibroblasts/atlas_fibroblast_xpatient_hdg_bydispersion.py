@@ -40,7 +40,7 @@ adata.write_h5ad(initDir + 'atlas_fibroblasts_embeddings.h5ad')
 ## Metacells generation per patient
 #%%
 adata = assign_metacells(adata)
-adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_seed_1.h5ad')
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_seed_2.h5ad')
 
 # Creating metacell matrix
 # #%%
