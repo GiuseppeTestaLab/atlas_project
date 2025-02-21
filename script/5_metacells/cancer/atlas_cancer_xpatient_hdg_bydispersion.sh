@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
-#SBATCH --job-name=cancer
+#SBATCH --job-name=seed_1_cancer
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
