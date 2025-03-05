@@ -23,7 +23,7 @@ from metacells_derivation import preprocess, assign_metacells, create_mc_matrix,
 
 
 #%%
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated_backup/atlas_annotated/"
+initDir = rawPath + 'atlas_annotated/'
 destDir = rawPath + 'metacells/endothelial/'
 if not os.path.exists(destDir):
     os.makedirs(destDir)
