@@ -1,17 +1,15 @@
 #!/bin/sh
-INIT_DIR=/group/testa/Project/OvarianAtlas/atlas_project/raw_data
-URL=https://repo.bioserver.ieo.it/GT/original_counts
+URL=https://repo.bioserver.ieo.it/GT/original_counts/
 source bash_ini_parser/read_ini.sh
 read_ini config.ini
 
 DEST_RAW=$INI__DEFAULT__rawPath
 
-ORIGINAL_COUNTS=$INIT_DIR/original_counts_backup/original_counts
 DEST_COUNTS=$DEST_RAW/original_counts
 
 echo "Builing directory tree for raw data at:" $DEST_RAW
-
-wget -mpEk --no-parent --cut-dirs=1 -nH --reject="index.html*" $URL -O $DEST_RAW
+cd $DEST_RAW
+wget -mpEk --no-parent --cut-dirs=1 -nH --reject="index.html*" $URL --directory-prefix $DEST_RAW
 
 mkdir -p $DEST_COUNTS/Geistlinger2020/Adata
 mkdir -p $DEST_COUNTS/Loret2022/Adata
