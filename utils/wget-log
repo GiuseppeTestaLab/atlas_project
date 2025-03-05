@@ -1,0 +1,1436 @@
+DEBUG output created by Wget 1.19.5 on linux-gnu.
+
+Reading HSTS entries from /home/vittorio.aiello/.wget-hsts
+URI encoding = 'ANSI_X3.4-1968'
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/' (UTF-8)
+URI encoding = 'ANSI_X3.4-1968'
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/ at depth 0
+Queue count 1, maxcount 1.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/' with 'ANSI_X3.4-1968'
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/ at depth 0
+Queue count 0, maxcount 1.
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/' (UTF-8)
+Converted file name 'original_counts/index.html' (UTF-8) -> 'original_counts/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:07--  https://repo.bioserver.ieo.it/GT/original_counts/
+Certificates loaded: 349
+Resolving repo.bioserver.ieo.it (repo.bioserver.ieo.it)... 90.147.184.219
+Caching repo.bioserver.ieo.it => 90.147.184.219
+Connecting to repo.bioserver.ieo.it (repo.bioserver.ieo.it)|90.147.184.219|:443... connected.
+Created socket 4.
+Releasing 0x000055555644e4b0 (new refcount 1).
+
+---request begin---
+GET /GT/original_counts/ HTTP/1.1
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:07 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Registered socket 4 for persistent reuse.
+Length: unspecified [text/html]
+Saving to: 'original_counts/index.html.tmp.html'
+
+original_counts/index.html.tmp.html                    [<=>                                                                                                              ]       0  --.-KB/s               original_counts/index.html.tmp.html                    [ <=>                                                                                                             ]   1.08K  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (45.2 MB/s) - 'original_counts/index.html.tmp.html' saved [1106]
+
+Loaded original_counts/index.html.tmp.html (size 1106).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Geistlinger2020/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Loret2022/') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Olbrecht2021/') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Qian2020/') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Regner2021/') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Ren2022/') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Vasquez2022/') -> https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Xu2022/') -> https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/', 'Zhang2022/') -> https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/' to urlpos.
+no-follow in original_counts/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/".
+Going to "GT" would escape "GT/original_counts" with no_parent on.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/".
+URI encoding = 'ANSI_X3.4-1968'
+Loading robots.txt; please ignore errors.
+Converted file name 'robots.txt' (UTF-8) -> 'robots.txt' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/robots.txt
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /robots.txt HTTP/1.1
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 404 Not Found
+Content-Length: 153
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+
+---response end---
+404 Not Found
+Skipping 153 bytes of body: [<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/1.27.3</center>
+</body>
+</html>
+] done.
+2025-03-05 16:42:08 ERROR 404: Not Found.
+
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/ at depth 1
+Queue count 1, maxcount 1.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/ at depth 1
+Queue count 2, maxcount 2.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/ at depth 1
+Queue count 3, maxcount 3.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/ at depth 1
+Queue count 4, maxcount 4.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/ at depth 1
+Queue count 5, maxcount 5.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/ at depth 1
+Queue count 6, maxcount 6.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/ at depth 1
+Queue count 7, maxcount 7.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/ at depth 1
+Queue count 8, maxcount 8.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/ at depth 1
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Geistlinger2020/index.html' (UTF-8) -> 'original_counts/Geistlinger2020/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Geistlinger2020/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Geistlinger2020/index.html.tmp.html'
+
+original_counts/Geistlinger2020/index.html.tmp.htm     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Geistlinger2020/index.html.tmp.htm     [ <=>                                                                                                             ]     306  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (18.6 MB/s) - 'original_counts/Geistlinger2020/index.html.tmp.html' saved [306]
+
+Loaded original_counts/Geistlinger2020/index.html.tmp.html (size 306).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/', 'Samples/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/' to urlpos.
+no-follow in original_counts/Geistlinger2020/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Geistlinger2020/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Loret2022/index.html' (UTF-8) -> 'original_counts/Loret2022/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Loret2022/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Loret2022/index.html.tmp.html'
+
+original_counts/Loret2022/index.html.tmp.html          [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Loret2022/index.html.tmp.html          [ <=>                                                                                                             ]     293  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (20.7 MB/s) - 'original_counts/Loret2022/index.html.tmp.html' saved [293]
+
+Loaded original_counts/Loret2022/index.html.tmp.html (size 293).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/', 'Counts/') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/' to urlpos.
+no-follow in original_counts/Loret2022/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Loret2022/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Olbrecht2021/index.html' (UTF-8) -> 'original_counts/Olbrecht2021/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Olbrecht2021/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Olbrecht2021/index.html.tmp.html'
+
+original_counts/Olbrecht2021/index.html.tmp.html       [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Olbrecht2021/index.html.tmp.html       [ <=>                                                                                                             ]     302  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (23.9 MB/s) - 'original_counts/Olbrecht2021/index.html.tmp.html' saved [302]
+
+Loaded original_counts/Olbrecht2021/index.html.tmp.html (size 302).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/', '10xCounts/') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/' to urlpos.
+no-follow in original_counts/Olbrecht2021/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Olbrecht2021/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Qian2020/index.html' (UTF-8) -> 'original_counts/Qian2020/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Qian2020/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Qian2020/index.html.tmp.html'
+
+original_counts/Qian2020/index.html.tmp.html           [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Qian2020/index.html.tmp.html           [ <=>                                                                                                             ]     291  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (12.4 MB/s) - 'original_counts/Qian2020/index.html.tmp.html' saved [291]
+
+Loaded original_counts/Qian2020/index.html.tmp.html (size 291).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/', 'Counts/') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/' to urlpos.
+no-follow in original_counts/Qian2020/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Qian2020/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Regner2021/index.html' (UTF-8) -> 'original_counts/Regner2021/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Regner2021/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Regner2021/index.html.tmp.html'
+
+original_counts/Regner2021/index.html.tmp.html         [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Regner2021/index.html.tmp.html         [ <=>                                                                                                             ]     298  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (21.1 MB/s) - 'original_counts/Regner2021/index.html.tmp.html' saved [298]
+
+Loaded original_counts/Regner2021/index.html.tmp.html (size 298).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Regner2021/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Regner2021/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/', 'HGSOC_tum/') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/' to urlpos.
+no-follow in original_counts/Regner2021/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Regner2021/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Ren2022/index.html' (UTF-8) -> 'original_counts/Ren2022/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Ren2022/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Ren2022/index.html.tmp.html'
+
+original_counts/Ren2022/index.html.tmp.html            [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Ren2022/index.html.tmp.html            [ <=>                                                                                                             ]     289  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (9.38 MB/s) - 'original_counts/Ren2022/index.html.tmp.html' saved [289]
+
+Loaded original_counts/Ren2022/index.html.tmp.html (size 289).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Ren2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Ren2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/', 'Counts/') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/' to urlpos.
+no-follow in original_counts/Ren2022/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Ren2022/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Vasquez2022/index.html' (UTF-8) -> 'original_counts/Vasquez2022/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Vasquez2022/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Vasquez2022/index.html.tmp.html'
+
+original_counts/Vasquez2022/index.html.tmp.html        [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Vasquez2022/index.html.tmp.html        [ <=>                                                                                                             ]     311  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (18.5 MB/s) - 'original_counts/Vasquez2022/index.html.tmp.html' saved [311]
+
+Loaded original_counts/Vasquez2022/index.html.tmp.html (size 311).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Vasquez2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Vasquez2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/', 'GSE180661_matrix.h5ad') -> https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad' to urlpos.
+no-follow in original_counts/Vasquez2022/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Vasquez2022/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Xu2022/index.html' (UTF-8) -> 'original_counts/Xu2022/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Xu2022/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Xu2022/index.html.tmp.html'
+
+original_counts/Xu2022/index.html.tmp.html             [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Xu2022/index.html.tmp.html             [ <=>                                                                                                             ]     287  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (20.3 MB/s) - 'original_counts/Xu2022/index.html.tmp.html' saved [287]
+
+Loaded original_counts/Xu2022/index.html.tmp.html (size 287).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Xu2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Xu2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/', 'Cancer/') -> https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/' to urlpos.
+no-follow in original_counts/Xu2022/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/ at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Xu2022/Cancer/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Xu2022/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/ at depth 1
+Queue count 8, maxcount 9.
+Converted file name 'original_counts/Zhang2022/index.html' (UTF-8) -> 'original_counts/Zhang2022/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Zhang2022/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Zhang2022/index.html.tmp.html'
+
+original_counts/Zhang2022/index.html.tmp.html          [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Zhang2022/index.html.tmp.html          [ <=>                                                                                                             ]     436  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (31.5 MB/s) - 'original_counts/Zhang2022/index.html.tmp.html' saved [436]
+
+Loaded original_counts/Zhang2022/index.html.tmp.html (size 436).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Zhang2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Zhang2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/', 'GSE165897_UMIcounts_HGSOC.tsv') -> https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Zhang2022/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/', 'GSE165897_cellInfo_HGSOC.tsv') -> https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv' to urlpos.
+no-follow in original_counts/Zhang2022/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv at depth 2
+Queue count 9, maxcount 9.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_UMIcounts_HGSOC.tsv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv at depth 2
+Queue count 10, maxcount 10.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Zhang2022/GSE165897_cellInfo_HGSOC.tsv' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Zhang2022/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/ at depth 2
+Queue count 9, maxcount 10.
+Converted file name 'original_counts/Geistlinger2020/Samples/index.html' (UTF-8) -> 'original_counts/Geistlinger2020/Samples/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Geistlinger2020/Samples/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Geistlinger2020/Samples/index.html.tmp.html'
+
+                         original_counts/Geistling     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Geistlinger2020/Samples/index.html     [ <=>                                                                                                             ]     706  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (48.2 MB/s) - 'original_counts/Geistlinger2020/Samples/index.html.tmp.html' saved [706]
+
+Loaded original_counts/Geistlinger2020/Samples/index.html.tmp.html (size 706).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', 'T59/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', 'T76/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', 'T77/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', 'T89/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Geistlinger2020/Samples/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/', 'T90/') -> https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/' to urlpos.
+no-follow in original_counts/Geistlinger2020/Samples/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/ at depth 3
+Queue count 10, maxcount 10.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T59/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/ at depth 3
+Queue count 11, maxcount 11.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T76/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/ at depth 3
+Queue count 12, maxcount 12.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T77/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/ at depth 3
+Queue count 13, maxcount 13.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T89/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/ at depth 3
+Queue count 14, maxcount 14.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Geistlinger2020/Samples/T90/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Geistlinger2020/Samples/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/ at depth 2
+Queue count 13, maxcount 14.
+Converted file name 'original_counts/Loret2022/Counts/index.html' (UTF-8) -> 'original_counts/Loret2022/Counts/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Loret2022/Counts/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Loret2022/Counts/index.html.tmp.html'
+
+original_counts/Loret2022/Counts/index.html.tmp.ht     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Loret2022/Counts/index.html.tmp.ht     [ <=>                                                                                                             ]   3.42K  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (186 MB/s) - 'original_counts/Loret2022/Counts/index.html.tmp.html' saved [3498]
+
+Loaded original_counts/Loret2022/Counts/index.html.tmp.html (size 3498).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Loret2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/', 'GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5') -> https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5' to urlpos.
+no-follow in original_counts/Loret2022/Counts/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 14, maxcount 14.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049610_1_N_OT_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 15, maxcount 15.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049611_2_N_A_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 16, maxcount 16.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049612_3_N_PER_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 17, maxcount 17.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049613_4_N_OM_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 18, maxcount 18.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049614_5_N_BL_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 19, maxcount 19.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049615_6_T_OT_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 20, maxcount 20.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049616_7_T_PER_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 21, maxcount 21.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049617_8_T_OM_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 22, maxcount 22.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049618_9_T_A_PT1_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 23, maxcount 23.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049619_10_N_OT_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 24, maxcount 24.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049620_11_N_A_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 25, maxcount 25.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049621_12_N_OM_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 26, maxcount 26.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049622_13_T_OT_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 27, maxcount 27.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049623_14_T_OM_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 28, maxcount 28.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049624_15_T_PER_PT2_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 29, maxcount 29.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049625_16_N_OT_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 30, maxcount 30.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049626_17_N_A_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 31, maxcount 31.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049627_18_N_PER_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 32, maxcount 32.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049628_19_T_OT_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 33, maxcount 33.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049629_20_T_A_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 34, maxcount 34.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049630_21_T_OM_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5 at depth 3
+Queue count 35, maxcount 35.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Loret2022/Counts/GSM6049631_22_T_PER_PT3_filtered_gene_bc_matrices_h5.h5' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Loret2022/Counts/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/ at depth 2
+Queue count 34, maxcount 35.
+Converted file name 'original_counts/Olbrecht2021/10xCounts/index.html' (UTF-8) -> 'original_counts/Olbrecht2021/10xCounts/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Olbrecht2021/10xCounts/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Olbrecht2021/10xCounts/index.html.tmp.html'
+
+                         original_counts/Olbrecht2     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Olbrecht2021/10xCounts/index.html.     [ <=>                                                                                                             ]     529  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (37.8 MB/s) - 'original_counts/Olbrecht2021/10xCounts/index.html.tmp.html' saved [529]
+
+Loaded original_counts/Olbrecht2021/10xCounts/index.html.tmp.html (size 529).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/10xCounts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/10xCounts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/', 'barcodes.tsv') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/10xCounts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/', 'genes.tsv') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Olbrecht2021/10xCounts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/', 'matrix.mtx') -> https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx' to urlpos.
+no-follow in original_counts/Olbrecht2021/10xCounts/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv at depth 3
+Queue count 35, maxcount 35.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/barcodes.tsv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv at depth 3
+Queue count 36, maxcount 36.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/genes.tsv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx at depth 3
+Queue count 37, maxcount 37.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Olbrecht2021/10xCounts/matrix.mtx' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Olbrecht2021/10xCounts/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/ at depth 2
+Queue count 36, maxcount 37.
+Converted file name 'original_counts/Qian2020/Counts/index.html' (UTF-8) -> 'original_counts/Qian2020/Counts/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Qian2020/Counts/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Qian2020/Counts/index.html.tmp.html'
+
+original_counts/Qian2020/Counts/index.html.tmp.htm     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Qian2020/Counts/index.html.tmp.htm     [ <=>                                                                                                             ]     987  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:08 (64.4 MB/s) - 'original_counts/Qian2020/Counts/index.html.tmp.html' saved [987]
+
+Loaded original_counts/Qian2020/Counts/index.html.tmp.html (size 987).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'BT1305.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'BT1306.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'BT1307.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'scrSOL001.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'scrSOL003.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'scrSOL004.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Qian2020/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/', 'scrSOL006.counts.csv') -> https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv' to urlpos.
+no-follow in original_counts/Qian2020/Counts/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv at depth 3
+Queue count 37, maxcount 37.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1305.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv at depth 3
+Queue count 38, maxcount 38.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1306.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv at depth 3
+Queue count 39, maxcount 39.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/BT1307.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv at depth 3
+Queue count 40, maxcount 40.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL001.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv at depth 3
+Queue count 41, maxcount 41.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL003.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv at depth 3
+Queue count 42, maxcount 42.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL004.counts.csv' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv at depth 3
+Queue count 43, maxcount 43.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Qian2020/Counts/scrSOL006.counts.csv' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Qian2020/Counts/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/ at depth 2
+Queue count 42, maxcount 43.
+Converted file name 'original_counts/Regner2021/HGSOC_tum/index.html' (UTF-8) -> 'original_counts/Regner2021/HGSOC_tum/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:08--  https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Regner2021/HGSOC_tum/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:08 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Regner2021/HGSOC_tum/index.html.tmp.html'
+
+                         original_counts/Regner202     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Regner2021/HGSOC_tum/index.html.tm     [ <=>                                                                                                             ]     421  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:09 (16.5 MB/s) - 'original_counts/Regner2021/HGSOC_tum/index.html.tmp.html' saved [421]
+
+Loaded original_counts/Regner2021/HGSOC_tum/index.html.tmp.html (size 421).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Regner2021/HGSOC_tum/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Regner2021/HGSOC_tum/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/', 'Patient_8/') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Regner2021/HGSOC_tum/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/', 'Patient_9/') -> https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/' to urlpos.
+no-follow in original_counts/Regner2021/HGSOC_tum/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/ at depth 3
+Queue count 43, maxcount 43.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_8/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/ at depth 3
+Queue count 44, maxcount 44.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Regner2021/HGSOC_tum/Patient_9/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Regner2021/HGSOC_tum/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/ at depth 2
+Queue count 43, maxcount 44.
+Converted file name 'original_counts/Ren2022/Counts/index.html' (UTF-8) -> 'original_counts/Ren2022/Counts/index.html' (ANSI_X3.4-1968)
+--2025-03-05 16:42:09--  https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Ren2022/Counts/ HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Wed, 05 Mar 2025 15:42:09 GMT
+Server: nginx/1.27.3
+Transfer-Encoding: chunked
+
+---response end---
+200 OK
+Length: unspecified [text/html]
+Saving to: 'original_counts/Ren2022/Counts/index.html.tmp.html'
+
+original_counts/Ren2022/Counts/index.html.tmp.html     [<=>                                                                                                              ]       0  --.-KB/s               original_counts/Ren2022/Counts/index.html.tmp.html     [ <=>                                                                                                             ]     416  --.-KB/s    in 0s      
+
+Last-modified header missing -- time-stamps turned off.
+2025-03-05 16:42:09 (24.0 MB/s) - 'original_counts/Ren2022/Counts/index.html.tmp.html' saved [416]
+
+Loaded original_counts/Ren2022/Counts/index.html.tmp.html (size 416).
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Ren2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/', '../') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/../
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/../' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/../' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Ren2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/', 'Patient_1_as/') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/' to urlpos.
+URI encoding = 'ANSI_X3.4-1968'
+original_counts/Ren2022/Counts/index.html.tmp.html: merge('https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/', 'Patient_1_tum/') -> https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/
+converted 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/' (ANSI_X3.4-1968) -> 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/' (UTF-8)
+appending 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/' to urlpos.
+no-follow in original_counts/Ren2022/Counts/index.html.tmp.html: 0
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/".
+Already on the black list.
+Decided NOT to load it.
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/ at depth 3
+Queue count 44, maxcount 44.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_as/' with None
+Deciding whether to enqueue "https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/".
+Decided to load it.
+URI encoding = None
+Enqueuing https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/ at depth 3
+Queue count 45, maxcount 45.
+[IRI Enqueuing 'https://repo.bioserver.ieo.it/GT/original_counts/Ren2022/Counts/Patient_1_tum/' with None
+Removing file due to recursive rejection criteria in recursive_retrieve():
+Removing original_counts/Ren2022/Counts/index.html.tmp.html since it should be rejected.
+
+Dequeuing https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad at depth 2
+Queue count 44, maxcount 45.
+Converted file name 'original_counts/Vasquez2022/GSE180661_matrix.h5ad' (UTF-8) -> 'original_counts/Vasquez2022/GSE180661_matrix.h5ad' (ANSI_X3.4-1968)
+--2025-03-05 16:42:09--  https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad
+Reusing existing connection to repo.bioserver.ieo.it:443.
+Reusing fd 4.
+
+---request begin---
+GET /GT/original_counts/Vasquez2022/GSE180661_matrix.h5ad HTTP/1.1
+Referer: https://repo.bioserver.ieo.it/GT/original_counts/Vasquez2022/
+User-Agent: Wget/1.19.5 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: repo.bioserver.ieo.it
+Connection: Keep-Alive
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 32553712960
+Content-Type: application/octet-stream
+Date: Wed, 05 Mar 2025 15:42:09 GMT
+Etag: "67c6cb89-7945a3d40"
+Last-Modified: Tue, 04 Mar 2025 09:44:41 GMT
+Server: nginx/1.27.3
+
+---response end---
+200 OK
+Length: 32553712960 (30G) [application/octet-stream]
+Saving to: 'original_counts/Vasquez2022/GSE180661_matrix.h5ad'
+
+original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]       0  --.-KB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 104.00K   492KB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]   6.01M  14.5MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  14.88M  23.8MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  23.88M  28.7MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  27.76M  26.8MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  35.63M  28.7MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  40.95M  28.4MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  49.45M  30.1MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  61.91M  33.6MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  74.82M  36.6MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ]  87.60M  39.0MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 100.40M  41.0MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 113.45M  42.8MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 125.68M  44.1MB/s               original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 138.37M  45.4MB/s    eta 11m 21soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 150.79M  46.4MB/s    eta 11m 21soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 163.49M  51.3MB/s    eta 11m 21soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 176.41M  52.8MB/s    eta 11m 21soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 189.46M  54.0MB/s    eta 11m 21soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 201.98M  56.7MB/s    eta 10m 20soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 215.01M  58.4MB/s    eta 10m 20soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 227.68M  59.7MB/s    eta 10m 20soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 240.23M  63.1MB/s    eta 10m 20soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 253.62M  63.3MB/s    eta 10m 20soriginal_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[                                                                                                                 ] 266.34M  63.3MB/s    eta 9m 46s original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[>                                                                                                                ] 279.57M  63.4MB/s    eta 9m 46s original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[>                                                                                                                ] 291.84M  63.4MB/s    eta 9m 46s original_counts/Vasquez2022/GSE180661_matrix.h5ad    0%[>                                                                                                                ] 304.32M  63.1MB/s    eta 9m 46s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 317.29M  63.2MB/s    eta 9m 46s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 329.68M  63.2MB/s    eta 9m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 341.98M  63.0MB/s    eta 9m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 354.71M  63.1MB/s    eta 9m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 367.43M  63.1MB/s    eta 9m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 380.27M  63.1MB/s    eta 9m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 393.29M  63.2MB/s    eta 9m 13s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 406.15M  63.0MB/s    eta 9m 13s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 418.80M  63.1MB/s    eta 9m 13s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 431.16M  62.8MB/s    eta 9m 13s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 443.45M  62.8MB/s    eta 9m 13s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 455.74M  62.5MB/s    eta 9m 3s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 468.90M  62.8MB/s    eta 9m 3s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 481.43M  62.7MB/s    eta 9m 3s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 494.09M  62.7MB/s    eta 9m 3s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 507.13M  62.7MB/s    eta 9m 3s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 520.09M  62.8MB/s    eta 8m 55s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 532.57M  62.7MB/s    eta 8m 55s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[>                                                                                                                ] 545.23M  62.9MB/s    eta 8m 55s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[=>                                                                                                               ] 557.82M  62.8MB/s    eta 8m 55s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[=>                                                                                                               ] 570.04M  62.7MB/s    eta 8m 55s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[=>                                                                                                               ] 583.38M  62.7MB/s    eta 8m 48s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[=>                                                                                                               ] 595.96M  62.8MB/s    eta 8m 48s original_counts/Vasquez2022/GSE180661_matrix.h5ad    1%[=>                                                                                                               ] 608.21M  62.5MB/s    eta 8m 48s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 621.05M  62.8MB/s    eta 8m 48s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 633.60M  62.9MB/s    eta 8m 48s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 645.84M  62.8MB/s    eta 8m 44s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 658.16M  62.7MB/s    eta 8m 44s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 670.52M  62.5MB/s    eta 8m 44s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 683.74M  62.7MB/s    eta 8m 44s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 696.13M  62.5MB/s    eta 8m 44s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 709.30M  62.6MB/s    eta 8m 39s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 721.98M  62.5MB/s    eta 8m 39s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 734.55M  62.7MB/s    eta 8m 39s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 746.85M  62.7MB/s    eta 8m 39s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 759.38M  62.6MB/s    eta 8m 39s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 772.48M  62.8MB/s    eta 8m 35s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 785.01M  62.8MB/s    eta 8m 35s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 798.35M  63.0MB/s    eta 8m 35s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 810.96M  62.9MB/s    eta 8m 35s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[=>                                                                                                               ] 823.68M  63.0MB/s    eta 8m 35s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 835.51M  62.7MB/s    eta 8m 31s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 847.20M  62.7MB/s    eta 8m 31s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 859.91M  62.7MB/s    eta 8m 31s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 873.02M  62.6MB/s    eta 8m 31s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 884.62M  62.4MB/s    eta 8m 31s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 897.79M  62.4MB/s    eta 8m 29s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 910.23M  62.3MB/s    eta 8m 29s original_counts/Vasquez2022/GSE180661_matrix.h5ad    2%[==>                                                                                                              ] 922.71M  62.1MB/s    eta 8m 29s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 934.68M  62.0MB/s    eta 8m 29s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 947.37M  62.0MB/s    eta 8m 29s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 960.21M  62.0MB/s    eta 8m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 973.09M  61.9MB/s    eta 8m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 985.84M  61.9MB/s    eta 8m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ] 999.18M  62.1MB/s    eta 8m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1011M  61.9MB/s    eta 8m 27s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.00G  62.2MB/s    eta 8m 23s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.01G  62.4MB/s    eta 8m 23s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.02G  62.5MB/s    eta 8m 23s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.04G  62.6MB/s    eta 8m 23s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.05G  62.7MB/s    eta 8m 23s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[==>                                                                                                              ]   1.06G  62.7MB/s    eta 8m 21s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.08G  62.6MB/s    eta 8m 21s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.09G  62.8MB/s    eta 8m 21s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.10G  63.3MB/s    eta 8m 21s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.11G  62.9MB/s    eta 8m 21s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.12G  63.3MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.14G  63.0MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.15G  63.1MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.16G  63.1MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.17G  63.0MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.19G  63.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.20G  63.0MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    3%[===>                                                                                                             ]   1.21G  63.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.22G  63.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.24G  63.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.25G  63.1MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.26G  63.1MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.27G  62.9MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.29G  63.0MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.30G  63.3MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.31G  63.2MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.32G  63.2MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[===>                                                                                                             ]   1.34G  63.1MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.35G  63.0MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.36G  63.0MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.37G  63.1MB/s    eta 8m 10s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.39G  63.1MB/s    eta 8m 10s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.40G  63.0MB/s    eta 8m 10s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.41G  63.1MB/s    eta 8m 10s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.42G  63.2MB/s    eta 8m 10s original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.44G  63.2MB/s    eta 8m 8s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.45G  63.2MB/s    eta 8m 8s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.46G  63.2MB/s    eta 8m 8s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.47G  63.1MB/s    eta 8m 8s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.49G  63.2MB/s    eta 8m 8s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.50G  63.0MB/s    eta 8m 6s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    4%[====>                                                                                                            ]   1.51G  62.9MB/s    eta 8m 6s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.52G  63.0MB/s    eta 8m 6s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.53G  63.1MB/s    eta 8m 6s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.55G  63.1MB/s    eta 8m 6s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.56G  63.1MB/s    eta 8m 4s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.57G  63.2MB/s    eta 8m 4s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.58G  63.0MB/s    eta 8m 4s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.60G  63.1MB/s    eta 8m 4s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[====>                                                                                                            ]   1.61G  63.0MB/s    eta 8m 4s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.62G  63.0MB/s    eta 8m 2s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.63G  62.8MB/s    eta 8m 2s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.65G  63.1MB/s    eta 8m 2s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.66G  62.8MB/s    eta 8m 2s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.67G  63.0MB/s    eta 8m 2s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.68G  63.0MB/s    eta 8m 1s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.69G  62.1MB/s    eta 8m 1s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.71G  62.0MB/s    eta 8m 1s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.72G  62.0MB/s    eta 8m 1s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.73G  61.9MB/s    eta 8m 1s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.74G  61.8MB/s    eta 8m 0s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.75G  61.8MB/s    eta 8m 0s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.77G  61.9MB/s    eta 8m 0s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.78G  61.9MB/s    eta 8m 0s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.79G  61.6MB/s    eta 8m 0s  original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.80G  61.6MB/s    eta 7m 59s original_counts/Vasquez2022/GSE180661_matrix.h5ad    5%[=====>                                                                                                           ]   1.82G  61.7MB/s    eta 7m 59s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[=====>                                                                                                           ]   1.83G  61.8MB/s    eta 7m 59s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[=====>                                                                                                           ]   1.84G  61.7MB/s    eta 7m 59s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[=====>                                                                                                           ]   1.85G  61.5MB/s    eta 7m 59s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[=====>                                                                                                           ]   1.87G  61.8MB/s    eta 7m 57s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.88G  62.8MB/s    eta 7m 57s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.89G  63.0MB/s    eta 7m 57s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.90G  62.7MB/s    eta 7m 57s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.92G  62.8MB/s    eta 7m 57s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.93G  63.0MB/s    eta 7m 56s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.94G  62.9MB/s    eta 7m 56s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.95G  62.7MB/s    eta 7m 56s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.97G  63.0MB/s    eta 7m 56s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.98G  62.9MB/s    eta 7m 56s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   1.99G  63.0MB/s    eta 7m 54s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.00G  62.8MB/s    eta 7m 54s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.01G  62.6MB/s    eta 7m 54s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.03G  62.7MB/s    eta 7m 54s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.04G  62.6MB/s    eta 7m 54s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.04G  39.3MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.05G  38.8MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.06G  39.2MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.07G  38.7MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.09G  39.0MB/s    eta 8m 18s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.10G  39.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    6%[======>                                                                                                          ]   2.11G  39.4MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[======>                                                                                                          ]   2.12G  38.8MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[======>                                                                                                          ]   2.14G  39.1MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.15G  39.4MB/s    eta 8m 16s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.16G  38.9MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.17G  39.3MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.19G  39.4MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.20G  38.9MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.21G  39.2MB/s    eta 8m 14s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.22G  39.5MB/s    eta 8m 12s original_counts/Vasquez2022/GSE180661_matrix.h5ad    7%[=======>                                                                                                         ]   2.23G  62.8MB/s    eta 8m 12s 

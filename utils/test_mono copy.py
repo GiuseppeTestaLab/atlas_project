@@ -34,7 +34,7 @@ def compute_celltype_purity(ad, col_name, starting):
 
 #%%
 # for endothelial metacells
-celltype="endothelial"
+celltype="cancer"
 adatas_paths = {
     "original": "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells_backup/metacells/{}/seacells_assignment_hdg_patients.h5ad".format(celltype),
     "original_integration": "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/integration_backup/integration/cells/{}/scgen_batch_corr_tissue-treatment_HDG.h5ad".format(celltype),
@@ -44,7 +44,7 @@ adatas_paths = {
     "step0_seed2": "/group/testa/Project/OvarianAtlasTestStep0/raw_data/metacells/{}/seacells_assignment_hdg_patients_seed_3.h5ad".format(celltype),
     "original_seed1": "/group/testa/Project/OvarianAtlasTestStep0/raw_data/metacells/{}/seacells_assignment_hdg_patients_marta.h5ad".format(celltype),
     "original_tables_seed1": "/group/testa/Project/OvarianAtlasTestStep0/raw_data/metacells/{}/seacells_assignment_hdg_patients_marta.h5ad".format(celltype),
-    "rerun": "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells_backup/metacells/endothelial/seacells_assignment_hdg_patients_TEST270225.h5ad"
+    #"rerun": "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/metacells_backup/metacells/endothelial/seacells_assignment_hdg_patients_TEST270225.h5ad"
 }
 adatas = {key: sc.read_h5ad(path) for key, path in adatas_paths.items()}
 
@@ -71,4 +71,4 @@ print_hist("step0_no_seed")
 print_hist("original_tables_seed1")
 # %%
 print_hist("original_integration")
-# %%
+#%%

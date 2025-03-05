@@ -46,7 +46,7 @@ adata = preprocess(adata, genes)
 ## Metacells generation per patient
 #%%
 adata = assign_metacells(adata)
-adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_marta_tables.h5ad')
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_gaja_env_original.h5ad')
 
 # Creating metacell matrix
 # #%%

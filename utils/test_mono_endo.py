@@ -71,4 +71,6 @@ print_hist("step0_no_seed")
 print_hist("original_tables_seed1")
 # %%
 print_hist("original_integration")
+#%%
+print_hist("rerun")
 # %%
