@@ -21,7 +21,7 @@ sys.path.insert(1, utilsPath)
 from metacells_derivation import preprocess, assign_metacells, create_mc_matrix, preprocess_mc # type: ignore
 
 #%%
-initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated_backup/atlas_annotated/"
+initDir = rawPath + 'atlas_annotated/'
 destDir = rawPath + 'metacells/immune/'
 if not os.path.exists(destDir):
     os.makedirs(destDir)
@@ -40,7 +40,7 @@ adata = preprocess(adata, genes)
 ## Metacells generation per patient
 #%%
 adata = assign_metacells(adata)
-adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_gaja_env_original.h5ad')
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_gaja_env.h5ad')
 
 # Creating metacell matrix
 # #%%
