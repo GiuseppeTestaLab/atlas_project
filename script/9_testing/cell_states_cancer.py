@@ -40,16 +40,16 @@ adata = sc.read_h5ad(adata)
 adata_ref = adata[~adata.obs_names.str.startswith("new")]
 adata_query = adata[adata.obs_names.str.startswith("new")]
 
-counts = adata_ref.obs.cell_type.value_counts()
+counts = adata_ref.obs.cell_states.value_counts()
 adata_ref_cell_type = [cell_type for cell_type in counts.index if counts[cell_type] > 10]
-adata_ref = adata_ref[adata_ref.obs.cell_type.isin(adata_ref_cell_type)]
+adata_ref = adata_ref[adata_ref.obs.cell_states.isin(adata_ref_cell_type)]
 
-counts = adata_query.obs.predicted_cell_types.value_counts()
+counts = adata_query.obs.predicted_cell_states.value_counts()
 adata_query_cell_type = [cell_type for cell_type in counts.index if counts[cell_type] > 10]
-adata_query = adata_query[adata_query.obs.predicted_cell_types.isin(adata_query_cell_type)]
+adata_query = adata_query[adata_query.obs.predicted_cell_states.isin(adata_query_cell_type)]
 #%% New Strategy
-sc.tl.rank_genes_groups(adata_ref, groupby="cell_type", method="wilcoxon")
-sc.tl.rank_genes_groups(adata_query, groupby="predicted_cell_types", method="wilcoxon")
+sc.tl.rank_genes_groups(adata_ref, groupby="cell_states", method="wilcoxon")
+sc.tl.rank_genes_groups(adata_query, groupby="predicted_cell_states", method="wilcoxon")
 
 ## 2nd strategy
 #%%
@@ -155,12 +155,14 @@ def extract_degs(adata):
         dfs[c] = pd.concat([names[c], pvals[c], scores[c], change[c]], axis=1)
         dfs[c].columns = ["names", "pvals_adj", "scores", "logfoldchanges"]
         dfs[c + "_up"] = dfs[c][
-            (dfs[c]['logfoldchanges'] > 2) & 
+            (dfs[c]['logfoldchanges'] > 1) & 
+            (dfs[c]['logfoldchanges'] < 100) &
             (dfs[c]['scores'] > 5) & 
             (dfs[c]['pvals_adj'] < 0.05)
-        ]       
+        ]
         dfs[c + "_down"] = dfs[c][
-            (dfs[c]['logfoldchanges'] < -0.1) & 
+            (dfs[c]['logfoldchanges'] < -1) & 
+            (dfs[c]['logfoldchanges'] > -100) &
             (dfs[c]['scores'] > 5) & 
             (dfs[c]['pvals_adj'] < 0.05)
         ]
@@ -196,4 +198,40 @@ for cluster in both:
     enrichment[cluster + "_up"] = query_up, ref_up
     enrichment[cluster + "_down"] = query_down, ref_down
 
+# %%
+import pandas as pd
+
+# Initialize a list to store the results
+results = []
+
+# Iterate over the enrichment dictionary
+for cluster, (query_df, ref_df) in enrichment.items():
+    # Get the sets of names from both dataframes
+    query_names = set(query_df['name'])
+    ref_names = set(ref_df['name'])
+    
+    # Calculate the number of overlapping names
+    overlap = len(query_names & ref_names)
+    
+    # Calculate the total number of names in each dataframe
+    total_query = len(query_names)
+    total_ref = len(ref_names)
+    if(total_query == 0 or total_ref == 0):
+        perc = 0
+    else:
+        perc = overlap/min(total_query, total_ref)*100
+    # Append the results to the list
+    results.append({
+        'cluster': cluster,
+        'overlap': overlap,
+        'total_query': total_query,
+        'total_ref': total_ref,
+        'percentage': perc
+    })
+
+# Convert the results list to a dataframe
+overlap_df = pd.DataFrame(results)
+
+# Display the dataframe
+print(overlap_df)
 # %%
