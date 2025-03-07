@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --partition=cpuq
-#SBATCH --job-name=seed_3_cancer
+#SBATCH --job-name=original_gaja_env
 #SBATCH --mem=300GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
@@ -22,4 +22,4 @@ homePath=${INI__SINGULARITY__homePath}
 image=${INI__SINGULARITY__image}
 
 singularity exec --nv -B $bindPaths -H $homePath $image \
-                 /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate seacells && python3 ${scriptsPath}5_metacells/cancer/atlas_cancer_xpatient_hdg_bydispersion.py"
+                 /bin/bash -c "python3 ${scriptsPath}5_metacells/cancer/atlas_cancer_xpatient_hdg_bydispersion.py"

@@ -23,7 +23,7 @@ from metacells_derivation import preprocess, assign_metacells, create_mc_matrix,
 
 
 #%%
-initDir = rawPath + 'atlas_annotated/'
+initDir = "/group/testa/Project/OvarianAtlas/atlas_project/raw_data/atlas_annotated_backup/atlas_annotated/"
 destDir = rawPath + 'metacells/endothelial/'
 if not os.path.exists(destDir):
     os.makedirs(destDir)
@@ -37,12 +37,12 @@ genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.cs
 ## Preprocessing
 #%%
 adata = preprocess(adata, genes)
-adata.write_h5ad(initDir + 'atlas_endothelial_embeddings.h5ad')
+#adata.write_h5ad(initDir + 'atlas_endothelial_embeddings.h5ad')
 
 ## Metacells generation per patient
 #%%
 adata = assign_metacells(adata)
-adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_seed_3.h5ad')
+adata.write_h5ad(destDir + 'seacells_assignment_hdg_patients_gaja_env_original.h5ad')
 
 # Creating metacell matrix
 # #%%
