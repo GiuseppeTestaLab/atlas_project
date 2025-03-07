@@ -13,17 +13,7 @@ from matplotlib import colors
 from matplotlib import rcParams
 from gprofiler import GProfiler
 import sys
-import configparser
-
-# Read configuration file
-config = configparser.ConfigParser()
-config.read("../../utils/config.ini")
-
-utilsPath = config.get("DEFAULT", "utilsPath")
-rawPath = config.get("DEFAULT", "rawPath")
-scriptsPath = config.get("DEFAULT", "scriptsPath")
-
-sys.path.insert(1, utilsPath)
+sys.path.insert(1, '/home/marta.sallese/ov_cancer_atlas/atlas_project/utils')
 from plotting_bubble import scale_data_5_75, plot_enrich 
 
 
@@ -31,7 +21,7 @@ from plotting_bubble import scale_data_5_75, plot_enrich
 
 def annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file):
     errorDic={}
-    
+
     # Check if the log exists
     if os.path.isfile(log_file):
     # If it doesn't exist, create it
@@ -78,8 +68,8 @@ def annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file):
                 else:
                     logger.info('leiden {} cluster {}'.format(lei, cl))
                     logger.info('ontology empty')
-                
-                
+
+
                 errorDic[lei][cl]={}
 
             except Exception as e:
@@ -89,5 +79,5 @@ def annotate_ontolgies(adata, directory_root, leidenTotal, dedf, log_file):
                 logger.info('leiden {} cluster {}'.format(lei, cl))
                 logger.error(e)
                 continue
-    
+
     return(adata)
