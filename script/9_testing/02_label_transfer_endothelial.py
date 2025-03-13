@@ -3,7 +3,7 @@
 import scanpy as sc
 import sys
 from sklearn.neighbors import KNeighborsClassifier
-
+import pandas as pd
 #%%
 import configparser
 
@@ -52,10 +52,20 @@ metastasis_states = metastasis.obs[['cell_states']].rename(columns={'cell_states
 adata.obs = adata.obs.join(primary_states, how='left').join(ascites_states, how='left').join(metastasis_states, how='left')
 
 #%%
-# Create a final 'cell_states' column combining all sources, prioritizing primary > ascites > metastasis
+# Combine all categories
+all_categories = pd.api.types.union_categoricals([
+    adata.obs['primary_state'],
+    adata.obs['ascites_state'],
+    adata.obs['metastasis_state']
+]).categories
+
+# Align the categories of 'ascites_state' and 'metastasis_state' to match the combined categories
+adata.obs['primary_state'] = adata.obs['primary_state'].cat.set_categories(all_categories)
+adata.obs['ascites_state'] = adata.obs['ascites_state'].cat.set_categories(all_categories)
+adata.obs['metastasis_state'] = adata.obs['metastasis_state'].cat.set_categories(all_categories)
+
+# Now combine the columns, prioritizing primary > ascites > metastasis
 adata.obs['cell_states'] = adata.obs['primary_state'].combine_first(adata.obs['ascites_state']).combine_first(adata.obs['metastasis_state'])
-
-
 #%%
 sc.pl.umap(adata, color='cell_states')
 
