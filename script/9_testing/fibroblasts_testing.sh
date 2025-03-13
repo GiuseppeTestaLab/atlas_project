@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=4
 
 #SBATCH --partition=cpuq
-#SBATCH --job-name=cancer_testing
+#SBATCH --job-name=endothelial_testing
 #SBATCH --mem=128GB
 #SBATCH --mail-type=ALL
 #SBATCH --output=logs/%x_%j.log
@@ -23,6 +23,6 @@ image=${INI__SINGULARITY__image}
 
 singularity exec --nv -B $bindPaths -H $homePath $image \
                  /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scarches && \
-                 python3 ${scriptsPath}9_testing/01_scarches_cancer.py && \
-                 python3 ${scriptsPath}9_testing/02_label_transfer_cancer.py && \
-                 python3 ${scriptsPath}9_testing/03_cell_states_cancer.py"
+                 python3 ${scriptsPath}9_testing/01_scarches_endothelial.py && \
+                 python3 ${scriptsPath}9_testing/02_label_transfer_endothelial.py && \
+                 python3 ${scriptsPath}9_testing/03_cell_states_endothelial.py"
