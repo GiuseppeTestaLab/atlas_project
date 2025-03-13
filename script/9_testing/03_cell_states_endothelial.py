@@ -39,111 +39,36 @@ adata = sc.read_h5ad(adata)
 #%%
 adata_ref = adata[~adata.obs_names.str.startswith("new")]
 adata_query = adata[adata.obs_names.str.startswith("new")]
-
-counts = adata_ref.obs.cell_states.value_counts()
-adata_ref_cell_type = [cell_type for cell_type in counts.index if counts[cell_type] > 10]
-adata_ref = adata_ref[adata_ref.obs.cell_states.isin(adata_ref_cell_type)]
-
-counts = adata_query.obs.predicted_cell_states.value_counts()
-adata_query_cell_type = [cell_type for cell_type in counts.index if counts[cell_type] > 10]
-adata_query = adata_query[adata_query.obs.predicted_cell_states.isin(adata_query_cell_type)]
 #%% New Strategy
-sc.tl.rank_genes_groups(adata_ref, groupby="cell_states", method="wilcoxon")
-sc.tl.rank_genes_groups(adata_query, groupby="predicted_cell_states", method="wilcoxon")
+def adata_by_tissue(adata):
+    adata_by_tissue = {}
+    for tissue in adata.obs["tissue"].unique():
+        if sum(adata.obs["tissue"] == tissue) > 10:
+            adata_by_tissue[tissue] = adata[adata.obs["tissue"] == tissue]
+    return adata_by_tissue
 
+adata_ref_by_tissue = adata_by_tissue(adata_ref)
+adata_query_by_tissue = adata_by_tissue(adata_query)
+
+
+#%%
+both = adata_ref_by_tissue.keys() & adata_query_by_tissue.keys()
+
+for tissue in both:
+    counts = adata_ref_by_tissue[tissue].obs.cell_states.value_counts()
+    adata_ref_cell_states = [cell_states for cell_states in counts.index if counts[cell_states] > 10]
+    adata_ref_by_tissue[tissue] = adata_ref_by_tissue[tissue][adata_ref_by_tissue[tissue].obs.cell_states.isin(adata_ref_cell_states)]
+
+    counts = adata_query_by_tissue[tissue].obs.predicted_cell_states.value_counts()
+    adata_query_cell_states = [cell_states for cell_states in counts.index if counts[cell_states] > 10]
+    adata_query_by_tissue[tissue] = adata_query_by_tissue[tissue][adata_query_by_tissue[tissue].obs.predicted_cell_states.isin(adata_query_cell_states)]
+
+for tissue in both:
+    sc.tl.rank_genes_groups(adata_ref_by_tissue[tissue], groupby="cell_states", method="wilcoxon")
+    sc.tl.rank_genes_groups(adata_query_by_tissue[tissue], groupby="predicted_cell_states", method="wilcoxon")
 ## 2nd strategy
-#%%
-def get_degs(adata, groupby):  
-    for cluster in adata.obs[groupby].unique():
-
-        deg_df = sc.get.rank_genes_groups_df(adata, group=cluster)  # Replace 'wilcoxon' with your actual key if needed
-
-        # Apply your thresholds
-        deg_df = deg_df.dropna(subset=['names'])
-        deg_df = deg_df[
-            (deg_df['logfoldchanges'] > 1) & 
-            (deg_df['logfoldchanges'] < 100) & 
-            (deg_df['scores'] > 5) & 
-            (deg_df['pvals_adj'] < 0.05)
-        ]
-
-        # Use the filtered gene names for enrichment
-        dc_cluster_genes = deg_df['names'].tolist()
-
-        if len(dc_cluster_genes) > 0:
-            gp = GProfiler(return_dataframe=True)
-            enrichment_results = gp.profile(
-            organism='hsapiens', 
-            query=dc_cluster_genes,
-            no_evidences=False, 
-            background=adata.var_names.to_list(),
-            sources=['GO:CC', 'GO:BP', 'GO:MF', 'REAC', 'KEGG']
-        )
-
-            df = enrichment_results
-            df["-log10(p-value)"] = -np.log10(df["p_value"])
-
-            plt.figure(figsize=(10, 6))
-            sns.scatterplot(
-                data=df.head(20),
-                x="precision",
-                y="name",  
-                size="intersection_size",
-                hue="-log10(p-value)",
-                sizes=(20, 300),
-                palette="coolwarm",
-                edgecolor="black"
-            )
-            plt.xlabel("Precision")
-            plt.ylabel("Enriched Term")
-            plt.title(f"Bubble Plot of Enriched Pathways - Cluster {cluster}")
-            plt.legend(title="-log10(p-value)", bbox_to_anchor=(1.05, 1), loc="upper left")
-            plt.grid(True)
-            plt.show()
-        else:
-            print(f"No significant genes found for cluster {cluster}. Skipping enrichment.")
-    return (deg_df, df)
 
 #%%
-adata.obs
-
-# %%
-adata.obs['zheng_ontologies'] = np.nan
-
-col = {"Immunoreactive_cells":"Immunoreactive_cells", 
-        "Cellular_metabolism-extracellular_signaling":"Immunoreactive_cells", 
-        "Unknown_primary":"Immunoreactive_cells", 
-        "Organelles_organization-metabolism":"RNA_metabolism", 
-        "Cycling_cells":"Cycling_cells", 
-        "Response_to_extracellular_signals":"Response_to_extracellular_signals", 
-        "Unknown_ascites":"Unknown_ascites",
-        "Response_to_stress":"Unknown", 
-        "Cellular_metabolism":"Cellular_metabolism", 
-        "ECM_shaping_cells":"ECM_shaping_cells", 
-        "Unknown_metastasis":"Unknown_metastasis", 
-        "Organelles_organization-cell_cycle":"Organelles_organization-cell_cycle", 
-        "Ciliated_cancer_cells":"Ciliated_cancer_cells",
-        "Extracellular_signaling-immune_cells":"Unknown",
-        "Extracellular_signaling":"Unknown",
-        "Organelles_organization-cell_movement":"Organelles_organization-cell_movement",
-        "RNA_metabolism":"RNA_metabolism",
-        "INF_mediated_signaling":"INF_mediated_signaling"}
-
-adata.obs['zheng_ontologies'] = adata.obs.cell_states.replace(col)
-
-#%%
-adata.obs
-set(adata.obs['zheng_ontologies'])
-
-#%%
-### compute percentage of matching ontolgies between cell_states and zheng_ontologies
-matches = adata.obs['cell_states'].astype(str) == adata.obs['zheng_ontologies'].astype(str)
-percentage_matching = matches.mean() * 100
-print(f"Percentage of matching ontologies: {percentage_matching:.2f}%")
-
-#%%
-adata.write(ooseDir + 'integrated_query_zheng_seacells_scarches_tissuetreat_predicted_and_real_cellstates.h5ad')
-# %%
 def extract_degs(adata):
     ranks = adata.uns["rank_genes_groups"]
     pvals = pd.DataFrame(ranks["pvals_adj"])
@@ -157,20 +82,33 @@ def extract_degs(adata):
         dfs[c + "_up"] = dfs[c][
             (dfs[c]['logfoldchanges'] > 1) & 
             (dfs[c]['logfoldchanges'] < 100) &
-            (dfs[c]['scores'] > 5) & 
             (dfs[c]['pvals_adj'] < 0.05)
         ]
         dfs[c + "_down"] = dfs[c][
             (dfs[c]['logfoldchanges'] < -1) & 
             (dfs[c]['logfoldchanges'] > -100) &
-            (dfs[c]['scores'] > 5) & 
             (dfs[c]['pvals_adj'] < 0.05)
         ]
 
     return dfs
 # %%
-ranks_query = extract_degs(adata_query)
-ranks_ref = extract_degs(adata_ref)
+ranks_query = {tissue: extract_degs(adata_query_by_tissue[tissue]) for tissue in both}
+ranks_ref = {tissue: extract_degs(adata_ref_by_tissue[tissue]) for tissue in both}
+from collections.abc import MutableMapping
+
+def flatten(dictionary, parent_key='', separator='_'):
+    items = []
+    for key, value in dictionary.items():
+        new_key = parent_key + separator + key if parent_key else key
+        if isinstance(value, MutableMapping):
+            items.extend(flatten(value, new_key, separator=separator).items())
+        else:
+            items.append((new_key, value))
+    return dict(items)
+ranks_query = flatten(ranks_query)
+ranks_ref = flatten(ranks_ref)
+
+#%%
 both = ranks_query.keys() & ranks_ref.keys()
 both = [b for b in both if not b.endswith("_up") and not b.endswith("_down")]
 # %%
@@ -220,12 +158,21 @@ for cluster, (query_df, ref_df) in enrichment.items():
         perc = 0
     else:
         perc = overlap/min(total_query, total_ref)*100
+    
+    cluster_tissue = cluster.split("_")[0]
+    cluster_cell_state = "_".join(cluster.split("_")[1:-1])
+
+    no_cells_query = sum(adata_query_by_tissue[cluster_tissue].obs.predicted_cell_states == cluster_cell_state)
+    no_cells_ref = sum(adata_ref_by_tissue[cluster_tissue].obs.cell_states == cluster_cell_state)
+
     # Append the results to the list
     results.append({
         'cluster': cluster,
         'overlap': overlap,
         'total_query': total_query,
         'total_ref': total_ref,
+        'no_cells_query': no_cells_query,
+        'no_cells_ref': no_cells_ref,
         'percentage': perc
     })
 
@@ -233,5 +180,5 @@ for cluster, (query_df, ref_df) in enrichment.items():
 overlap_df = pd.DataFrame(results)
 
 # Display the dataframe
-print(overlap_df)
+overlap_df.to_csv("endothelial_overlap.csv")
 # %%
