@@ -28,6 +28,9 @@ outDir = rawPath + 'integration/metacells/endothelial_testing/'
 ooseDir = rawPath + 'out_of_sample_extension/endothelial_testing/'
 genes = scriptsPath + '4_hdg/Tables/atlas_hdg_dispersion_patients_endothelial.csv'
 
+#%%
+if not os.path.exists(outDir):
+    os.makedirs(outDir)
 ## Setting fig parameteres
 sc.settings.set_figure_params(dpi_save=300, frameon=False, format='png')
 sc.settings.figdir = figPath + "oose/endothelial_testing/"
