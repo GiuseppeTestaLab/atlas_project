@@ -25,4 +25,5 @@ singularity exec --nv -B $bindPaths -H $homePath $image \
                  /bin/bash -c "eval \"\$(conda shell.bash hook)\" && conda activate scarches && \
                  python3 ${scriptsPath}9_testing/01_scarches_fibroblasts.py && \
                  python3 ${scriptsPath}9_testing/02_label_transfer_fibroblasts.py && \
+                 conda activate downstream && \
                  python3 ${scriptsPath}9_testing/03_cell_states_fibroblasts.py"
