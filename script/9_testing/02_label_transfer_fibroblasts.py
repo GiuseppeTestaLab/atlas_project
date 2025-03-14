@@ -3,6 +3,7 @@
 import scanpy as sc
 import sys
 from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
 
 #%%
 import configparser

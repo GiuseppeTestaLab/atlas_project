@@ -1,6 +1,8 @@
 
 #%%
 import scanpy as sc
+import pandas as pd
+
 import sys
 from sklearn.neighbors import KNeighborsClassifier
 
