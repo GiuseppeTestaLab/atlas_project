@@ -79,17 +79,12 @@ def extract_degs(adata):
     for c in change.columns:
         dfs[c] = pd.concat([names[c], pvals[c], scores[c], change[c]], axis=1)
         dfs[c].columns = ["names", "pvals_adj", "scores", "logfoldchanges"]
-        dfs[c + "_up"] = dfs[c][
-            (dfs[c]['logfoldchanges'] > 1) & 
-            (dfs[c]['logfoldchanges'] < 100) &
+        dfs[c] = dfs[c][
+            ((dfs[c]['logfoldchanges'] > 1) | (dfs[c]['logfoldchanges'] < -1)) &
+            (dfs[c]['logfoldchanges']  < 100) &
+            (dfs[c]['logfoldchanges'] > -100) &            
             (dfs[c]['pvals_adj'] < 0.05)
         ]
-        dfs[c + "_down"] = dfs[c][
-            (dfs[c]['logfoldchanges'] < -1) & 
-            (dfs[c]['logfoldchanges'] > -100) &
-            (dfs[c]['pvals_adj'] < 0.05)
-        ]
-
     return dfs
 # %%
 ranks_query = {tissue: extract_degs(adata_query_by_tissue[tissue]) for tissue in both}
@@ -110,7 +105,7 @@ ranks_ref = flatten(ranks_ref)
 
 #%%
 both = ranks_query.keys() & ranks_ref.keys()
-both = [b for b in both if not b.endswith("_up") and not b.endswith("_down")]
+#both = [b for b in both if not b.endswith("_up") and not b.endswith("_down")]
 # %%
 def run_gprof(query, background):
     gp = GProfiler(return_dataframe=True)
@@ -129,13 +124,10 @@ def wrap_gprof(ranks, cluster, background):
 
 enrichment = {}
 for cluster in both:
-    query_up = wrap_gprof(ranks_query ,cluster + "_up", adata_query.var_names.to_list())
-    ref_up = wrap_gprof(ranks_ref, cluster + "_up", adata_ref.var_names.to_list())
-    query_down = wrap_gprof(ranks_query, cluster + "_down", adata_ref.var_names.to_list())
-    ref_down = wrap_gprof(ranks_ref, cluster + "_down", adata_query.var_names.to_list())
-    enrichment[cluster + "_up"] = query_up, ref_up
-    enrichment[cluster + "_down"] = query_down, ref_down
-
+    query = wrap_gprof(ranks_query ,cluster, adata_query.var_names.to_list())
+    ref = wrap_gprof(ranks_ref, cluster, adata_ref.var_names.to_list())
+    enrichment[cluster] = query, ref
+    
 # %%
 import pandas as pd
 
@@ -160,7 +152,7 @@ for cluster, (query_df, ref_df) in enrichment.items():
         perc = overlap/min(total_query, total_ref)*100
     
     cluster_tissue = cluster.split("_")[0]
-    cluster_cell_state = "_".join(cluster.split("_")[1:-1])
+    cluster_cell_state = "_".join(cluster.split("_")[1:])
 
     no_cells_query = sum(adata_query_by_tissue[cluster_tissue].obs.predicted_cell_states == cluster_cell_state)
     no_cells_ref = sum(adata_ref_by_tissue[cluster_tissue].obs.cell_states == cluster_cell_state)
@@ -180,5 +172,5 @@ for cluster, (query_df, ref_df) in enrichment.items():
 overlap_df = pd.DataFrame(results)
 
 # Display the dataframe
-overlap_df.to_csv("cancer_overlap.csv")
+overlap_df.to_csv("cancer_overlap_filter.csv")
 # %%
