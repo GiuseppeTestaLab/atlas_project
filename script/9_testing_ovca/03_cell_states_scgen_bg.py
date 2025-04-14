@@ -181,3 +181,29 @@ sns.boxenplot(data=nonZero, y="overlap_percentage", x="major_celltype", hue="tis
 plt.ylim(0, 100)  # Set y-axis range from 0 to 100
 
 # %%
+sns.ecdfplot(data=summary_df, x="overlap_percentage", color="blue")
+
+# %%
+# Cumulative Distribution Plot with Enhanced Styling
+plt.figure(figsize=(10, 6))  # Adjust figure size
+sns.ecdfplot(data=summary_df, x="overlap_percentage", color="blue", linewidth=2)
+
+# Add gridlines for better readability
+plt.grid(visible=True, linestyle="--", alpha=0.7)
+
+# Customize labels and title
+plt.title("Cumulative Distribution of Overlap Percentage", fontsize=16, fontweight="bold")
+plt.xlabel("Overlap Percentage (%)", fontsize=14)
+plt.ylabel("Cumulative Probability", fontsize=14)
+
+# Customize tick parameters
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Add a legend (optional, if needed)
+plt.legend(["Overlap Percentage"], loc="lower right", fontsize=12)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+# %%

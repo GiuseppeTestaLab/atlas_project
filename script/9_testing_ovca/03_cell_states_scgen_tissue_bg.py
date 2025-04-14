@@ -182,3 +182,127 @@ sns.boxenplot(data=nonZero, y="overlap_percentage", x="major_celltype", hue="tis
 plt.ylim(0, 100)  # Set y-axis range from 0 to 100
 
 # %%
+# Cumulative Distribution Plot with Enhanced Styling
+plt.figure(figsize=(10, 6))  # Adjust figure size
+sns.ecdfplot(data=summary_df, x="overlap_percentage", color="blue", linewidth=2)
+
+# Add gridlines for better readability
+plt.grid(visible=True, linestyle="--", alpha=0.7)
+
+# Customize labels and title
+plt.title("Cumulative Distribution of Overlap Percentage", fontsize=16, fontweight="bold")
+plt.xlabel("Overlap Percentage (%)", fontsize=14)
+plt.ylabel("Cumulative Probability", fontsize=14)
+
+# Customize tick parameters
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Add a legend (optional, if needed)
+plt.legend(["Overlap Percentage"], loc="lower right", fontsize=12)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+# %%
+sns.boxenplot(data=summary_df, y="overlap_percentage", x="major_celltype", hue="tissue")
+plt.ylim(0, 100)  # Set y-axis range from 0 to 100
+
+# %%
+# Enhanced Boxplot
+plt.figure(figsize=(12, 8))  # Adjust figure size
+sns.boxenplot(
+    data=summary_df, 
+    y="overlap_percentage", 
+    x="major_celltype", 
+    hue="tissue", 
+    palette="Set2",  # Use a visually appealing color palette
+    linewidth=1.5  # Increase line width for better visibility
+)
+
+# Customize labels and title
+plt.title("Overlap Percentage by Major Cell Type and Tissue", fontsize=16, fontweight="bold")
+plt.xlabel("Major Cell Type", fontsize=14)
+plt.ylabel("Overlap Percentage (%)", fontsize=14)
+
+# Customize tick parameters
+plt.xticks(fontsize=12, rotation=45)  # Rotate x-axis labels for better readability
+plt.yticks(fontsize=12)
+
+# Add gridlines for better readability
+plt.grid(visible=True, linestyle="--", alpha=0.7, axis="y")
+
+# Set y-axis range
+plt.ylim(0, 100)
+
+# Adjust legend
+plt.legend(title="Tissue", fontsize=12, title_fontsize=14, loc="upper right")
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+# %%
+#Enhanced Boxplot with Uniform Styling
+plt.figure(figsize=(10, 6))  # Adjust figure size to match the cumulative plot
+sns.boxenplot(
+    data=summary_df, 
+    y="overlap_percentage", 
+    x="major_celltype", 
+    hue="tissue", 
+    palette="Set2",  # Use a visually appealing color palette
+    linewidth=2  # Match line width with the cumulative plot
+)
+
+# Customize labels and title
+plt.title("Overlap Percentage by Major Cell Type and Tissue", fontsize=16, fontweight="bold")
+plt.xlabel("Major Cell Type", fontsize=14)
+plt.ylabel("Overlap Percentage (%)", fontsize=14)
+
+# Customize tick parameters
+plt.xticks(fontsize=12, rotation=45)  # Rotate x-axis labels for better readability
+plt.yticks(fontsize=12)
+
+# Add gridlines for better readability
+plt.grid(visible=True, linestyle="--", alpha=0.7, axis="y")  # Match gridline style with the cumulative plot
+
+# Set y-axis range
+plt.ylim(0, 100)
+
+# Adjust legend
+plt.legend(title="Tissue", fontsize=12, title_fontsize=14, loc="lower right")
+
+# Show the plot
+plt.tight_layout()  # Ensure proper layout
+plt.show()
+
+# %%
+badClusters = summary_df[summary_df.overlap_percentage < 65]
+# %%
+# Cumulative Distribution Plot by Major Cell Type and Tissue
+plt.figure(figsize=(12, 8))  # Adjust figure size
+sns.ecdfplot(
+    data=summary_df, 
+    x="overlap_percentage", 
+    hue="major_celltype",  # Group by major cell type
+    linewidth=2            # Increase line width for better visibility
+)
+
+# Add gridlines for better readability
+plt.grid(visible=True, linestyle="--", alpha=0.7)
+
+# Customize labels and title
+plt.title("Cumulative Distribution of Overlap Percentage by Major Cell Type and Tissue", fontsize=16, fontweight="bold")
+plt.xlabel("Overlap Percentage (%)", fontsize=14)
+plt.ylabel("Cumulative Probability", fontsize=14)
+
+# Customize tick parameters
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+
+# Adjust legend
+#plt.legend(title="Major Cell Type", fontsize=12, title_fontsize=14, loc="lower right")
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+# %%
