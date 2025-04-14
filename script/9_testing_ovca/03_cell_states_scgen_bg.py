@@ -25,33 +25,45 @@ scriptsPath = config.get("DEFAULT", "scriptsPath")
 figPath = config.get("DEFAULT", "figPath")
 major_cell_types = ["fibroblasts", "endothelial", "cancer"]
 ranks = pd.DataFrame(columns=['group', 'names', 'scores', 'logfoldchanges', 'pvals', 'pvals_adj', 'major_celltype', 'tissue', 'is_ref', 'enrichment_group'])
-ovca = sc.read_h5ad("/group/testa/Project/OvarianAtlasTestStep0/OvCA_umap_tiled.h5ad")
-ovca_genes = ovca.var_names.to_list()
-del ovca
+# ovca = sc.read_h5ad("/group/testa/Project/OvarianAtlasTestStep0/OvCA_umap_tiled.h5ad")
+# ovca_genes = ovca.var_names.to_list()
+# ovca_genes_raw = ovca.raw.to_adata().var_names.to_list()
+# del ovca
 #%%
 tissues = ["metastasis", "ascites", "primary"]
+adata_ref_by = {}
+adata_query_by = {}
+ovca_genes_raw = []
 for major_cell_type in major_cell_types:
+
     initDir = rawPath + f'metacells_step0/{major_cell_type}/'
     outDir = rawPath + f'integration/metacells/{major_cell_type}_testing_ovca_corrected/'
-    ooseDir = rawPath + f'out_of_sample_extension/{major_cell_type}_testing_ovca_ingestion/'
-    genes_path = scriptsPath + f'4_hdg/Tables/atlas_hdg_dispersion_patients_{major_cell_type}.csv'
+    ooseDir = rawPath + f'out_of_sample_extension/{major_cell_type}_testing_ovca_corrected/'
 
     utilsPath = config.get("DEFAULT", "utilsPath")
     rawPath = config.get("DEFAULT", "rawPath")
     scriptsPath = config.get("DEFAULT", "scriptsPath")
 
+    #adata = ooseDir + f'integrated_query_seacells_scarches_tissuetreat_predicted_cellstates_{major_cell_type}_raw.h5ad'
+    adata = ooseDir + f'integrated_query_seacells_scarches_tissuetreat_predicted_cellstates_{major_cell_type}_corrected_raw.h5ad'
+
+    adata = sc.read_h5ad(adata)
+    adata.obs["02_tissue"] = adata.obs["02_tissue"].str.lower()
+    if ovca_genes_raw == []:
+        ovca_genes_raw = adata.raw.to_adata().var_names.to_list()
+
+    adata_ref = adata[~adata.obs_names.str.startswith("new")]
+    adata_ref.obs["cell_states"] = adata_ref.obs["07_cell_states"]
+    adata_query = adata[adata.obs_names.str.startswith("new")]
+    adata_query.obs["cell_states"] = adata_query.obs["predicted_cell_states"]
+    tissues = ["metastasis", "ascites", "primary"]
     adata_ref_by_tissue = {}
     adata_query_by_tissue = {}
+
     for tissue in tissues:
-        adata_t = ooseDir + f'{tissue}_ingest.h5ad'
-        adata_t = sc.read_h5ad(adata_t)
-        adata_t.obs["02_tissue"] = adata_t.obs["02_tissue"].str.lower()
-        adata_t.obs["cell_states"] = adata_t.obs["07_cell_states"]
-        adata_ref = adata_t[adata_t.obs.origin == "ref"]
-    # adata_ref.raw = ad_raw_ref.raw.to_adata()
-        adata_query = adata_t[adata_t.obs.origin == "new"]
-        adata_ref_by_tissue[tissue] = adata_ref
-        adata_query_by_tissue[tissue] = adata_query
+        # adata_ref.raw = ad_raw_ref.raw.to_adata()
+        adata_ref_by_tissue[tissue] = adata_ref[adata_ref.obs["02_tissue"] == tissue]
+        adata_query_by_tissue[tissue] = adata_query[adata_query.obs["02_tissue"] == tissue]
         
 
     both = adata_ref_by_tissue.keys() & adata_query_by_tissue.keys()
@@ -81,10 +93,12 @@ for major_cell_type in major_cell_types:
         df_query["is_ref"] = False
         df_query["enrichment_group"] = [major_cell_type + "_" + tissue + "_" + g for g in df_query["group"]] #da rivedere check che non si sputtani
         ranks = pd.concat([ranks ,df_ref, df_query], axis=0)
+    adata_ref_by[major_cell_type] = adata_ref_by_tissue
+    adata_query_by[major_cell_type] = adata_query_by_tissue
 
 ranks.reset_index(drop=True, inplace=True)
 ranks["is_ref"] = ranks["is_ref"].astype(bool)
-ranks.to_csv("enrichment/ranks_ingestion.csv", index=False)
+ranks.to_csv("enrichment/ranks_ingestion_bg.csv", index=False)
 
 gp = GProfiler(return_dataframe=True)
 def run_gprof(query, background):
@@ -109,19 +123,19 @@ for enrichment_group in ranks.enrichment_group.unique():
                         (ranks.enrichment_group == enrichment_group)]
     ranks_query = ranks[(~ranks.is_ref) &
                         (ranks.enrichment_group == enrichment_group)]
-    g_ref = wrap_gprof(ranks_ref["names"], ovca_genes)
+    g_ref = wrap_gprof(ranks_ref["names"], ovca_genes_raw)
     g_ref["is_ref"] = True
     g_ref["enrichment_group"] = enrichment_group
-    g_query = wrap_gprof(ranks_query["names"], ovca_genes)
+    g_query = wrap_gprof(ranks_query["names"], ovca_genes_raw)
     g_query["is_ref"] = False
     g_query["enrichment_group"] = enrichment_group
     g_prof = pd.concat([g_prof, g_ref, g_query], ignore_index=True, axis=0)
 
 #%%
-g_prof.to_csv("enrichment/enrichment_ingestion.csv")
-# %%
-summary_data = []
+g_prof.to_csv("enrichment/enrichment_scgen_tissue_bg.csv")
 
+#%%
+summary_data = []
 for enrichment_group in g_prof.enrichment_group.unique():
     # Get unique term values for each is_ref value
     ref_terms = set(g_prof[(g_prof.enrichment_group == enrichment_group) & 
@@ -134,23 +148,36 @@ for enrichment_group in g_prof.enrichment_group.unique():
     shared_terms = ref_terms.intersection(query_terms)
     
     split = enrichment_group.split("_")
+    major_cell_type = split[0]
+    tissue = split[1]
+    cell_state = '_'.join(split[2:])
+
     summary_data.append({
         'enrichment_group': enrichment_group,
-        'major_celltype':split[0],
-        'tissue':split[1],
-        'cell_state':'_'.join(split[2:]),
+        'major_celltype':major_cell_type,
+        'tissue':tissue,
+        'cell_state':cell_state,
         'shared_term_count': len(shared_terms),
         'ref_only_term_count': len(ref_terms - query_terms), 
         'query_only_term_count': len(query_terms - ref_terms),
         'ref_total_term_count': len(ref_terms),
         'query_total_term_count': len(query_terms),
         'union_terms': len(ref_terms.union(query_terms)),
-        'overlap_percentage': len(shared_terms) / len(ref_terms.union(query_terms)) * 100 if len(ref_terms.union(query_terms)) > 0 else 0,
+        'overlap_percentage': len(shared_terms) / len(ref_terms) * 100 if len(ref_terms) > 0 else 0,
         'is_terms_zero': ref_terms.union(query_terms) == 0,
         'is_terms_few': len(ref_terms.union(query_terms)) < 5,
-        'ref_cells':adata_ref_by_tissue[split[1]].n_obs,
-        'query_cells':adata_query_by_tissue[split[1]].n_obs
+        'ref_cells':sum(adata_ref_by[major_cell_type][tissue].obs["cell_states"] == cell_state),
+        'query_cells':sum(adata_query_by[major_cell_type][tissue].obs["cell_states"] == cell_state),
     })
 
 summary_df = pd.DataFrame(summary_data)
 summary_df = summary_df.sort_values('overlap_percentage', ascending=False)
+#%%
+summary_df.to_csv("enrichment/summary_enrichment_scgen_tissue_bg.csv", index=False)
+
+#%%
+nonZero = summary_df[(summary_df["ref_cells"] > 0) & (summary_df["query_cells"] > 0)]
+sns.boxenplot(data=nonZero, y="overlap_percentage", x="major_celltype", hue="tissue")
+plt.ylim(0, 100)  # Set y-axis range from 0 to 100
+
+# %%
